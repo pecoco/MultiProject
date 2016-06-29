@@ -1,4 +1,3 @@
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache
 E:\ACT\MultiProject\MultiRadar\bin\Debug\MultiRadar.dll
 E:\ACT\MultiProject\MultiRadar\bin\Debug\MultiRadar.pdb
 E:\ACT\MultiProject\MultiRadar\bin\Debug\Advanced Combat Tracker.exe
@@ -6,3 +5,8 @@ E:\ACT\MultiProject\MultiRadar\bin\Debug\GammaJul.LgLcd.dll
 E:\ACT\MultiProject\MultiRadar\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.dll
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.pdb
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AddRadarMobForm.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.RadarSettingControl.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csproj.GenerateResource.Cache
+E:\ACT\MultiProject\MultiRadar\obj\Debug\ACT.RadarForm.RadarForm.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache

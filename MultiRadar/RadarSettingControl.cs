@@ -50,7 +50,7 @@ namespace MultiRadar
             lbStatus = pluginStatusText;   // Hand the status label's reference to our local var
             pluginScreenSpace.Controls.Add(this);   // Add this UserControl to the tab ACT provides
             this.Dock = DockStyle.Fill; // Expand the UserControl to fill the tab's client space
-            MultiProject.BasePrugin.xmlSettings = new SettingsSerializer(this); // Create a new settings serializer and pass it this instance
+            MultiProject.BasePlugin.xmlSettings = new SettingsSerializer(this); // Create a new settings serializer and pass it this instance
 
             LoadSettings();
 
@@ -70,12 +70,15 @@ namespace MultiRadar
             clock.watchTimer.Elapsed += oClock_Action;
 
 
-            lbStatus.Text = "Plugin Started. (#^^#)";
+            lbStatus.Text = "Plugin Started. (#^^#).";
         }
 
         public void DeInitPlugin()
         {
             ActGlobals.oFormActMain.AfterCombatAction -= oFormActMain_AfterCombatAction;
+            ActGlobals.oFormActMain.BeforeLogLineRead -= oFormActMain_BeforeLogLineRead;
+            ActGlobals.oFormActMain.OnCombatStart -= oFormActMain_OnCombatStart;
+            ActGlobals.oFormActMain.OnCombatEnd -= oFormActMain_OnCombatEnd;
             clock.watchTimer.Elapsed -= oClock_Action;
             SaveSettings();
 
@@ -89,6 +92,16 @@ namespace MultiRadar
             lbStatus.Text = "Plugin Exited";
         }
 
+        private void Setting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void ComboRadarZone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //表示処理
+            setSettingFormRederData();
+        }
 
     }
 

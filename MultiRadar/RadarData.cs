@@ -144,7 +144,7 @@ namespace MultiRadar
                         switch (mobType)
                         {
                             case MobType.S:
-                                zoneData.s.Remove(name); break;
+                                zoneData.s.Remove(name);  break;
                             case MobType.A:
                                 zoneData.a.Remove(name); break;
                             case MobType.B:

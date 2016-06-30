@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label30 = new System.Windows.Forms.Label();
             this.btSePath = new System.Windows.Forms.Button();
             this.textSePath = new System.Windows.Forms.TextBox();
@@ -44,6 +45,8 @@
             this.tabControlMob = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listMobSS = new System.Windows.Forms.ListBox();
+            this.contextMenuMobList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listMobA = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -58,11 +61,12 @@
             this.ComboRadarZone = new System.Windows.Forms.ComboBox();
             this.btOpenRadar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textRederDataPath = new System.Windows.Forms.TextBox();
+            this.textRadarDataPath = new System.Windows.Forms.TextBox();
             this.ofdRederPath = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.contextMenuMobList.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -183,6 +187,7 @@
             // rbRederModeSelect
             // 
             this.rbRederModeSelect.AutoSize = true;
+            this.rbRederModeSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.rbRederModeSelect.Location = new System.Drawing.Point(169, 13);
             this.rbRederModeSelect.Name = "rbRederModeSelect";
             this.rbRederModeSelect.Size = new System.Drawing.Size(144, 16);
@@ -194,6 +199,7 @@
             // 
             this.rbRederModeFull.AutoSize = true;
             this.rbRederModeFull.Checked = true;
+            this.rbRederModeFull.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.rbRederModeFull.Location = new System.Drawing.Point(103, 13);
             this.rbRederModeFull.Name = "rbRederModeFull";
             this.rbRederModeFull.Size = new System.Drawing.Size(42, 16);
@@ -205,6 +211,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label10.Location = new System.Drawing.Point(6, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 12);
@@ -237,6 +244,7 @@
             // listMobSS
             // 
             this.listMobSS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listMobSS.ContextMenuStrip = this.contextMenuMobList;
             this.listMobSS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listMobSS.ForeColor = System.Drawing.Color.White;
             this.listMobSS.FormattingEnabled = true;
@@ -245,6 +253,20 @@
             this.listMobSS.Name = "listMobSS";
             this.listMobSS.Size = new System.Drawing.Size(355, 85);
             this.listMobSS.TabIndex = 1;
+            // 
+            // contextMenuMobList
+            // 
+            this.contextMenuMobList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.contextMenuMobList.Name = "contextMenuMobList";
+            this.contextMenuMobList.Size = new System.Drawing.Size(108, 26);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // tabPage2
             // 
@@ -361,7 +383,7 @@
             this.btAddAction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btAddAction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btAddAction.Location = new System.Drawing.Point(36, 114);
+            this.btAddAction.Location = new System.Drawing.Point(30, 114);
             this.btAddAction.Name = "btAddAction";
             this.btAddAction.Size = new System.Drawing.Size(147, 23);
             this.btAddAction.TabIndex = 85;
@@ -387,32 +409,33 @@
             this.btOpenRadar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btOpenRadar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btOpenRadar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btOpenRadar.Location = new System.Drawing.Point(369, 17);
+            this.btOpenRadar.Location = new System.Drawing.Point(377, 49);
             this.btOpenRadar.Name = "btOpenRadar";
             this.btOpenRadar.Size = new System.Drawing.Size(30, 26);
             this.btOpenRadar.TabIndex = 103;
             this.btOpenRadar.Text = "...";
             this.btOpenRadar.UseVisualStyleBackColor = false;
+            this.btOpenRadar.Click += new System.EventHandler(this.btOpenRadar_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label6.Location = new System.Drawing.Point(28, 30);
+            this.label6.Location = new System.Drawing.Point(39, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 12);
             this.label6.TabIndex = 102;
             this.label6.Text = "Setting Path";
             // 
-            // textRederDataPath
+            // textRadarDataPath
             // 
-            this.textRederDataPath.BackColor = System.Drawing.Color.Black;
-            this.textRederDataPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textRederDataPath.ForeColor = System.Drawing.Color.White;
-            this.textRederDataPath.Location = new System.Drawing.Point(30, 45);
-            this.textRederDataPath.Name = "textRederDataPath";
-            this.textRederDataPath.Size = new System.Drawing.Size(369, 19);
-            this.textRederDataPath.TabIndex = 101;
+            this.textRadarDataPath.BackColor = System.Drawing.Color.Black;
+            this.textRadarDataPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textRadarDataPath.ForeColor = System.Drawing.Color.White;
+            this.textRadarDataPath.Location = new System.Drawing.Point(38, 74);
+            this.textRadarDataPath.Name = "textRadarDataPath";
+            this.textRadarDataPath.Size = new System.Drawing.Size(369, 19);
+            this.textRadarDataPath.TabIndex = 101;
             // 
             // RadarSettingControl
             // 
@@ -421,7 +444,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.btOpenRadar);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textRederDataPath);
+            this.Controls.Add(this.textRadarDataPath);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.btSePath);
             this.Controls.Add(this.textSePath);
@@ -445,6 +468,7 @@
             this.groupBox1.PerformLayout();
             this.tabControlMob.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.contextMenuMobList.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -485,7 +509,9 @@
         private System.Windows.Forms.ComboBox ComboRadarZone;
         private System.Windows.Forms.Button btOpenRadar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textRederDataPath;
+        private System.Windows.Forms.TextBox textRadarDataPath;
         private System.Windows.Forms.FolderBrowserDialog ofdRederPath;
+        private System.Windows.Forms.ContextMenuStrip contextMenuMobList;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

@@ -94,7 +94,7 @@ namespace MultiRadar
 
         private void Setting_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            onInputCheck(ref e);
         }
 
         private void ComboRadarZone_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,6 +102,7 @@ namespace MultiRadar
             //表示処理
             setSettingFormRederData();
         }
+
 
     }
 

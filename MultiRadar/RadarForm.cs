@@ -37,6 +37,7 @@ namespace ACT.RadarForm
             if (mobName.Length > 0)
             {
                 RadardataInstance.radarData.RemoveMob(zoneName, mobtype, mobName);
+                
             }
         }
         public ZoneMobData getMobList(string zomeName)

@@ -65,11 +65,11 @@ namespace MultiRadar
                 //rbRederModeFull
 
                 //controllForm.CallbackResize = RadarWindowResize;
-                RadardataInstance.SetRadarData(textRederDataPath.SelectedText + "RadarData.xml");
+                RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
 
                 //xmlSettings.AddControlSetting(rbRederModeFull.Name, rbRederModeFull);
                 //xmlSettings.AddControlSetting(rbRederModeSelect.Name, rbRederModeSelect);
-                ReSetComboRederZoneItem(false);
+                ReSetComboRadarZoneItem(false);
 
 
                 RadarViewOrder.AllRadarMode = rbRederModeFull.Checked;

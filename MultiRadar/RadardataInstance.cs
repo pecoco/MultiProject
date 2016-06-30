@@ -17,15 +17,23 @@ namespace ACT.Radardata
             radarData = new RadarData(path);
         }
 
-        static string zone;
+        //現在のゾーン
+        static StringBuilder zone;
         public static string Zone
         {
-            set { zone = value.Trim(); }
-            get { return zone; }
+            set {
+                zone.Length = 0;
+                zone.Append(value.Trim());    
+                 }
+            get { return zone.ToString(); }
         }
         public static List<string> ZoneList
         {
             get { return radarData.ZoneList(); }
+        }
+        public static void Initializer()
+        {
+            zone = new StringBuilder();
         }
     }
 }

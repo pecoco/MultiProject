@@ -1,11 +1,6 @@
-﻿using System;
+﻿using ACT.Radardata;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultiRadar
@@ -15,6 +10,7 @@ namespace MultiRadar
         public AddRadarMobForm()
         {
             InitializeComponent();
+            zoneList = RadardataInstance.ZoneList;
         }
 
         public List<string> zoneList;
@@ -106,7 +102,7 @@ namespace MultiRadar
 
 
 
-        private void AddRederMobForm_VisibleChanged(object sender, EventArgs e)
+        private void AddRadarMobForm_VisibleChanged(object sender, EventArgs e)
         {
             if (zoneList == null)
             {
@@ -117,6 +113,30 @@ namespace MultiRadar
                 foreach (string zone in zoneList)
                 {
                     cbZone.Items.Add(zone);
+                }
+            }
+        }
+
+        private void cbZone_ValueMemberChanged(object sender, EventArgs e)
+        {
+            if (cbZone.Text.Length>0)
+            {
+                ZoneMobData radarData = RadardataInstance.radarData.getMobList(cbZone.Text);
+                if (radarData != null)
+                {
+                    textZoneJp.Text = radarData.nameJp;
+                }
+            }
+        }
+
+        private void cbZone_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbZone.Text.Length > 0)
+            {
+                ZoneMobData radarData = RadardataInstance.radarData.getMobList(cbZone.Text);
+                if (radarData != null)
+                {
+                    textZoneJp.Text = radarData.nameJp;
                 }
             }
         }

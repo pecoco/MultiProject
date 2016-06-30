@@ -14,15 +14,17 @@ namespace MultiProject
         public static bool combatOn = false;
 
         private static DateTime time = new DateTime();//開始時間維持
-        private static System.Timers.Timer t;
+        //private static System.Timers.Timer t =new System.Timers.Timer();
         public static void BattleTimerStart()
         {
             time = DateTime.Now;
-            t.Enabled = true;
+           
+            combatOn = true;
         }
         public static void BattleTimerEnd()
         {
-            t.Enabled = false;
+           
+            combatOn = false;
         }
 
     }

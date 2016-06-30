@@ -110,6 +110,8 @@
             this.cbZone.Name = "cbZone";
             this.cbZone.Size = new System.Drawing.Size(269, 20);
             this.cbZone.TabIndex = 3;
+            this.cbZone.ValueMemberChanged += new System.EventHandler(this.cbZone_ValueMemberChanged);
+            this.cbZone.SelectedValueChanged += new System.EventHandler(this.cbZone_SelectedValueChanged);
             // 
             // label2
             // 
@@ -200,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(276, 273);
+            this.ClientSize = new System.Drawing.Size(394, 273);
             this.Controls.Add(this.textZoneJp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbMobType);
@@ -218,7 +220,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AddRadarMobForm";
             this.TopMost = true;
-            this.VisibleChanged += new System.EventHandler(this.AddRederMobForm_VisibleChanged);
+            this.VisibleChanged += new System.EventHandler(this.AddRadarMobForm_VisibleChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

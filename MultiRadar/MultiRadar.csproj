@@ -51,6 +51,9 @@
     <Compile Include="..\MultiProject\Common\ActHelper.cs">
       <Link>ActHelper.cs</Link>
     </Compile>
+    <Compile Include="..\MultiProject\Common\Analyze.cs">
+      <Link>Analyze.cs</Link>
+    </Compile>
     <Compile Include="..\MultiProject\Common\BasePlugin.cs">
       <Link>BasePlugin.cs</Link>
     </Compile>

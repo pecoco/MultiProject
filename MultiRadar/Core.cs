@@ -20,11 +20,12 @@ namespace MultiRadar
     public partial class RadarSettingControl
     {
         protected RadarForm radarForm;
-
+        protected AlertForm alertForm;
+        Analyze analyze = new Analyze();
 
         partial void oFormActMain_OnCombatStart(bool isImport, CombatToggleEventArgs encount)
         {
-            //encount.encounter.StartTime();
+           
             BasePlugin.BattleTimerStart();
             BasePlugin.combatOn = true;
         }
@@ -35,12 +36,21 @@ namespace MultiRadar
         }
         partial void oFormActMain_AfterCombatAction(bool isImport, CombatActionEventArgs actionInfo)
         {
-            //logform.addLog("CA:" + actionInfo.combatAction.Attacker + ":" + actionInfo.combatAction.AttackType);
         }
 
         partial void oFormActMain_BeforeLogLineRead(bool isImport, LogLineEventArgs actionInfo)
         {
+            if (analyze.AnalyzeLogLine(actionInfo.logLine))
+            {
+                switch (analyze.chenge)
+                {
+                    case AnalyzeBase.ChengeParameter.changedZone:
+                       
+                        break;
 
+                }
+
+            }
         }
 
         partial void oClock_Action(object sender, ElapsedEventArgs e)
@@ -48,7 +58,7 @@ namespace MultiRadar
             ActData.AllCharactor = ActHelper.GetCombatantList();
             if (ActData.AllCharactor.Count > 0)
             {
-
+                radarForm.upDate();
                 //CallSetLine();
             }
         }
@@ -62,7 +72,11 @@ namespace MultiRadar
                 radarForm.Top = int.Parse(textRadarYpos.Text);
                 radarForm.CallbackSaveSetting = SaveSettings;
 
-                //rbRederModeFull
+                alertForm = new AlertForm();
+                alertForm.CallbackSaveSetting = SaveSettings;
+                alertForm.Left = int.Parse(textAlertXpos.Text);
+                alertForm.Top = int.Parse(textAlertYpos.Text);
+                alertForm.Show();
 
                 //controllForm.CallbackResize = RadarWindowResize;
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
@@ -87,6 +101,11 @@ namespace MultiRadar
             {
                 radarForm.Hide();
                 radarForm.Dispose();
+            }
+            if (alertForm != null)
+            {
+                alertForm.Hide();
+                alertForm.Dispose();
             }
 
         }

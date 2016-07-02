@@ -51,8 +51,8 @@
     <Compile Include="..\MultiProject\Common\ActHelper.cs">
       <Link>ActHelper.cs</Link>
     </Compile>
-    <Compile Include="..\MultiProject\Common\Analyze.cs">
-      <Link>Analyze.cs</Link>
+    <Compile Include="..\MultiProject\Common\AnalyzeBase.cs">
+      <Link>AnalyzeBase.cs</Link>
     </Compile>
     <Compile Include="..\MultiProject\Common\BasePlugin.cs">
       <Link>BasePlugin.cs</Link>
@@ -69,11 +69,23 @@
     <Compile Include="AddRadarMobForm.Designer.cs">
       <DependentUpon>AddRadarMobForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlertForm.Designer.cs">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analyze.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Core.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RadarData.cs" />
     <Compile Include="RadardataInstance.cs" />
     <Compile Include="RadarForm.cs">
@@ -99,6 +111,13 @@
   <ItemGroup>
     <EmbeddedResource Include="AddRadarMobForm.resx">
       <DependentUpon>AddRadarMobForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlertForm.resx">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RadarForm.resx">
       <DependentUpon>RadarForm.cs</DependentUpon>

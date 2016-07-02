@@ -49,9 +49,6 @@ namespace MultiRadar
             area.zones.Add(zone);
         }
 
-
-
-
         //検索リストに追加
         public bool AddMob(string zoneName, MobType mobType, string name, string ZoneNameJp ="")
         {
@@ -205,6 +202,40 @@ namespace MultiRadar
             sr.Close();
 
         }
+
+        //検索
+
+        public int Search(string zoneName, string mobName)
+        {
+            if (zoneName == null)
+            {
+                return 0;
+            }
+            ZoneMobData rm = getMobList(zoneName);
+            if (rm != null)
+            {
+                foreach (string mob in rm.s)
+                {
+                    if (mob == mobName) { return 1; }
+                }
+                foreach (string mob in rm.a)
+                {
+                    if (mob == mobName) { return 2; }
+                }
+                foreach (string mob in rm.b)
+                {
+                    if (mob == mobName) { return 3; }
+                }
+                foreach (string mob in rm.etc)
+                {
+                    if (mob == mobName) { return 4; }
+                }
+            }
+            return 0;
+        }
+
+
+
     }
 
 

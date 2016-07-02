@@ -22,10 +22,14 @@ namespace ACT.Radardata
         public static string Zone
         {
             set {
+                zone = zone ?? new StringBuilder();
                 zone.Length = 0;
                 zone.Append(value.Trim());    
                  }
-            get { return zone.ToString(); }
+            get {
+                zone = zone ?? new StringBuilder();
+                return zone.ToString();
+            }
         }
         public static List<string> ZoneList
         {

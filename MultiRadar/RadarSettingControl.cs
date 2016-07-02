@@ -68,7 +68,7 @@ namespace MultiRadar
             };
 
             clock.watchTimer.Elapsed += oClock_Action;
-
+            clock.watchTimer.Start();
 
             lbStatus.Text = "Plugin Started. (#^^#).";
         }
@@ -79,11 +79,12 @@ namespace MultiRadar
             ActGlobals.oFormActMain.BeforeLogLineRead -= oFormActMain_BeforeLogLineRead;
             ActGlobals.oFormActMain.OnCombatStart -= oFormActMain_OnCombatStart;
             ActGlobals.oFormActMain.OnCombatEnd -= oFormActMain_OnCombatEnd;
-            clock.watchTimer.Elapsed -= oClock_Action;
+           
             SaveSettings();
 
             if (clock.watchTimer != null)
             {
+                clock.watchTimer.Elapsed -= oClock_Action;
                 clock.watchTimer.Stop();
                 clock.watchTimer.Dispose();
                 clock.watchTimer = null;

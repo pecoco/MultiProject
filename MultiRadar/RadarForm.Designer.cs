@@ -51,6 +51,7 @@
             this.lbSwitch.Size = new System.Drawing.Size(26, 19);
             this.lbSwitch.TabIndex = 8;
             this.lbSwitch.Text = "■";
+            this.lbSwitch.Click += new System.EventHandler(this.lbSwitch_Click);
             // 
             // btFlagOn
             // 
@@ -66,6 +67,7 @@
             this.btFlagOn.TabIndex = 11;
             this.btFlagOn.Text = "F";
             this.btFlagOn.UseVisualStyleBackColor = false;
+            this.btFlagOn.Click += new System.EventHandler(this.btFlagOn_Click);
             // 
             // btZoomMainus
             // 
@@ -81,6 +83,7 @@
             this.btZoomMainus.TabIndex = 12;
             this.btZoomMainus.Text = "-";
             this.btZoomMainus.UseVisualStyleBackColor = false;
+            this.btZoomMainus.Click += new System.EventHandler(this.btZoomMainus_Click);
             // 
             // btZoomPlus
             // 
@@ -96,6 +99,7 @@
             this.btZoomPlus.TabIndex = 13;
             this.btZoomPlus.Text = "+";
             this.btZoomPlus.UseVisualStyleBackColor = false;
+            this.btZoomPlus.Click += new System.EventHandler(this.btZoomPlus_Click);
             // 
             // btAllModeSwitch
             // 
@@ -111,6 +115,7 @@
             this.btAllModeSwitch.TabIndex = 14;
             this.btAllModeSwitch.Text = "A";
             this.btAllModeSwitch.UseVisualStyleBackColor = false;
+            this.btAllModeSwitch.Click += new System.EventHandler(this.btAllModeSwitch_Click);
             // 
             // btResize
             // 
@@ -118,12 +123,14 @@
             this.btResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btResize.Font = new System.Drawing.Font("MS UI Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btResize.ForeColor = System.Drawing.Color.DodgerBlue;
             this.btResize.Location = new System.Drawing.Point(275, -1);
             this.btResize.Margin = new System.Windows.Forms.Padding(0);
             this.btResize.Name = "btResize";
             this.btResize.Size = new System.Drawing.Size(24, 24);
             this.btResize.TabIndex = 9;
             this.btResize.UseVisualStyleBackColor = false;
+            this.btResize.Click += new System.EventHandler(this.btResize_Click);
             // 
             // button1
             // 
@@ -132,12 +139,13 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(32, 0);
+            this.button1.Location = new System.Drawing.Point(32, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 19);
+            this.button1.Size = new System.Drawing.Size(101, 14);
             this.button1.TabIndex = 7;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadarForm_MouseDown);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadarForm_MouseMove);
             // 
             // btInterpersonal
@@ -154,6 +162,7 @@
             this.btInterpersonal.TabIndex = 15;
             this.btInterpersonal.Text = "M";
             this.btInterpersonal.UseVisualStyleBackColor = false;
+            this.btInterpersonal.Click += new System.EventHandler(this.btInterpersonal_Click);
             // 
             // RadarForm
             // 
@@ -175,6 +184,7 @@
             this.Name = "RadarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.TopMost = true;
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.RadarForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

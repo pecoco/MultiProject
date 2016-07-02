@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-namespace MultiProjectTools
+﻿namespace MultiProjectTools
 {
     using System.Timers;
     public partial class ClockTimer
@@ -54,7 +46,5 @@ namespace MultiProjectTools
                 instance = null;
             }
         }
-
     }
-
 }

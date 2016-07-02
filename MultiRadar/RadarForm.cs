@@ -325,13 +325,16 @@ namespace ACT.RadarForm
                     {
                         searchObjects.Add(charcter);
                     }
-                    if (charcter.type == 0)
+                    if (charcter.type == 2)
                     {
                         searchObjects.Add(charcter);
                     }
                 }else
                 {
-                    searchObjects.Add(charcter);
+                    if (charcter.type != 2)
+                    {
+                        searchObjects.Add(charcter);
+                    }
                 }
             }
         }
@@ -365,7 +368,6 @@ namespace ACT.RadarForm
                     }
                 }
             }
-
         }
 
         private Brush getBrush(int hpPar, bool flag)
@@ -480,7 +482,5 @@ namespace ACT.RadarForm
             }
             return false;
         }
-
-
     }
 }

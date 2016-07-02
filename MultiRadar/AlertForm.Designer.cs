@@ -52,12 +52,12 @@
             this.lbMessage.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbMessage.Font = new System.Drawing.Font("HGMaruGothicMPRO", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lbMessage.Location = new System.Drawing.Point(520, 0);
+            this.lbMessage.Location = new System.Drawing.Point(343, 0);
             this.lbMessage.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(130, 19);
+            this.lbMessage.Size = new System.Drawing.Size(307, 19);
             this.lbMessage.TabIndex = 1;
-            this.lbMessage.Text = "Good Luck!";
+            this.lbMessage.Text = "If you search for tenderness";
             // 
             // AlertForm
             // 

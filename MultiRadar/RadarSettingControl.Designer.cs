@@ -286,6 +286,7 @@
             // listMobA
             // 
             this.listMobA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listMobA.ContextMenuStrip = this.contextMenuMobList;
             this.listMobA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listMobA.ForeColor = System.Drawing.Color.White;
             this.listMobA.FormattingEnabled = true;
@@ -309,6 +310,7 @@
             // listMobB
             // 
             this.listMobB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listMobB.ContextMenuStrip = this.contextMenuMobList;
             this.listMobB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listMobB.ForeColor = System.Drawing.Color.White;
             this.listMobB.FormattingEnabled = true;
@@ -332,6 +334,7 @@
             // listMobETC
             // 
             this.listMobETC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.listMobETC.ContextMenuStrip = this.contextMenuMobList;
             this.listMobETC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listMobETC.ForeColor = System.Drawing.Color.White;
             this.listMobETC.FormattingEnabled = true;

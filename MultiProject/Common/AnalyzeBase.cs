@@ -1,13 +1,7 @@
 ﻿using ACT.Radardata;
-using Advanced_Combat_Tracker;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MultiProject
 {
@@ -61,12 +55,6 @@ namespace MultiProject
         protected int hitIndex = 0;
         protected int MaxLength = 0;
 
-        //virtual protected void SetAbilityTable(int myJobId)
-        //{
-            //NametoIdTable = AbilityData.GetaAbilityIdfromName(myJobId);
-        //}
-
-
         virtual protected bool AnalyzeProc00(string logLine)
         {
             return false;
@@ -87,7 +75,6 @@ namespace MultiProject
         {
             return false;
         }
-
 
         virtual public bool AnalyzeLogLine(string logLine)
         {

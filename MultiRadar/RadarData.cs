@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
 namespace MultiRadar
 {
     public class RadarData
     {
-
         Zones area;
         string fileName ="";
         public RadarData(string fileNamePath)
@@ -204,7 +199,6 @@ namespace MultiRadar
         }
 
         //検索
-
         public int Search(string zoneName, string mobName)
         {
             if (zoneName == null)
@@ -233,12 +227,6 @@ namespace MultiRadar
             }
             return 0;
         }
-
-
-
     }
-
-
-
 }
 

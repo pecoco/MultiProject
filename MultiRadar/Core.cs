@@ -1,20 +1,10 @@
-﻿
-using ACT.Radardata;
+﻿using ACT.Radardata;
 using ACT.RadarForm;
 using ACT.RadarViewOrder;
 using Advanced_Combat_Tracker;
 using MultiProject;
 using MultiProject.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
-using System.Windows.Forms;
-using System.Xml;
-
 namespace MultiRadar
 {
     public partial class RadarSettingControl
@@ -45,11 +35,8 @@ namespace MultiRadar
                 switch (analyze.chenge)
                 {
                     case AnalyzeBase.ChengeParameter.changedZone:
-                       
                         break;
-
                 }
-
             }
         }
 
@@ -78,22 +65,11 @@ namespace MultiRadar
                 alertForm.Top = int.Parse(textAlertYpos.Text);
                 alertForm.Show();
 
-                //controllForm.CallbackResize = RadarWindowResize;
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
-
-                //xmlSettings.AddControlSetting(rbRederModeFull.Name, rbRederModeFull);
-                //xmlSettings.AddControlSetting(rbRederModeSelect.Name, rbRederModeSelect);
                 ReSetComboRadarZoneItem(false);
-
-
                 RadarViewOrder.AllRadarMode = rbRederModeFull.Checked;
-
-
-
                 radarForm.Show();
             }
-
-
         }
         partial void CloseWindow()
         {
@@ -107,9 +83,6 @@ namespace MultiRadar
                 alertForm.Hide();
                 alertForm.Dispose();
             }
-
         }
-
-
     }
 }

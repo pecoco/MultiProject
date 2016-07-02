@@ -1,4 +1,5 @@
-﻿using MultiProject;
+﻿using ACT.RadarViewOrder;
+using MultiProject;
 using System;
 using System.IO;
 using System.Text;
@@ -9,7 +10,7 @@ namespace MultiRadar
 {
     public partial class RadarSettingControl
     {
-        private void onInputCheck(object sender, KeyPressEventArgs e)
+        private void onInputCheck(ref KeyPressEventArgs e)
         {
             //0～9と、バックスペース以外の時は、イベントをキャンセルする
             if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')
@@ -26,15 +27,21 @@ namespace MultiRadar
 
             BasePlugin.xmlSettings.AddControlSetting(rbRederModeFull.Name, rbRederModeFull);
             BasePlugin.xmlSettings.AddControlSetting(rbRederModeSelect.Name, rbRederModeSelect);
-            if (textRederDataPath.Text == "")
+
+            BasePlugin.xmlSettings.AddControlSetting(textAlertXpos.Name, textAlertXpos);
+            BasePlugin.xmlSettings.AddControlSetting(textAlertYpos.Name, textAlertYpos);
+
+            
+
+            if (textRadarDataPath.Text == "")
             {
-                textRederDataPath.Text = Application.StartupPath + "/MultiViewerResources/"; ;
+                textRadarDataPath.Text = Application.StartupPath + "/MultiViewerResources/"; ;
             }
             if (textSePath.Text == "")
             {
                 textSePath.Text = Application.StartupPath + "/MultiViewerResources/se/";
             }
-
+            RadarViewOrder.SePathName = textSePath.Text;
             if (System.IO.File.Exists(settingsFile))
             {
                 FileStream fs = new FileStream(settingsFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -69,23 +76,16 @@ namespace MultiRadar
         {
             if (skipWindowPos == false)
             {
-
-                /*
                 if (radarForm != null)
                 {
                     textRadarXpos.Text = radarForm.Left.ToString();
                     textRadarYpos.Text = radarForm.Top.ToString();
                 }
-                */
-                /*
-                 if (alertForm != null)
+                if (alertForm != null)
                 {
                     textAlertXpos.Text = alertForm.Left.ToString();
                     textAlertYpos.Text = alertForm.Top.ToString();
                 }
-                */
-
-
             }
 
 

@@ -43,7 +43,7 @@ namespace ACT.RadarViewOrder
         public static Rectangle PlayerRect()
         {
 
-            oldPlayerRect = new Rectangle((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 10, 10);
+            oldPlayerRect = new Rectangle((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 8, 8);
             return oldPlayerRect;
         }
 
@@ -176,7 +176,10 @@ namespace ACT.RadarViewOrder
             }
             public void RemoveAt(int Index)
             {
-                hitMobdatas.RemoveAt(Index);
+                if (hitMobdatas.Count > Index)
+                {
+                    hitMobdatas.RemoveAt(Index);
+                }
             }
         }
 

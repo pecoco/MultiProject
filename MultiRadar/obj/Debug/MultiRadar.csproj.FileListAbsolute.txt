@@ -10,3 +10,5 @@ E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.RadarSettingControl.resource
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csproj.GenerateResource.Cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\ACT.RadarForm.RadarForm.resources
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AlertForm.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.Properties.Resources.resources

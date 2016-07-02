@@ -1,11 +1,7 @@
 ﻿using ACT.Radardata;
-
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-
-using ACT.RadarForm;
-
 namespace MultiRadar
 {
    
@@ -16,7 +12,7 @@ namespace MultiRadar
         {
             if (ofdRederPath.ShowDialog() == DialogResult.OK)
             {
-                textRederDataPath.Text = ofdRederPath.SelectedPath;
+                textRadarDataPath.Text = ofdRederPath.SelectedPath;
             }
         }
 
@@ -25,7 +21,6 @@ namespace MultiRadar
         {
 
             int keepIndex = ComboRadarZone.SelectedIndex;
-
             addRadarDataForm = new AddRadarMobForm();
             Point btnClientLocation = btAddAction.ClientRectangle.Location;
             Point btnScreenLocation = btAddAction.PointToScreen(btnClientLocation);
@@ -33,20 +28,17 @@ namespace MultiRadar
             addRadarDataForm.ZoneName = ComboRadarZone.Text;
             addRadarDataForm.ZoneNameJp = textAreaJp.Text;
 
-
             if (addRadarDataForm.ShowDialog() == DialogResult.OK)
             {
                 radarForm.AddMob(addRadarDataForm.ZoneName, addRadarDataForm.SelectMobtype, addRadarDataForm.MobName, addRadarDataForm.ZoneNameJp);
                 radarForm.SaveRadarData();
-                ReSetComboRederZoneItem();
+                ReSetComboRadarZoneItem();
                 ComboRadarZone.SelectedIndex = keepIndex;
-
             }
         }
 
-
         //プラグイン　コンボボックス地名リスト追加
-        private void ReSetComboRederZoneItem(bool saveAction = true)
+        private void ReSetComboRadarZoneItem(bool saveAction = true)
         {
             ComboRadarZone.Items.Clear();
             foreach (string zone in RadardataInstance.ZoneList)
@@ -60,8 +52,6 @@ namespace MultiRadar
             //表示処理
             setSettingFormRederData();
         }
-
-
 
         private void setSettingFormRederData()
         {
@@ -94,7 +84,6 @@ namespace MultiRadar
             }
         }
 
-
         private void ComboRederZone_SelectedIndexChanged(object sender, EventArgs e)
         {
             //表示処理
@@ -103,26 +92,26 @@ namespace MultiRadar
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //
             switch (tabControlMob.SelectedIndex)
             {
                 case 0:
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.S, listMobSS.SelectedItem.ToString());
-
+                    listMobSS.Items.Clear();
                     break;
                 case 1:
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.A, listMobA.SelectedItem.ToString());
-
+                    listMobA.Items.Clear();
                     break;
                 case 2:
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.B, listMobB.SelectedItem.ToString());
-
+                    listMobB.Items.Clear();
                     break;
                 case 3:
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.ETC, listMobETC.SelectedItem.ToString());
+                    listMobETC.Items.Clear();
                     break;
             }
-            ReSetComboRederZoneItem();
+            ReSetComboRadarZoneItem();
         }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Advanced_Combat_Tracker;
 using System.IO;
@@ -42,9 +35,6 @@ namespace MultiRadar
             clock = new ClockTimer();
         }
 
-
-
-
         public void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)
         {
             lbStatus = pluginStatusText;   // Hand the status label's reference to our local var
@@ -53,8 +43,6 @@ namespace MultiRadar
             MultiProject.BasePlugin.xmlSettings = new SettingsSerializer(this); // Create a new settings serializer and pass it this instance
 
             LoadSettings();
-
-
             ActGlobals.oFormActMain.AfterCombatAction += new CombatActionDelegate(oFormActMain_AfterCombatAction);
             ActGlobals.oFormActMain.BeforeLogLineRead += new LogLineEventDelegate(oFormActMain_BeforeLogLineRead);
             ActGlobals.oFormActMain.OnCombatStart += new CombatToggleEventDelegate(oFormActMain_OnCombatStart);
@@ -103,11 +91,6 @@ namespace MultiRadar
             //表示処理
             setSettingFormRederData();
         }
-
-
     }
-
-
-
 }
 

@@ -1,11 +1,7 @@
 ﻿using ACT.Radardata;
 using ACT.RadarViewOrder;
 using MultiProject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MultiRadar
 {
@@ -19,10 +15,7 @@ namespace MultiRadar
                 return true;
             }
             //それ以外の解析
-
             return false;
-
-
         }
 
         override protected bool AnalyzeProc03(string logLine)

@@ -1,10 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ACT.RadarViewOrder
 {
@@ -18,8 +14,7 @@ namespace ACT.RadarViewOrder
             get { return playerView; }
             set { playerView = value; }
         }
-        //static int bW = this.Width;//radarBaseWidth;
-        //static int bH = this.Height;//radarBaseHeight;
+
         public static int bX = 0;
         public static int bY = 0;
         public static int bW = 0;
@@ -28,10 +23,6 @@ namespace ACT.RadarViewOrder
         public static int infoY = 0;
         static float scaleX = 0;
         static float scaleY = 0;
-
-
- 
-
 
         public static PointF GetBasePosition(int addX, int addY)
         {
@@ -77,8 +68,7 @@ namespace ACT.RadarViewOrder
             return new Rectangle((int)x, (int)y, 5, 5);
         }
 
-        public static int radarZoom = 3;
-
+        public static int radarZoom = 5;
         public static Combatant oldMyData;
         private static Combatant newMyData;
         public static Combatant myData
@@ -97,8 +87,6 @@ namespace ACT.RadarViewOrder
                 {
                     return;
                 }
-
-
             }
         }
         private static System.Media.SoundPlayer SeA = null;
@@ -166,7 +154,6 @@ namespace ACT.RadarViewOrder
         {
             public string mobName;
             public string rank;
-            float posY;
             bool alert;
             public HitMobdata(string _mobName, string _rank)
             {
@@ -182,6 +169,5 @@ namespace ACT.RadarViewOrder
                 }
             }
         }
-
     }
 }

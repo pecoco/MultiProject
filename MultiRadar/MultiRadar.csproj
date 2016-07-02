@@ -76,7 +76,6 @@
       <DependentUpon>AlertForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Analyze.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Core.cs">
       <SubType>UserControl</SubType>
     </Compile>

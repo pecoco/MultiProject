@@ -1,8 +1,4 @@
 using System.Collections.Generic;
-
-
-
-
     public enum MobType
     {
         S,

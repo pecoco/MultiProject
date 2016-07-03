@@ -24,6 +24,13 @@ namespace ACT.RadarViewOrder
         static float scaleX = 0;
         static float scaleY = 0;
 
+        private static bool soundEnable = true;
+        public static bool SoundEnable
+        {
+            get {return soundEnable; }
+            set { soundEnable = value; }
+        }
+
         public static PointF GetBasePosition(int addX, int addY)
         {
             return new PointF(bX + addX, bY + addY);
@@ -143,11 +150,11 @@ namespace ACT.RadarViewOrder
         }
         public static bool windowsStatus;
 
-        public static List<HitMobdata> hitMobdatas;
-        public static void AddHitMob(HitMobdata mobdata)
+        public static List<HitMobdata> hitMobdatasFromLog;
+        public static void AddHitMobfromLog(HitMobdata mobdata)
         {
-            hitMobdatas = hitMobdatas ?? new List<HitMobdata>();
-            hitMobdatas.Add(mobdata);
+            hitMobdatasFromLog = hitMobdatasFromLog ?? new List<HitMobdata>();
+            hitMobdatasFromLog.Add(mobdata);
         }
 
         public class HitMobdata
@@ -163,9 +170,9 @@ namespace ACT.RadarViewOrder
             }
             public void RemoveAt(int Index)
             {
-                if (hitMobdatas.Count > Index)
+                if (hitMobdatasFromLog.Count > Index)
                 {
-                    hitMobdatas.RemoveAt(Index);
+                    hitMobdatasFromLog.RemoveAt(Index);
                 }
             }
         }

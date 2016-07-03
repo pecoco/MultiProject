@@ -59,10 +59,12 @@ namespace MultiRadar
                 radarForm.Top = int.Parse(textRadarYpos.Text);
                 radarForm.CallbackSaveSetting = SaveSettings;
 
+                RadarViewOrder.SoundEnable = ckRadarSE.Checked;
                 alertForm = new AlertForm();
                 alertForm.CallbackSaveSetting = SaveSettings;
                 alertForm.Left = int.Parse(textAlertXpos.Text);
                 alertForm.Top = int.Parse(textAlertYpos.Text);
+
                 alertForm.Show();
 
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");

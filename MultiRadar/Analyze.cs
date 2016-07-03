@@ -17,6 +17,11 @@ namespace MultiRadar
             //それ以外の解析
             return false;
         }
+        override protected string GetZoneName(string logLine)
+        {
+            RadardataInstance.Zone= base.GetZoneName(logLine);
+            return RadardataInstance.Zone;
+        }
 
         override protected bool AnalyzeProc03(string logLine)
         {

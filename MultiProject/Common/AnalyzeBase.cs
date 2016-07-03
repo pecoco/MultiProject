@@ -1,5 +1,4 @@
-﻿using ACT.Radardata;
-using System.Collections;
+﻿using System.Collections;
 using System.Globalization;
 using System.Text;
 
@@ -15,30 +14,30 @@ namespace MultiProject
             get { return playerName; }
         }
 
-        public enum ChengeParameter : int
+        public enum ChangeParameter : int
         {
-            enochianTime,
-            changedZone,
-            flag,
-            chengeJob,
+            EnochianTime,
+            ChangedZone,
+            Flag,
+            ChengeJob,
             SwordOathOn,
             ShieldOathOn,
             SwordOathOff,
             ShieldOathOff,
-            rathOn,
-            rathOff,
-            dethtoroyerOn,
-            dethtoroyerOff,
+            RathOn,
+            RathOff,
+            DethtoroyerOn,
+            DethtoroyerOff,
         }
 
         private int myJobId;
         public int MyJobId
         {
             get { return myJobId; }
-
+            set { myJobId = value; }
         }
         private Hashtable NametoIdTable = new Hashtable();
-        public ChengeParameter chenge;
+        public ChangeParameter change;
 
         private bool compareString(string logLine, StringBuilder chkText, ref int hitIndex)
         {
@@ -71,11 +70,18 @@ namespace MultiProject
         {
             return false;
         }
+
         virtual protected bool AnalyzeProc1E(string logLine)
         {
             return false;
         }
 
+        protected StringBuilder zoneName = new StringBuilder(); 
+        virtual protected string GetZoneName(string logLine)
+        {
+            change = ChangeParameter.ChangedZone;
+            return logLine.Substring(hitIndex + "Changed Zone to ".Length, MaxLength - (hitIndex + "Changed Zone to ".Length));
+        }
         virtual public bool AnalyzeLogLine(string logLine)
         {
 
@@ -99,8 +105,8 @@ namespace MultiProject
 
             if (compareString(logLine, text, ref hitIndex))
             {
-                RadardataInstance.Zone = logLine.Substring(hitIndex + "Changed Zone to ".Length, MaxLength - (hitIndex + "Changed Zone to ".Length));
-                chenge = ChengeParameter.changedZone;
+                zoneName.Length = 0;
+                zoneName.Append(GetZoneName(logLine));
                 return true;
             }
             return false;

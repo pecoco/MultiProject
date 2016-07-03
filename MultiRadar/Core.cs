@@ -32,9 +32,9 @@ namespace MultiRadar
         {
             if (analyze.AnalyzeLogLine(actionInfo.logLine))
             {
-                switch (analyze.chenge)
+                switch (analyze.change)
                 {
-                    case AnalyzeBase.ChengeParameter.changedZone:
+                    case AnalyzeBase.ChangeParameter.ChangedZone:
                         break;
                 }
             }

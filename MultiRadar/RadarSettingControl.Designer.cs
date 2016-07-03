@@ -69,6 +69,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ckRadarSE = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -512,11 +513,24 @@
             this.label3.TabIndex = 110;
             this.label3.Text = "SE Switch";
             // 
+            // btSave
+            // 
+            this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSave.ForeColor = System.Drawing.Color.White;
+            this.btSave.Location = new System.Drawing.Point(203, 461);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(55, 23);
+            this.btSave.TabIndex = 111;
+            this.btSave.Text = "Save";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.btSave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ckRadarSE);
             this.Controls.Add(this.label2);
@@ -600,5 +614,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox ckRadarSE;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btSave;
     }
 }

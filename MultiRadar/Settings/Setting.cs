@@ -35,11 +35,11 @@ namespace MultiRadar
 
             if (textRadarDataPath.Text == "")
             {
-                textRadarDataPath.Text = Application.StartupPath + "/MultiViewerResources/"; ;
+                textRadarDataPath.Text = Application.StartupPath + "\\MultiViewerResources\\"; ;
             }
             if (textSePath.Text == "")
             {
-                textSePath.Text = Application.StartupPath + "/MultiViewerResources/se/";
+                textSePath.Text = Application.StartupPath + "\\MultiViewerResources\\se\\";
             }
             RadarViewOrder.SePathName = textSePath.Text;
             if (System.IO.File.Exists(settingsFile))
@@ -72,9 +72,9 @@ namespace MultiRadar
         {
             SaveSettings(false);
         }
-        void SaveSettings(bool skipWindowPos = false)
+        void SaveSettings(bool skipSetWindowPos = false)
         {
-            if (skipWindowPos == false)
+            if (skipSetWindowPos == false)
             {
                 if (radarForm != null)
                 {

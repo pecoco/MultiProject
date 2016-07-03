@@ -35,7 +35,7 @@ namespace MultiProject
         public int MyJobId
         {
             get { return myJobId; }
-
+            set { myJobId = value; }
         }
         private Hashtable NametoIdTable = new Hashtable();
         public ChengeParameter chenge;
@@ -71,11 +71,18 @@ namespace MultiProject
         {
             return false;
         }
+
         virtual protected bool AnalyzeProc1E(string logLine)
         {
             return false;
         }
 
+        protected StringBuilder zoneName = new StringBuilder(); 
+        virtual protected string GetZoneName(string logLine)
+        {
+            chenge = ChengeParameter.changedZone;
+            return logLine.Substring(hitIndex + "Changed Zone to ".Length, MaxLength - (hitIndex + "Changed Zone to ".Length));
+        }
         virtual public bool AnalyzeLogLine(string logLine)
         {
 
@@ -99,8 +106,8 @@ namespace MultiProject
 
             if (compareString(logLine, text, ref hitIndex))
             {
-                RadardataInstance.Zone = logLine.Substring(hitIndex + "Changed Zone to ".Length, MaxLength - (hitIndex + "Changed Zone to ".Length));
-                chenge = ChengeParameter.changedZone;
+                zoneName.Length = 0;
+                zoneName.Append(GetZoneName(logLine));
                 return true;
             }
             return false;

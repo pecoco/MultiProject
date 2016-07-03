@@ -70,6 +70,7 @@
             this.ckRadarSE = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -517,7 +518,7 @@
             // 
             this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSave.ForeColor = System.Drawing.Color.White;
-            this.btSave.Location = new System.Drawing.Point(203, 461);
+            this.btSave.Location = new System.Drawing.Point(195, 461);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(55, 23);
             this.btSave.TabIndex = 111;
@@ -525,11 +526,23 @@
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.ForeColor = System.Drawing.Color.SeaShell;
+            this.label4.Location = new System.Drawing.Point(27, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 18);
+            this.label4.TabIndex = 112;
+            this.label4.Text = "MulitiRadar 1.02";
+            // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ckRadarSE);
@@ -615,5 +628,6 @@
         private System.Windows.Forms.CheckBox ckRadarSE;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Label label4;
     }
 }

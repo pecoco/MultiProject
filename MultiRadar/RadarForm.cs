@@ -108,9 +108,17 @@ namespace ACT.RadarForm
         bool swResize = false;
         private void btResize_Click(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
-            RadarViewOrder.SetBasePosition(this.Left, this.Top, this.Width, this.Height);
-            swResize = true;
+
+            if (swResize==false)
+            {
+                this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+                RadarViewOrder.SetBasePosition(this.Left, this.Top, this.Width, this.Height);
+                swResize = true;
+            }else
+            {
+                saveResize();
+                swResize = false;
+            }
         }
 
         private void btInterpersonal_Click(object sender, EventArgs e)
@@ -127,6 +135,10 @@ namespace ACT.RadarForm
         }
         private void button1_MouseLeave(object sender, EventArgs e)
         {
+            saveResize();
+        }
+        private void saveResize()
+        {
             if (saveCall)
             {
                 saveCall = false;
@@ -134,9 +146,12 @@ namespace ACT.RadarForm
                 {
                     RadarViewOrder.SetBasePosition(this.Left, this.Top, this.Width, this.Height);
                     callbackSaveSetting();
+                    this.FormBorderStyle = FormBorderStyle.None;
                 }
+                saveCall = true;
             }
         }
+
 
 
         private void btAllModeSwitch_Click(object sender, EventArgs e)

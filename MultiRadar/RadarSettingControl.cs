@@ -88,8 +88,12 @@ namespace MultiRadar
 
         private void ComboRadarZone_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //表示処理
             setSettingFormRederData();
+        }
+        
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            SaveSettings(true);
         }
     }
 }

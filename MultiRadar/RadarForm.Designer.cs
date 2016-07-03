@@ -127,7 +127,7 @@
             this.btResize.Location = new System.Drawing.Point(275, -1);
             this.btResize.Margin = new System.Windows.Forms.Padding(0);
             this.btResize.Name = "btResize";
-            this.btResize.Size = new System.Drawing.Size(24, 24);
+            this.btResize.Size = new System.Drawing.Size(24, 23);
             this.btResize.TabIndex = 9;
             this.btResize.UseVisualStyleBackColor = false;
             this.btResize.Click += new System.EventHandler(this.btResize_Click);

@@ -1,5 +1,4 @@
-﻿using ACT.Radardata;
-using System.Collections;
+﻿using System.Collections;
 using System.Globalization;
 using System.Text;
 
@@ -15,20 +14,20 @@ namespace MultiProject
             get { return playerName; }
         }
 
-        public enum ChengeParameter : int
+        public enum ChangeParameter : int
         {
-            enochianTime,
-            changedZone,
-            flag,
-            chengeJob,
+            EnochianTime,
+            ChangedZone,
+            Flag,
+            ChengeJob,
             SwordOathOn,
             ShieldOathOn,
             SwordOathOff,
             ShieldOathOff,
-            rathOn,
-            rathOff,
-            dethtoroyerOn,
-            dethtoroyerOff,
+            RathOn,
+            RathOff,
+            DethtoroyerOn,
+            DethtoroyerOff,
         }
 
         private int myJobId;
@@ -38,7 +37,7 @@ namespace MultiProject
             set { myJobId = value; }
         }
         private Hashtable NametoIdTable = new Hashtable();
-        public ChengeParameter chenge;
+        public ChangeParameter change;
 
         private bool compareString(string logLine, StringBuilder chkText, ref int hitIndex)
         {
@@ -80,7 +79,7 @@ namespace MultiProject
         protected StringBuilder zoneName = new StringBuilder(); 
         virtual protected string GetZoneName(string logLine)
         {
-            chenge = ChengeParameter.changedZone;
+            change = ChangeParameter.ChangedZone;
             return logLine.Substring(hitIndex + "Changed Zone to ".Length, MaxLength - (hitIndex + "Changed Zone to ".Length));
         }
         virtual public bool AnalyzeLogLine(string logLine)

@@ -25,25 +25,29 @@ namespace MultiRadar
             t = new System.Timers.Timer(3000);
 
             t.Elapsed += OnTimedEvent;
-            viewCount = 5;
+            viewCount = 8;
             t.Enabled = true;
 
         }
         private int viewCount = 0;
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            if (RadarViewOrder.hitMobdatas != null)
+            if (RadarViewOrder.hitMobdatasFromLog != null)
             {
-                if (RadarViewOrder.hitMobdatas.Count > 0)
+                if (RadarViewOrder.hitMobdatasFromLog.Count > 0)
                 {
-                    RadarViewOrder.HitMobdata mob = RadarViewOrder.hitMobdatas[RadarViewOrder.hitMobdatas.Count - 1];
-                    mob.RemoveAt(RadarViewOrder.hitMobdatas.Count - 1);
+                    RadarViewOrder.HitMobdata mob = RadarViewOrder.hitMobdatasFromLog[RadarViewOrder.hitMobdatasFromLog.Count - 1];
+                    mob.RemoveAt(RadarViewOrder.hitMobdatasFromLog.Count - 1);
                     lbMessage.Text = mob.rank.ToUpper() + ":" + mob.mobName;
-                    viewCount = 8;
-                    if (mob.rank == "s") { RadarViewOrder.PlaySeS(); }
-                    if (mob.rank == "a") { RadarViewOrder.PlaySeA(); }
-                    if (mob.rank == "b") { RadarViewOrder.PlaySeB(); }
-                    if (mob.rank == "e") { RadarViewOrder.PlaySeB(); }
+                    if (viewCount == 0) { viewCount = 5; }
+
+                    if (RadarViewOrder.SoundEnable)
+                    {
+                        if (mob.rank == "s") { RadarViewOrder.PlaySeS(); }
+                        if (mob.rank == "a") { RadarViewOrder.PlaySeA(); }
+                        if (mob.rank == "b") { RadarViewOrder.PlaySeB(); }
+                        if (mob.rank == "e") { RadarViewOrder.PlaySeB(); }
+                    }
                 }
             }else
             {

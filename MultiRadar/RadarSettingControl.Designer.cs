@@ -67,6 +67,8 @@
             this.textAlertYpos = new System.Windows.Forms.TextBox();
             this.textAlertXpos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.ckRadarSE = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -490,11 +492,33 @@
             this.label2.TabIndex = 108;
             this.label2.Text = "Alert Window";
             // 
+            // ckRadarSE
+            // 
+            this.ckRadarSE.AutoSize = true;
+            this.ckRadarSE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ckRadarSE.Location = new System.Drawing.Point(285, 92);
+            this.ckRadarSE.Name = "ckRadarSE";
+            this.ckRadarSE.Size = new System.Drawing.Size(15, 14);
+            this.ckRadarSE.TabIndex = 109;
+            this.ckRadarSE.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label3.Location = new System.Drawing.Point(222, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 12);
+            this.label3.TabIndex = 110;
+            this.label3.Text = "SE Switch";
+            // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ckRadarSE);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textAlertYpos);
             this.Controls.Add(this.textAlertXpos);
@@ -574,5 +598,7 @@
         private System.Windows.Forms.TextBox textAlertYpos;
         private System.Windows.Forms.TextBox textAlertXpos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ckRadarSE;
+        private System.Windows.Forms.Label label3;
     }
 }

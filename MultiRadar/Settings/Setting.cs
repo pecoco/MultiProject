@@ -30,8 +30,8 @@ namespace MultiRadar
 
             BasePlugin.xmlSettings.AddControlSetting(textAlertXpos.Name, textAlertXpos);
             BasePlugin.xmlSettings.AddControlSetting(textAlertYpos.Name, textAlertYpos);
-
-            
+            //SE
+            BasePlugin.xmlSettings.AddControlSetting(ckRadarSE.Name, ckRadarSE);
 
             if (textRadarDataPath.Text == "")
             {

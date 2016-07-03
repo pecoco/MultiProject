@@ -34,7 +34,7 @@ namespace MultiRadar
                         {
                             if (mobName.ToString().IndexOf(mob) > -1)
                             {
-                                RadarViewOrder.AddHitMob(new RadarViewOrder.HitMobdata(mob, "s"));
+                                RadarViewOrder.AddHitMobfromLog(new RadarViewOrder.HitMobdata(mob, "s"));
                                 return false;
                             }
                         }
@@ -42,7 +42,7 @@ namespace MultiRadar
                         {
                             if (mobName.ToString().IndexOf(mob) > -1)
                             {
-                                RadarViewOrder.AddHitMob(new RadarViewOrder.HitMobdata(mob, "a"));
+                                RadarViewOrder.AddHitMobfromLog(new RadarViewOrder.HitMobdata(mob, "a"));
                                 return false;
                             }
                         }
@@ -50,7 +50,7 @@ namespace MultiRadar
                         {
                             if (mobName.ToString().IndexOf(mob) > -1)
                             {
-                                RadarViewOrder.AddHitMob(new RadarViewOrder.HitMobdata(mob, "b"));
+                                RadarViewOrder.AddHitMobfromLog(new RadarViewOrder.HitMobdata(mob, "b"));
                                 return false;
                             }
                         }
@@ -58,7 +58,7 @@ namespace MultiRadar
                         {
                             if (mobName.ToString().IndexOf(mob) > -1)
                             {
-                                RadarViewOrder.AddHitMob(new RadarViewOrder.HitMobdata(mob, "e"));
+                                RadarViewOrder.AddHitMobfromLog(new RadarViewOrder.HitMobdata(mob, "e"));
                                 return false;
                             }
                         }

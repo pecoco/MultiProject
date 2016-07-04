@@ -503,6 +503,7 @@
             this.ckRadarSE.Size = new System.Drawing.Size(15, 14);
             this.ckRadarSE.TabIndex = 109;
             this.ckRadarSE.UseVisualStyleBackColor = true;
+            this.ckRadarSE.CheckedChanged += new System.EventHandler(this.ckRadarSE_CheckedChanged);
             // 
             // label3
             // 
@@ -535,7 +536,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 1.02";
+            this.label4.Text = "MulitiRadar 1.03";
             // 
             // RadarSettingControl
             // 

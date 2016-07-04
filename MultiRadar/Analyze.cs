@@ -25,6 +25,7 @@ namespace MultiRadar
 
         override protected bool AnalyzeProc03(string logLine)
         {
+            mobName.Length = 0;
             mobName.Append(logLine.Substring(hitIndex + "03:Added new combatant ".Length));
 
             foreach (string zoneList in RadardataInstance.radarData.ZoneList())

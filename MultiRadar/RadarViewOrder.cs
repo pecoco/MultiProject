@@ -124,8 +124,8 @@ namespace ACT.RadarViewOrder
             SeB.Play();
         }
 
-        private static bool allRadarMode;
-        public static bool AllRadarMode
+        private static bool allRadarMode = true;
+        public static bool AllRadarMode 
         {
             set { allRadarMode = value; }
             get { return allRadarMode; }
@@ -170,7 +170,7 @@ namespace ACT.RadarViewOrder
             }
             public void RemoveAt(int Index)
             {
-                if (hitMobdatasFromLog.Count > Index)
+                if (hitMobdatasFromLog.Count > Index && Index >-1)
                 {
                     hitMobdatasFromLog.RemoveAt(Index);
                 }

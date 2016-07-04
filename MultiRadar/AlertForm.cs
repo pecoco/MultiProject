@@ -39,14 +39,13 @@ namespace MultiRadar
                     RadarViewOrder.HitMobdata mob = RadarViewOrder.hitMobdatasFromLog[RadarViewOrder.hitMobdatasFromLog.Count - 1];
                     mob.RemoveAt(RadarViewOrder.hitMobdatasFromLog.Count - 1);
                     lbMessage.Text = mob.rank.ToUpper() + ":" + mob.mobName;
-                    if (viewCount == 0) { viewCount = 5; }
-
+                    viewCount = 3;
                     if (RadarViewOrder.SoundEnable)
                     {
-                        if (mob.rank == "s") { RadarViewOrder.PlaySeS(); }
-                        if (mob.rank == "a") { RadarViewOrder.PlaySeA(); }
-                        if (mob.rank == "b") { RadarViewOrder.PlaySeB(); }
-                        if (mob.rank == "e") { RadarViewOrder.PlaySeB(); }
+                        if (mob.rank == "s" && viewCount == 3) { RadarViewOrder.PlaySeS(); }
+                        if (mob.rank == "a" && viewCount == 3) { RadarViewOrder.PlaySeA(); }
+                        if (mob.rank == "b" && viewCount == 3) { RadarViewOrder.PlaySeB(); }
+                        if (mob.rank == "e" && viewCount == 3) { RadarViewOrder.PlaySeB(); }
                     }
                 }
             }else
@@ -71,13 +70,13 @@ namespace MultiRadar
                 case 1: lbMessage.ForeColor = Color.White; break;
             }
             viewCount -= 1;
-            if (viewCount < 0) { viewCount = 0; }
             if (viewCount > 0)
             {
                 this.Visible = true;
             }
             else
             {
+                viewCount = 0;
                 this.Visible = false;
             }
         }

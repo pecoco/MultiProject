@@ -95,6 +95,11 @@ namespace MultiRadar
         {
             SaveSettings(true);
         }
+
+        private void ckRadarSE_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveSettings(true);
+        }
     }
 }
 

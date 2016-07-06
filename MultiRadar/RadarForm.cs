@@ -21,7 +21,9 @@ namespace ACT.RadarForm
             RadarViewOrder.keepWindowSize(this.Width, this.Height);
             RadarViewOrder.windowsStatus = true;
             btAllModeSwitch.Text = RadarViewOrder.ChengeRadarMode(true);
+            //this.BackColor = Color.Transparent;
 
+          
         }
         ~RadarForm()
         {
@@ -192,6 +194,15 @@ namespace ACT.RadarForm
             }
         }
 
+
+
+
+
+
+
+
+
+
         private void DrowMyCharacter(Graphics g)
         {
             Rectangle rect = RadarViewOrder.PlayerRect();//
@@ -227,9 +238,8 @@ namespace ACT.RadarForm
         }
 
         private void radar_Paint(object sender, PaintEventArgs e)
-        {
+        {/*
             if (ActData.AllCharactor == null) { return; }
-
             if (ActData.AllCharactor.Count == 0) { return; }
             if (!view) { return; }
 
@@ -285,7 +295,7 @@ namespace ACT.RadarForm
                 }
 
             }
-
+            */
 
         }
         private List<uint> FlagIDs = new List<uint>();

@@ -1,0 +1,23 @@
+﻿<Window x:Class="RadarWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadarWindow"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent" 
+        
+        Title="MainWindow" Height="350" Width="430.862">
+    <Grid Margin="0,0,10,0">
+        <Button x:Name="btResie" Content="" HorizontalAlignment="Left" Margin="379,10,0,0" VerticalAlignment="Top" Width="34" ClipToBounds="True"/>
+        <Button x:Name="btTarget" Content="" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="34" ClipToBounds="True"/>
+        <Button x:Name="btSelect" Content="" HorizontalAlignment="Left" Margin="295,10,0,0" VerticalAlignment="Top" Width="34" ClipToBounds="True"/>
+        <Button x:Name="btZoomIn" Content="" HorizontalAlignment="Left" Margin="246,10,0,0" VerticalAlignment="Top" Width="34" ClipToBounds="True"/>
+        <Button x:Name="btZoomOut" Content="" HorizontalAlignment="Left" Margin="212,10,0,0" VerticalAlignment="Top" Width="34" ClipToBounds="True"/>
+        <Button x:Name="btSwitch" Content="" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="20" ClipToBounds="True"/>
+        <Button x:Name="btVer" Content="" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Width="143" ClipToBounds="True"  MouseMove="btVer_MouseMove" MouseLeftButtonDown="btVer_MouseLeftButtonDown" Click="btVer_Click"/>
+
+    </Grid>
+</Window>

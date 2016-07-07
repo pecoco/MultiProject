@@ -147,6 +147,7 @@
             this.button1.Size = new System.Drawing.Size(85, 12);
             this.button1.TabIndex = 7;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadarForm_MouseDown);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadarForm_MouseMove);

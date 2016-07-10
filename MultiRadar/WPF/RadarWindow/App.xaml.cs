@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RadarWindow
+namespace Wpf.RadarWindow
 {
     /// <summary>
     /// Interaction logic for App.xaml

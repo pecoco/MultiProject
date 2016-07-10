@@ -1,7 +1,6 @@
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\RadarWindow.exe.config
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\RadarWindow.exe
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\RadarWindow.pdb
-E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\obj\Debug\RadarWindow.csprojResolveAssemblyReference.cache
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\obj\Debug\MainWindow.g.cs
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\obj\Debug\App.g.cs
 E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\obj\Debug\RadarWindow_MarkupCompile.cache
@@ -28,3 +27,8 @@ C:\G\ACT\RadarWindow\obj\Debug\RadarWindow.Properties.Resources.resources
 C:\G\ACT\RadarWindow\obj\Debug\RadarWindow.csproj.GenerateResource.Cache
 C:\G\ACT\RadarWindow\obj\Debug\RadarWindow.exe
 C:\G\ACT\RadarWindow\obj\Debug\RadarWindow.pdb
+E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\Livet.dll
+E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\System.Windows.Interactivity.dll
+E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\Microsoft.Expression.Interactions.dll
+E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\bin\Debug\Livet.xml
+E:\ACT\MultiProject\MultiRadar\WPF\RadarWindow\obj\Debug\RadarWindow.csprojResolveAssemblyReference.cache

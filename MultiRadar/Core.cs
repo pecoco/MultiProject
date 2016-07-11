@@ -1,15 +1,19 @@
 ﻿using ACT.Radardata;
-using ACT.RadarForm;
+
 using ACT.RadarViewOrder;
 using Advanced_Combat_Tracker;
 using MultiProject;
 using MultiProject.Common;
+using System.Drawing;
 using System.Timers;
+using System.Windows;
+using Wpf.RadarWindow;
+
 namespace MultiRadar
 {
     public partial class RadarSettingControl
     {
-        protected RadarForm radarForm;
+        protected MainWindow radarForm;
         protected AlertForm alertForm;
         Analyze analyze = new Analyze();
 
@@ -45,20 +49,25 @@ namespace MultiRadar
             ActData.AllCharactor = ActHelper.GetCombatantList();
             if (ActData.AllCharactor.Count > 0)
             {
-                radarForm.upDate();
+                //radarForm.upDate();
                 //CallSetLine();
+
+
             }
+ 
         }
         partial void ViewWindow()
         {
             if (ckRadarVisible.Checked)
             {
-
-                radarForm = new RadarForm();
-                radarForm.Left = int.Parse(textRadarXpos.Text);
-                radarForm.Top = int.Parse(textRadarYpos.Text);
+                
+                radarForm = new MainWindow();
+                radarForm.Show();
+                radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 300,300));
+                /*radarForm.Left = int.Parse(textRadarXpos.Text);
+                radarForm.Top = int.Parse(textRadarYpos.Text);*/
                 radarForm.CallbackSaveSetting = SaveSettings;
-
+                
                 RadarViewOrder.SoundEnable = ckRadarSE.Checked;
                 alertForm = new AlertForm();
                 alertForm.CallbackSaveSetting = SaveSettings;
@@ -70,16 +79,18 @@ namespace MultiRadar
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
                 ReSetComboRadarZoneItem(false);
                 RadarViewOrder.AllRadarMode = rbRederModeFull.Checked;
-                radarForm.Show();
+                //radarForm.Show();
             }
         }
         partial void CloseWindow()
         {
+            /*
             if (radarForm != null)
             {
                 radarForm.Hide();
                 radarForm.Dispose();
             }
+            */
             if (alertForm != null)
             {
                 alertForm.Hide();

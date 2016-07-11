@@ -93,12 +93,6 @@
     </Compile>
     <Compile Include="RadarData.cs" />
     <Compile Include="RadardataInstance.cs" />
-    <Compile Include="RadarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RadarForm.Designer.cs">
-      <DependentUpon>RadarForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="RadarSettingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,15 +100,16 @@
       <DependentUpon>RadarSettingControl.cs</DependentUpon>
     </Compile>
     <Compile Include="RadarViewOrder.cs" />
-    <Compile Include="RadarWPF.xaml.cs">
-      <DependentUpon>RadarWPF.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Settings\Setting.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Settings\UIRadarSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="WPF\RadarWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\RadarWindow\ViewModel\MainWindowModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddRadarMobForm.resx">
@@ -127,17 +122,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RadarForm.resx">
-      <DependentUpon>RadarForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RadarSettingControl.resx">
       <DependentUpon>RadarSettingControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="RadarWPF.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="WPF\RadarWindow\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

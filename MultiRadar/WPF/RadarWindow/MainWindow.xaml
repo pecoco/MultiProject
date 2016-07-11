@@ -20,7 +20,7 @@
         Width="{Binding WindowWidth ,Mode=TwoWay}" 
         Height="{Binding WindowHeight ,Mode=TwoWay}" 
         MinHeight="300" 
-        MinWidth="300">
+        MinWidth="300" Loaded="RadarWindow_Loaded">
 
 
     <Grid x:Name="vbox" Margin="0,0,10,0" SizeChanged="Grid_SizeChanged" ClipToBounds="True" IsHitTestVisible="True"  >

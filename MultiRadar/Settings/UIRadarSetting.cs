@@ -30,8 +30,10 @@ namespace MultiRadar
 
             if (addRadarDataForm.ShowDialog() == DialogResult.OK)
             {
+                /*
                 radarForm.AddMob(addRadarDataForm.ZoneName, addRadarDataForm.SelectMobtype, addRadarDataForm.MobName, addRadarDataForm.ZoneNameJp);
                 radarForm.SaveRadarData();
+                */
                 ReSetComboRadarZoneItem();
                 ComboRadarZone.SelectedIndex = keepIndex;
             }
@@ -47,7 +49,7 @@ namespace MultiRadar
             }
             if (saveAction)
             {
-                radarForm.SaveRadarData();
+                //radarForm.SaveRadarData();
             }
             //表示処理
             setSettingFormRederData();
@@ -57,6 +59,7 @@ namespace MultiRadar
         {
             if (ComboRadarZone.Text != "")
             {
+                /*
                 ZoneMobData zone = radarForm.getMobList(ComboRadarZone.Text);
 
                 textAreaJp.Text = zone.nameJp;
@@ -81,6 +84,7 @@ namespace MultiRadar
                 {
                     listMobETC.Items.Add(zone.etc[i]);
                 }
+                */
             }
         }
 
@@ -92,8 +96,10 @@ namespace MultiRadar
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             switch (tabControlMob.SelectedIndex)
             {
+                
                 case 0:
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.S, listMobSS.SelectedItem.ToString());
                     listMobSS.Items.Clear();
@@ -110,7 +116,7 @@ namespace MultiRadar
                     radarForm.RemoveMob(ComboRadarZone.Text, MobType.ETC, listMobETC.SelectedItem.ToString());
                     listMobETC.Items.Clear();
                     break;
-            }
+            }*/
             ReSetComboRadarZoneItem();
         }
     }

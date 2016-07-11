@@ -5,6 +5,7 @@ using System.Drawing;
 namespace ACT.RadarViewOrder
 {
     using MultiProject;
+    using System.Windows;
     public static class RadarViewOrder
     {
         static bool playerView = false;
@@ -37,11 +38,11 @@ namespace ACT.RadarViewOrder
         }
 
         public static double myRadian;
-        public static Rectangle oldPlayerRect;
-        public static Rectangle PlayerRect()
+        public static Rect oldPlayerRect;
+        public static Rect PlayerRect()
         {
 
-            oldPlayerRect = new Rectangle((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 8, 8);
+            oldPlayerRect = new Rect((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 8, 8);
             return oldPlayerRect;
         }
 
@@ -64,7 +65,7 @@ namespace ACT.RadarViewOrder
 
         }
 
-        public static Rectangle MobRect(float myX, float myY, float mobX, float mobY)
+        public static Rect MobRect(float myX, float myY, float mobX, float mobY)
         {
             float x = (mobX) - myX + (64 * radarZoom);//0-2000
             float y = (mobY) - myY + (64 * radarZoom);
@@ -72,7 +73,7 @@ namespace ACT.RadarViewOrder
             x = (x * bW) / (64 * radarZoom * 2);// (scale * 2);//  400;
             y = (y * bH) / (64 * radarZoom * 2);// (scale * 2);//400;
 
-            return new Rectangle((int)x, (int)y, 5, 5);
+            return new Rect((int)x, (int)y, 3, 3);
         }
 
         public static int radarZoom = 5;
@@ -146,7 +147,7 @@ namespace ACT.RadarViewOrder
         }
         public static int getKeepWindowHeightSize()
         {
-            return keepPoint.Y;
+            return (int)keepPoint.Y;
         }
         public static bool windowsStatus;
 

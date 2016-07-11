@@ -5,15 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 using System.Windows.Threading;
 
 using System.Windows.Media.Media3D;
@@ -25,22 +21,23 @@ using System.Reflection;
 
 using System.Timers;
 using System.Text.RegularExpressions;
-
+using ACT.RadarViewOrder;
+using MultiProject.Common;
+using ACT.Radardata;
+using MultiProject;
 
 namespace Wpf.RadarWindow
 {
     public partial class MainWindow : Window
     {
-       
-        [STAThread]
-        public static void Main()
+        const int CLOSE_WINDOW_SET_HEIGHT = 70;
+        Action callbackSaveSetting = null;
+        public Action CallbackSaveSetting
         {
-            Window mainWnd = new MainWindow();
-            Application app = new Application();
-            app.Run(mainWnd);
+            set { callbackSaveSetting = value; }
         }
-       
-        private DispatcherTimer mTimer;
+        private readonly DispatcherTimer mTimer = new DispatcherTimer(DispatcherPriority.Render);
+        
         private RadarMainWindowViewModel model;
 
         MainWindow instance = null;
@@ -54,8 +51,9 @@ namespace Wpf.RadarWindow
             {
                 var source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
                 source.AddHook(new HwndSourceHook(WndProc));
-
-
+                mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
+                mTimer.Tick += new EventHandler(TickTimer);
+                mTimer.Start();
             };
             
             Hookproc();
@@ -65,11 +63,7 @@ namespace Wpf.RadarWindow
             String propertyName = "";
             model.PropertyChanged += new PropertyChangedEventHandler((s, e) => { propertyName = e.PropertyName; });
 
-            model.WindowLeft = 500;
-            model.WindowTop = 300;
 
-            model.WindowWidth = 600;
-            model.WindowHeight = 400;
 
             model.SelectChecked = true;
             DataContext = model;
@@ -78,10 +72,6 @@ namespace Wpf.RadarWindow
 
             rtClipBar.MouseLeftButtonDown += (sender, e) => { this.DragMove(); };
 
-            mTimer = new DispatcherTimer(DispatcherPriority.Normal);
-            mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
-            mTimer.Tick += new EventHandler(TickTimer);
-            mTimer.Start();
         }
 
         protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
@@ -95,10 +85,11 @@ namespace Wpf.RadarWindow
         const int VK_F4 = 0x73;
         const int VM_LBUTTON = 0x0201;
         static Int32 MES;
-        static Int32 YY;
+
 
         private static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
+ 
             if ((msg == WM_SYSKEYDOWN) &&
                 (wParam.ToInt32() == VK_F4))
             {
@@ -106,22 +97,11 @@ namespace Wpf.RadarWindow
             }
             MES = msg;
 
-            YY = ((int)lParam >> 16) & 0xFFFF;
-            if (MES == VM_LBUTTON)
-            {
-                if (YY > 80) {
-                    handled = true;
-                }
-            }
             if(MES== WM_MOUSEACTIVATE)
             {
                 handled = true;
                 return new IntPtr(MA_NOACTIVATE);
             }
-
-
-
-
             return IntPtr.Zero;
         }
 
@@ -134,32 +114,24 @@ namespace Wpf.RadarWindow
 
         }
 
-        void TickTimer(object sender, EventArgs e)
+        public void TickTimer(object sender, EventArgs e)
         {
             if (isView)
             {
-
+                /*
                 if (CalculateCommand.CanExecute)
                 {
                     CalculateCommand.Execute();
                 }
                 this.BackgroundInvoke();
+                */
+                DataCreate();
+                Render();
             }
         }
 
         private List<Point> po = new List<Point>();
-        private Livet.Commands.ViewModelCommand _CalculateCommand;
-        public Livet.Commands.ViewModelCommand CalculateCommand
-        {
-            get
-            {
-                if (_CalculateCommand == null)
-                {
-                    _CalculateCommand = new Livet.Commands.ViewModelCommand(DataCreate, CanDataCreate);
-                }
-                return _CalculateCommand;
-            }
-        }
+
 
         private void DataCreate()
         {
@@ -194,12 +166,85 @@ namespace Wpf.RadarWindow
             using (var dc = dg.Open())
             {
                 // 四角形
-                dc.DrawRectangle(Brushes.SkyBlue, null, new Rect(0, 0, 10, 100));
+
+                dc.DrawRectangle(null, new Pen(Brushes.Indigo, 1), new Rect(0, 0, img.Width - 1, img.Height - 1));
+
+
+
+                if (ActData.AllCharactor == null) { return; }
+                if (ActData.AllCharactor.Count == 0) { return; }
+                if (!isOpen) { return; }
+
+                RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)this.Width, (int)this.Height);
+                RadarViewOrder.myData = ActData.AllCharactor[0];
+
+                //場所
+                if (RadardataInstance.Zone != "")
+                {
+                    dc.DrawText(new FormattedText(RadardataInstance.Zone,
+                    System.Globalization.CultureInfo.CurrentUICulture,
+                    FlowDirection.LeftToRight, new Typeface("Verdana"),
+                    14, Brushes.White), new Point(0, 16));
+
+                }
+
+                lock (ActData.AllCharactor)
+                {
+                    List<Combatant> searchObjects = new List<Combatant>();
+                    if (model.SelectChecked)
+                    {
+                        foreach (Combatant mob in ActData.AllCharactor)
+                        {
+                            if (RadardataInstance.radarData.Search(RadardataInstance.Zone, mob.Name) > 0)
+                            {
+                                searchObjects.Add(mob);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        selectAll(ref searchObjects);
+                    }
+
+                    if (searchObjects.Count > 0)
+                    {
+                        if (this.Height == CLOSE_WINDOW_SET_HEIGHT)
+                        {
+                            //this.Height = RadarViewOrder.getKeepWindowHeightSize();
+                            FirstOpenWindowAnimetion();
+                        }
+
+                        if (OpenWindowAnimetion(dc,300))
+                        {
+                            if (RadarViewOrder.windowsStatus == false)
+                            {
+                                RadarViewOrder.windowsStatus = true;
+                            }
+                            namePlate(searchObjects, dc);
+                        }
+                    }
+                    else
+                    {
+                        this.Height = CLOSE_WINDOW_SET_HEIGHT;
+                        //this.Opacity = HIDE_OPACITY;
+                        RadarViewOrder.windowsStatus = false;
+                    }
+
+                    if (RadarViewOrder.windowsStatus)
+                    {
+                        DrowMyCharacter(dc);
+                    }
+
+                }
+
+
+
+              
 
                 // 画像
                 //var image = BitmapFrame.Create(new Uri("Image.bmp", UriKind.Relative));
                 //dc.DrawImage(image, new Rect(10, 5, 180, 90));
-
+                /*
                 for (int i = 0; i < po.Count; i++)
                 {
                     if (po[i].X < 30) { continue; }
@@ -218,30 +263,306 @@ namespace Wpf.RadarWindow
                 dc.DrawRectangle(null, new Pen(Brushes.Green, 1), new Rect(0, 0, img.Width - 1, img.Height - 1));
 
                 //dc.DrawRectangle(null, new Pen(Brushes.Purple, 1), new Rect(0, 0, RadarWindow.Width - 1, RadarWindow.Height - 1));
+                */
 
-
-                    // テキスト
-                    dc.DrawText(new FormattedText(MES.ToString() + "width:" + Width.ToString() + " deW:" + img.Width.ToString(),
-                    System.Globalization.CultureInfo.CurrentUICulture,
-                    FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    16, Brushes.White), new Point(0, 80));
+    
 
                 
 
 
                 // テキスト
-                dc.DrawText(new FormattedText(MES.ToString() + "Drawing sample!" + YY.ToString(),
-                System.Globalization.CultureInfo.CurrentUICulture,
-                FlowDirection.LeftToRight, new Typeface("Verdana"),
-                16, Brushes.Yellow), new Point(40, 40));
+
 
                 // 線
-                dc.DrawLine(new Pen(Brushes.Green, 2), new Point(5, 5), new Point(195, 95));
+                //dc.DrawLine(new Pen(Brushes.Green, 2), new Point(5, 5), new Point(195, 95));
             }
+        }
+        int openAnimationY;
+        private void FirstOpenWindowAnimetion()
+        {
+            openAnimationY = CLOSE_WINDOW_SET_HEIGHT + 1;
+            this.Height = openAnimationY;
+        }
+        private bool OpenWindowAnimetion(DrawingContext dc,int maxY)
+        {
+            if (openAnimationY < maxY)
+            {
+                openAnimationY+=8;
+                this.Height = openAnimationY;
+
+                dc.DrawLine(new Pen(Brushes.Green, 1), new Point(0, openAnimationY), new Point(this.Width, openAnimationY));
+                return false;
+            }
+            return true;
         }
 
 
 
+
+        private void DrowMyCharacter(DrawingContext dc)
+        {
+            Rect rect = RadarViewOrder.PlayerRect();//
+
+          
+            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
+
+            dc.DrawText(new FormattedText(rect.Left.ToString()+","+ rect.Top.ToString(),
+            System.Globalization.CultureInfo.CurrentUICulture,
+            FlowDirection.LeftToRight, new Typeface("Verdana"),
+            4, Brushes.Red), new Point(rect.X, rect.Y ));
+
+            float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
+            float ef = 18.0f;//sf;
+
+            sf = sf - 9 < -180 ? sf - 9 + 180 : sf - 9;
+            //g.DrawPie(Pens.Aqua, rect, sf, ef); ;
+            //dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height,);
+
+
+        }
+
+
+        private void namePlate(List<Combatant> searchObjects, DrawingContext dc )
+        {
+            foreach (Combatant mob in searchObjects)
+            {
+                bool flag = isFlag(mob.ID);
+                int hpPar = (mob.CurrentHP * 100 / mob.MaxHP);
+                bool shortName = true;
+                if (model.SelectChecked) { shortName = false; }
+
+                Rect rect = RadarViewOrder.MobRect(RadarViewOrder.myData.PosX, RadarViewOrder.myData.PosY, mob.PosX, mob.PosY);
+
+                //dc.DrawRectangle(Brushes.SkyBlue, null, new Rect(0, 0, 10, 100));
+                dc.DrawEllipse(getBrush(hpPar, flag), null, new Point(rect.Left,rect.Top), (double)rect.Width, (double)rect.Height);
+
+
+
+
+                this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X, rect.Y - 14, flag, shortName);
+                if (RadarViewOrder.PlayerView)
+                {
+                    jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
+                    // テキスト
+                    dc.DrawText(new FormattedText(job.job,
+                    System.Globalization.CultureInfo.CurrentUICulture,
+                    FlowDirection.LeftToRight, new Typeface("Verdana"),
+                    4, job.brush), new Point(job.left, rect.Y - 14));
+                    if (mob.CastTargetID == RadarViewOrder.myData.ID)
+                    {
+                       
+                        dc.DrawText(new FormattedText(job.job,
+                        System.Globalization.CultureInfo.CurrentUICulture,
+                        FlowDirection.LeftToRight, new Typeface("Verdana"),
+                        4, Brushes.Red), new Point(rect.X, rect.Y - 14));
+                    }
+                }
+            }
+        }
+        private struct jobTextLayout
+        {
+            public string job;
+            public Brush brush;
+            public double left;
+        };
+
+        private jobTextLayout GetJobTextLayout(int JobId ,Rect rect,bool IsCasting)
+        {
+            jobTextLayout job = new jobTextLayout();
+            switch (JobId)
+            {
+                case 19:
+                case 21:
+                case 32:
+                    job.job = "TANK"; job.brush = Brushes.DodgerBlue;  job.left = rect.Left + 5; break;
+                case 20:
+                case 22:
+                case 30:
+                    job.job = "MELE"; job.brush = Brushes.Orange; job.left = rect.Left + 5; break;
+                case 23:
+                case 31:
+                    job.job = "RENG"; job.brush = Brushes.Green; job.left = rect.Left + 5; break;
+                case 24:
+                case 28:
+                case 33:
+                    if (IsCasting)
+                    {
+                        job.job = "HEAL◎"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
+                    }
+                    else
+                    {
+                        job.job = "HEAL"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
+                    }
+                case 25:
+                case 27:
+                    if (IsCasting)
+                    {
+                        job.job = "CAS@"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
+                    }
+                    else
+                    {
+                        job.job = "CAS@"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
+                    }
+                default:
+                    job.job = ""; job.brush = Brushes.Black; job.left = rect.Left + 5; break;
+                   
+            }
+            return job;
+
+        }
+
+  
+
+
+
+        StringBuilder name = new StringBuilder();
+        private void TextOut(DrawingContext dc, string charcterName, Brush color,  double left,  double top, bool flag, bool ShortName)
+        {
+            name.Length = 0;
+            if (ShortName)
+            {
+                string[] ss = charcterName.Split(' ');
+                name.Append(ss[0].Substring(0, 1));
+                if (ss.Length > 1)
+                {
+                    name.Append('.' + ss[1]);
+                }else
+                {
+                    name.Append(ss[0].Substring(1, 6));
+                }
+            }
+            else
+            {
+                name.Append(charcterName);
+            }
+
+            if (flag)
+            {
+                dc.DrawText(new FormattedText("▶",
+                System.Globalization.CultureInfo.CurrentUICulture,
+                FlowDirection.LeftToRight, new Typeface("Verdana"),
+                8, Brushes.Aqua), new Point(left, top));
+
+                dc.DrawText(new FormattedText(name.ToString(),
+                System.Globalization.CultureInfo.CurrentUICulture,
+                FlowDirection.LeftToRight, new Typeface("Verdana"),
+                8, Brushes.WhiteSmoke), new Point(left + 8, top));
+
+                return;
+            }
+            dc.DrawText(new FormattedText(name.ToString(),
+            System.Globalization.CultureInfo.CurrentUICulture,
+            FlowDirection.LeftToRight, new Typeface("Verdana"),
+            8, Brushes.WhiteSmoke), new Point(left, top));
+
+        }
+
+
+
+
+        private List<uint> FlagIDs = new List<uint>();
+        private void selectAll(ref List<Combatant> searchObjects)
+        {
+            if (FlagKeepOn)
+            {
+                FlagIDs.Clear();
+
+                foreach (Combatant charcter in ActData.AllCharactor)
+                {
+                    FlagIDs.Add(charcter.ID);
+                }
+
+                FlagKeepOn = false;
+            }
+            foreach (Combatant charcter in ActData.AllCharactor)
+            {
+
+                if (charcter.Name == "ガルーダ・エギ")
+                {
+                    continue;
+                }
+                if (charcter.Name == "イフリート・エギ")
+                {
+                    continue;
+                }
+                if (charcter.Name == "フェアリー・エオス")
+                {
+                    continue;
+                }
+                if (charcter.Name == "フェアリー・セレネ")
+                {
+                    continue;
+                }
+                if (charcter.Name == "オートタレット・ルーク")
+                {
+                    continue;
+                }
+                if (charcter.Name == "オートタレット・ビショップ")
+                {
+                    continue;
+                }
+                if (charcter.Name == "木人")
+                {
+                    continue;
+                }
+
+                if (!RadarViewOrder.PlayerView)
+                {
+                    if (charcter.Name.IndexOf("宝箱") > -0)
+                    {
+                        searchObjects.Add(charcter);
+                    }
+                    if (charcter.type == 2)
+                    {
+                        searchObjects.Add(charcter);
+                    }
+                }
+                else
+                {
+                    if (charcter.type != 2)
+                    {
+                        searchObjects.Add(charcter);
+                    }
+                }
+            }
+        }
+        private Brush getBrush(int hpPar, bool flag)
+        {
+            if (hpPar == 0)
+            {
+                return Brushes.Gray;
+            }
+            else if (hpPar < 10)
+            {
+                return (Brushes.Red);
+            }
+            else if (hpPar < 40)
+            {
+                return (Brushes.Yellow);
+            }
+            else
+            {
+                if (flag)
+                {
+                    return (Brushes.Lime);
+                }
+                else
+                {
+                    return (Brushes.Violet);
+                }
+            }
+        }
+        private bool isFlag(uint id)
+        {
+            foreach (uint flagId in FlagIDs)
+            {
+                if (flagId == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btResie_Click(object sender, RoutedEventArgs e)
         {
             if (this.ResizeMode == ResizeMode.CanResizeWithGrip)
@@ -291,11 +612,7 @@ namespace Wpf.RadarWindow
         }
         private void RadarWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-           // cvs.Width = RadarWindow.Width-1; cvs.Height = RadarWindow.Height-1;
             img.Width = RadarWindow.Width; img.Height = RadarWindow.Height;
-            //this.Width = RadarWindow.Width-1; this.Height = RadarWindow.Height-1;
-
-
         }
         //--------------------------------------
         private delegate int HookProc(int nCode, IntPtr wParam, IntPtr lParam);
@@ -329,6 +646,14 @@ namespace Wpf.RadarWindow
             }
         }
 
+        public void SetWindowRect(Rect rect)
+        {
+            model.WindowLeft = rect.Left;
+            model.WindowTop = rect.Top;
+            model.WindowWidth = rect.Width;
+            model.WindowHeight = rect.Height;
+        }
+
         private static int MouseHookProc(int nCode, IntPtr wParam, IntPtr lParam)
         {
    /*         if (Form1.ActiveForm != null)
@@ -357,6 +682,7 @@ namespace Wpf.RadarWindow
 
         private static Timer SetWindowTimer { get; set; }
         public string DesignHeight { get; private set; }
+        public bool FlagKeepOn { get; private set; }
 
         public delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
         public const uint EVENT_SYSTEM_FOREGROUND = 3;
@@ -439,7 +765,14 @@ namespace Wpf.RadarWindow
         private void btZoomIn_Click(object sender, RoutedEventArgs e)
         {
 
+            
+        }
 
+        private void RadarWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
+            //mTimer.Tick += new EventHandler(TickTimer);
+            //mTimer.Start();
         }
     }
 

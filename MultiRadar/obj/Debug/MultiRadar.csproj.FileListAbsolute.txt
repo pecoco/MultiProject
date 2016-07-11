@@ -8,12 +8,11 @@ E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.pdb
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AddRadarMobForm.resources
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.RadarSettingControl.resources
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csproj.GenerateResource.Cache
-E:\ACT\MultiProject\MultiRadar\obj\Debug\ACT.RadarForm.RadarForm.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AlertForm.resources
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.Properties.Resources.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\RadarWPF.g.cs
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.lref
-E:\ACT\MultiProject\MultiRadar\obj\Debug\RadarWPF.baml
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.g.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.g.cs
+E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.baml
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache

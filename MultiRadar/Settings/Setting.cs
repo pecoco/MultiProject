@@ -76,11 +76,13 @@ namespace MultiRadar
         {
             if (skipSetWindowPos == false)
             {
+                /*
                 if (radarForm != null)
                 {
                     textRadarXpos.Text = radarForm.Left.ToString();
                     textRadarYpos.Text = radarForm.Top.ToString();
                 }
+                */
                 if (alertForm != null)
                 {
                     textAlertXpos.Text = alertForm.Left.ToString();

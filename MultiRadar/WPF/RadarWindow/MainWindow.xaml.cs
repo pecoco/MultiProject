@@ -183,8 +183,8 @@ namespace Wpf.RadarWindow
                 {
                     dc.DrawText(new FormattedText(RadardataInstance.Zone,
                     System.Globalization.CultureInfo.CurrentUICulture,
-                    FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    14, Brushes.White), new Point(0, 16));
+                    FlowDirection.LeftToRight, new Typeface("Times New Roman"),
+                    14, Brushes.White), new Point(2, 22));
 
                 }
 
@@ -340,21 +340,21 @@ namespace Wpf.RadarWindow
 
 
                 this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X, rect.Y - 14, flag, shortName);
-                if (RadarViewOrder.PlayerView)
+                if (model.AntiPersonalChecked)
                 {
                     jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
                     // テキスト
                     dc.DrawText(new FormattedText(job.job,
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    4, job.brush), new Point(job.left, rect.Y - 14));
+                    6, job.brush), new Point(job.left + 2, rect.Y -4));
                     if (mob.CastTargetID == RadarViewOrder.myData.ID)
                     {
                        
                         dc.DrawText(new FormattedText(job.job,
                         System.Globalization.CultureInfo.CurrentUICulture,
                         FlowDirection.LeftToRight, new Typeface("Verdana"),
-                        4, Brushes.Red), new Point(rect.X, rect.Y - 14));
+                        6, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
                     }
                 }
             }
@@ -422,13 +422,20 @@ namespace Wpf.RadarWindow
             if (ShortName)
             {
                 string[] ss = charcterName.Split(' ');
-                name.Append(ss[0].Substring(0, 1));
+                
                 if (ss.Length > 1)
                 {
+                    name.Append(ss[0].Substring(0, 1));
                     name.Append('.' + ss[1]);
                 }else
                 {
-                    name.Append(ss[0].Substring(1, 6));
+                    if (ss[0].Length > 6)
+                    {
+                        name.Append(ss[0].Substring(1, 6));
+                    }else
+                    {
+                        name.Append(ss[0]);
+                    }
                 }
             }
             else
@@ -506,7 +513,7 @@ namespace Wpf.RadarWindow
                     continue;
                 }
 
-                if (!RadarViewOrder.PlayerView)
+                if (!model.AntiPersonalChecked)
                 {
                     if (charcter.Name.IndexOf("宝箱") > -0)
                     {
@@ -774,6 +781,13 @@ namespace Wpf.RadarWindow
             //mTimer.Tick += new EventHandler(TickTimer);
             //mTimer.Start();
         }
+
+        #region Flag On
+        private void btFlagOn_Click(object sender, RoutedEventArgs e)
+        {
+            FlagKeepOn = true;
+        }
+        #endregion
     }
 
 

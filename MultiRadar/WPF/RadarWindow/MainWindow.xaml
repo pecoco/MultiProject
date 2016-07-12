@@ -23,6 +23,9 @@
         MinWidth="300" Loaded="RadarWindow_Loaded">
 
 
+
+
+
     <Grid x:Name="vbox" Margin="0,0,10,0" SizeChanged="Grid_SizeChanged" ClipToBounds="True" IsHitTestVisible="True"  >
 
 
@@ -40,8 +43,7 @@
                 </DrawingImage>
             </Image.Source>
         </Image>
- 
-        
+
 
 
 
@@ -89,12 +91,12 @@
                                 </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Checked">
                                     <Storyboard>
-                                            <ColorAnimation Duration="0"
+                                        <ColorAnimation Duration="0"
                                                         To="#FF55C855"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
-                                            <DoubleAnimation
+                                        <DoubleAnimation
                                             Storyboard.TargetProperty="Opacity"
                                             From="1" To="0.2" Duration="0:0:1"
                                             RepeatBehavior="Forever" AutoReverse="true" />
@@ -117,9 +119,9 @@
 
         <!--#endregion-->
 
-
+                                                                                                                                                                         
         <!--#region btTarget Mob or Player-->
-        <ToggleButton x:Name="btAntiPersonnel" Content="" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding antiPersonnelChecked ,Mode=TwoWay}" Background="Black">
+        <ToggleButton x:Name="btAntiPersonal" Content="" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding AntiPersonalChecked ,Mode=TwoWay}" Background="#FF5C68DC">
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="border" BorderThickness="1" Background="Gainsboro" BorderBrush="Gray" Height="21">
@@ -267,62 +269,13 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="245,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#FF00C5FF" Background="#FF08272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
 
-
-        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="244,4,0,0" VerticalAlignment="Top" Width="26" Height="22"  ClipToBounds="True" Foreground="#FF005DFF">
-
-
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="border"
-                            BorderThickness="1"
-                            Background="Gainsboro"
-                            BorderBrush="Gray" Height="21">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.2" />
-                                </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Normal" >
-                                <Storyboard>
-                                    <ColorAnimation Duration="0"
-                                                        To="#FFDCC8DC"
-                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                        Storyboard.TargetName="border"
-                                                        d:IsOptimized="True" />
-                                </Storyboard>
-                                </VisualState>
-
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Duration="0"
-                                                        To="#FFDCC8DC"
-                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                        Storyboard.TargetName="border"
-                                                        d:IsOptimized="True" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ColorAnimation Duration="0"
-                                                        To="#FFC85555"
-                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                        Storyboard.TargetName="border"
-                                                        d:IsOptimized="True" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Disabled" />
-                            </VisualStateGroup>
-                             </VisualStateManager.VisualStateGroups>
-
-                    </Border>
-
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-       
 
 
     </Grid>
-
 </Window>
+
+
+
+        

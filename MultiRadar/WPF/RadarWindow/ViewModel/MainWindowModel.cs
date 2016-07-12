@@ -102,21 +102,21 @@ namespace Wpf.RadarWindow
             }
         }
 
-        private bool antiPersonnelChecked;
-        public bool AntiPersonnelChecked
+        private bool antiPersonalChecked;
+        public bool AntiPersonalChecked
         {
-            get { return antiPersonnelChecked; }
+            get { return antiPersonalChecked; }
             set
             {
-                if (antiPersonnelChecked != value)
+                if (antiPersonalChecked != value)
                 {
-                    antiPersonnelChecked = value;
-                    RaisePropertyChanged("antiPersonnelChecked");
+                    antiPersonalChecked = value;
+                    RaisePropertyChanged("AntiPersonalChecked");
                 }
             }
         }
 
-
+      
 
 
 

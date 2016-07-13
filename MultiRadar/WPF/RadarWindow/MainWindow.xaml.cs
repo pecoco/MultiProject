@@ -26,11 +26,12 @@ using MultiProject.Common;
 using ACT.Radardata;
 using MultiProject;
 
+
 namespace Wpf.RadarWindow
 {
     public partial class MainWindow : Window
     {
-        const int CLOSE_WINDOW_SET_HEIGHT = 70;
+        const int CLOSE_WINDOW_SET_HEIGHT = 40;
         Action callbackSaveSetting = null;
         public Action CallbackSaveSetting
         {
@@ -40,13 +41,18 @@ namespace Wpf.RadarWindow
         
         private RadarMainWindowViewModel model;
 
+        SolidColorBrush windowRectBrush = new SolidColorBrush();
+
         MainWindow instance = null;
         public MainWindow()
         {
 
             instance = this;
             InitializeComponent();
+
             
+            windowRectBrush.Color = Color.FromArgb(1, 80, 80, 80);
+
             Loaded += (o, e) =>
             {
                 var source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
@@ -73,6 +79,7 @@ namespace Wpf.RadarWindow
             rtClipBar.MouseLeftButtonDown += (sender, e) => { this.DragMove(); };
 
         }
+
 
         protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
         {
@@ -167,26 +174,17 @@ namespace Wpf.RadarWindow
             {
                 // 四角形
 
-                dc.DrawRectangle(null, new Pen(Brushes.Indigo, 1), new Rect(0, 0, img.Width - 1, img.Height - 1));
 
-
+                dc.DrawRectangle(null, new Pen(windowRectBrush, 1), new Rect(0, 0, img.Width - 1, img.Height - 1));
 
                 if (ActData.AllCharactor == null) { return; }
                 if (ActData.AllCharactor.Count == 0) { return; }
                 if (!isOpen) { return; }
 
-                RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)this.Width, (int)this.Height);
+                RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)img.Width-1, (int)img.Height-1);
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
-                //場所
-                if (RadardataInstance.Zone != "")
-                {
-                    dc.DrawText(new FormattedText(RadardataInstance.Zone,
-                    System.Globalization.CultureInfo.CurrentUICulture,
-                    FlowDirection.LeftToRight, new Typeface("Times New Roman"),
-                    14, Brushes.White), new Point(2, 22));
 
-                }
 
                 lock (ActData.AllCharactor)
                 {
@@ -203,7 +201,7 @@ namespace Wpf.RadarWindow
                     }
                     else
                     {
-                        selectAll(ref searchObjects);
+                        SelectAll(ref searchObjects);
                     }
 
                     if (searchObjects.Count > 0)
@@ -216,6 +214,15 @@ namespace Wpf.RadarWindow
 
                         if (OpenWindowAnimetion(dc,300))
                         {
+                            //場所
+                            if (RadardataInstance.Zone != "")
+                            {
+                                dc.DrawText(new FormattedText(RadardataInstance.Zone,
+                                System.Globalization.CultureInfo.CurrentUICulture,
+                                FlowDirection.LeftToRight, new Typeface("Times New Roman"),
+                                14, Brushes.White), new Point(2, 22));
+
+                            }
                             if (RadarViewOrder.windowsStatus == false)
                             {
                                 RadarViewOrder.windowsStatus = true;
@@ -228,6 +235,8 @@ namespace Wpf.RadarWindow
                         this.Height = CLOSE_WINDOW_SET_HEIGHT;
                         //this.Opacity = HIDE_OPACITY;
                         RadarViewOrder.windowsStatus = false;
+                        keepWidth = model.WindowWidth;
+                        keepHeight = model.WindowHeight;
                     }
 
                     if (RadarViewOrder.windowsStatus)
@@ -287,9 +296,9 @@ namespace Wpf.RadarWindow
         {
             if (openAnimationY < maxY)
             {
-                openAnimationY+=8;
+                openAnimationY+=32;
                 this.Height = openAnimationY;
-
+                dc.DrawLine(new Pen(Brushes.LightSkyBlue, 1), new Point(0, openAnimationY-4), new Point(this.Width, openAnimationY-4));
                 dc.DrawLine(new Pen(Brushes.Green, 1), new Point(0, openAnimationY), new Point(this.Width, openAnimationY));
                 return false;
             }
@@ -302,7 +311,6 @@ namespace Wpf.RadarWindow
         private void DrowMyCharacter(DrawingContext dc)
         {
             Rect rect = RadarViewOrder.PlayerRect();//
-
           
             dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
 
@@ -334,6 +342,12 @@ namespace Wpf.RadarWindow
                 Rect rect = RadarViewOrder.MobRect(RadarViewOrder.myData.PosX, RadarViewOrder.myData.PosY, mob.PosX, mob.PosY);
 
                 //dc.DrawRectangle(Brushes.SkyBlue, null, new Rect(0, 0, 10, 100));
+
+                if (rect.X < 10) { continue; }
+                if (rect.Y < 10) { continue; }
+                if (rect.X > img.Width-10) { continue; }
+                if (rect.Y > img.Height - 10) { continue; }
+
                 dc.DrawEllipse(getBrush(hpPar, flag), null, new Point(rect.Left,rect.Top), (double)rect.Width, (double)rect.Height);
 
 
@@ -468,7 +482,7 @@ namespace Wpf.RadarWindow
 
 
         private List<uint> FlagIDs = new List<uint>();
-        private void selectAll(ref List<Combatant> searchObjects)
+        private void SelectAll(ref List<Combatant> searchObjects)
         {
             if (FlagKeepOn)
             {
@@ -492,6 +506,10 @@ namespace Wpf.RadarWindow
                 {
                     continue;
                 }
+                if (charcter.Name == "タイタン・エギ")
+                {
+                    continue;
+                }
                 if (charcter.Name == "フェアリー・エオス")
                 {
                     continue;
@@ -512,6 +530,9 @@ namespace Wpf.RadarWindow
                 {
                     continue;
                 }
+
+
+
 
                 if (!model.AntiPersonalChecked)
                 {
@@ -589,7 +610,7 @@ namespace Wpf.RadarWindow
         {
             if (e.WidthChanged && isView == false)
             {
-                if (this.Width < 100) { this.Width = 100; }
+                //if (this.Width < 100) { this.Width = 100; }
 
             }
         }
@@ -602,16 +623,23 @@ namespace Wpf.RadarWindow
             //#FF9FFF9A
             if (isOpen)
             {
-                keepWidth = this.Width;
-                keepHeight = this.Height;
-                this.Width = btSwitch.Width + btSwitch.Margin.Left + 16;
-                this.Height = btSwitch.Height + btSwitch.Margin.Bottom;
+                keepWidth = model.WindowWidth;
+                keepHeight = model.WindowHeight;
+
+                if (this.ResizeMode == ResizeMode.CanResizeWithGrip)
+                {
+                    btResie_Click(sender,e);
+                    btResize.IsChecked = false;
+                }
+
+                model.WindowWidth = btSwitch.Width + btSwitch.Margin.Left + 16;
+                model.WindowHeight = btSwitch.Height + btSwitch.Height;
                 btSwitch.Background = new SolidColorBrush(Color.FromArgb(255, 70, 70, 70));
             }
             else
             {
-                this.Width = keepWidth;
-                this.Height = keepHeight;
+                model.WindowWidth = keepWidth;
+                model.WindowHeight = keepHeight;
                 btSwitch.Background = new SolidColorBrush(Color.FromArgb(255, 200, 255, 200));
             }
 
@@ -771,8 +799,7 @@ namespace Wpf.RadarWindow
 
         private void btZoomIn_Click(object sender, RoutedEventArgs e)
         {
-
-            
+            RadarViewOrder.ZoomIn();
         }
 
         private void RadarWindow_Loaded(object sender, RoutedEventArgs e)
@@ -788,6 +815,11 @@ namespace Wpf.RadarWindow
             FlagKeepOn = true;
         }
         #endregion
+
+        private void btZoomOut_Click(object sender, RoutedEventArgs e)
+        {
+            RadarViewOrder.ZoomOut();
+        }
     }
 
 

@@ -42,7 +42,7 @@ namespace ACT.RadarViewOrder
         public static Rect PlayerRect()
         {
 
-            oldPlayerRect = new Rect((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 8, 8);
+            oldPlayerRect = new Rect((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 4, 4);
             return oldPlayerRect;
         }
 
@@ -76,7 +76,17 @@ namespace ACT.RadarViewOrder
             return new Rect((int)x, (int)y, 3, 3);
         }
 
-        public static int radarZoom = 5;
+        public static int radarZoom = 10;
+
+        public static void ZoomIn()
+        {
+            radarZoom = radarZoom > 1 ? radarZoom - 1 : 1;
+        }
+        public static void ZoomOut()
+        {
+            radarZoom = radarZoom < 20 ? radarZoom + 1 : 20;
+        }
+
         public static Combatant oldMyData;
         private static Combatant newMyData;
         public static Combatant myData

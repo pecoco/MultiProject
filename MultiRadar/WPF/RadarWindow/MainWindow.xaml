@@ -18,9 +18,7 @@
         Top="{Binding WindowTop ,Mode=TwoWay}"  
         d:DesignHeight="360.69" d:DesignWidth="386.69" 
         Width="{Binding WindowWidth ,Mode=TwoWay}" 
-        Height="{Binding WindowHeight ,Mode=TwoWay}" 
-        MinHeight="300" 
-        MinWidth="300" Loaded="RadarWindow_Loaded">
+        Height="{Binding WindowHeight ,Mode=TwoWay}" Loaded="RadarWindow_Loaded">
 
 
 
@@ -51,7 +49,7 @@
         <!--#region ResizeButton-->
         <Rectangle Name="rect"/>
 
-        <ToggleButton x:Name="btResize" Content="" HorizontalAlignment="Left" Margin="274,0,0,0" VerticalAlignment="Top" Width="16" ClipToBounds="True" Click="btResie_Click">
+        <ToggleButton x:Name="btResize" Content="" Margin="0,0,10,0" VerticalAlignment="Top" ClipToBounds="True" Click="btResie_Click" HorizontalAlignment="Right" Width="16">
 
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">
@@ -119,15 +117,17 @@
 
         <!--#endregion-->
 
-                                                                                                                                                                         
+
         <!--#region btTarget Mob or Player-->
-        <ToggleButton x:Name="btAntiPersonal" Content="" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding AntiPersonalChecked ,Mode=TwoWay}" Background="#FF5C68DC">
+        <ToggleButton x:Name="btAntiPersonal" Content="j" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding AntiPersonalChecked ,Mode=TwoWay}" >
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="border" BorderThickness="1" Background="Gainsboro" BorderBrush="Gray" Height="21">
+                    <Border x:Name="border" BorderThickness="1" Background="#DDBBEE99" BorderBrush="Gray" Height="21" >
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Normal" >
+
+                                </VisualState>
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
@@ -176,11 +176,11 @@
         </ToggleButton>
         <!--#endregion-->
         <!--#region btSelect-->
-        <ToggleButton x:Name="btSelect" Content="" HorizontalAlignment="Left" Margin="187,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding SelectChecked ,Mode=TwoWay}" Background="#FFAAAAAA">
+        <ToggleButton x:Name="btSelect" Content="" HorizontalAlignment="Left" Margin="187,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding SelectChecked ,Mode=TwoWay}" >
             <ToggleButton.Template>
 
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="border" BorderThickness="1" Background="Gainsboro" BorderBrush="Gray" Height="21">
+                    <Border x:Name="border" BorderThickness="1" Background="#DDAA99FF" BorderBrush="Gray" Height="21">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -242,7 +242,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btZoomOut" Content="-" HorizontalAlignment="Left" Margin="116,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Foreground="#FF2B2A2A">
+        <Button x:Name="btZoomOut" Content="-" HorizontalAlignment="Left" Margin="116,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Foreground="#FF2B2A2A" Click="btZoomOut_Click">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FFB8B8B8" Offset="0.846"/>
@@ -251,13 +251,9 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btSwitch" Content="" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="16" ClipToBounds="True" Background="#FF9FFF9A" Click="btSwitch_Click">
+        <Button x:Name="btSwitch" Content="" VerticalAlignment="Top" ClipToBounds="True" Background="#FF9FFF9A" Click="btSwitch_Click" HorizontalAlignment="Left" Width="16"/>
 
-
-
-        </Button>
-
-        <Rectangle x:Name="rtClipBar" HorizontalAlignment="Left" Height="12" Margin="26,8,0,0" VerticalAlignment="Top" Width="78">
+        <Rectangle x:Name="rtClipBar" Height="12" Margin="26,8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F1F0" Offset="0.104"/>
@@ -269,7 +265,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="245,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#FF00C5FF" Background="#FF08272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
+        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="245,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
 
 
 

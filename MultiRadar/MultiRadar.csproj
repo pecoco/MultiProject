@@ -69,6 +69,9 @@
     <Compile Include="..\MultiProject\Common\mobType.cs">
       <Link>mobType.cs</Link>
     </Compile>
+    <Compile Include="..\MultiProject\Common\WindowsApi32.cs">
+      <Link>WindowsApi32.cs</Link>
+    </Compile>
     <Compile Include="AddRadarMobForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +88,7 @@
     <Compile Include="Core.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +114,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\RadarWindow\ViewModel\MainWindowModel.cs" />
+    <Compile Include="WPF\RadarWindow\WindowsHandleAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddRadarMobForm.resx">
@@ -131,6 +136,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

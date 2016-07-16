@@ -71,6 +71,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbRadarTaegetPlayer = new System.Windows.Forms.RadioButton();
+            this.rbRadarTaegetMob = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -78,6 +84,7 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label30
@@ -116,7 +123,7 @@
             // 
             this.ckRadarVisible.AutoSize = true;
             this.ckRadarVisible.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ckRadarVisible.Location = new System.Drawing.Point(125, 387);
+            this.ckRadarVisible.Location = new System.Drawing.Point(135, 418);
             this.ckRadarVisible.Name = "ckRadarVisible";
             this.ckRadarVisible.Size = new System.Drawing.Size(15, 14);
             this.ckRadarVisible.TabIndex = 97;
@@ -128,7 +135,7 @@
             this.textRadarYpos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textRadarYpos.ForeColor = System.Drawing.Color.White;
             this.textRadarYpos.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textRadarYpos.Location = new System.Drawing.Point(239, 386);
+            this.textRadarYpos.Location = new System.Drawing.Point(249, 417);
             this.textRadarYpos.MaxLength = 5;
             this.textRadarYpos.Name = "textRadarYpos";
             this.textRadarYpos.Size = new System.Drawing.Size(45, 19);
@@ -142,7 +149,7 @@
             this.textRadarXpos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textRadarXpos.ForeColor = System.Drawing.Color.White;
             this.textRadarXpos.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textRadarXpos.Location = new System.Drawing.Point(176, 386);
+            this.textRadarXpos.Location = new System.Drawing.Point(186, 417);
             this.textRadarXpos.MaxLength = 5;
             this.textRadarXpos.Name = "textRadarXpos";
             this.textRadarXpos.Size = new System.Drawing.Size(43, 19);
@@ -154,7 +161,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label19.Location = new System.Drawing.Point(115, 368);
+            this.label19.Location = new System.Drawing.Point(125, 399);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(39, 12);
             this.label19.TabIndex = 94;
@@ -164,7 +171,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label13.Location = new System.Drawing.Point(235, 368);
+            this.label13.Location = new System.Drawing.Point(245, 399);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 12);
             this.label13.TabIndex = 93;
@@ -174,7 +181,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label17.Location = new System.Drawing.Point(171, 368);
+            this.label17.Location = new System.Drawing.Point(181, 399);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(57, 12);
             this.label17.TabIndex = 92;
@@ -182,13 +189,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.rbRederModeSelect);
             this.groupBox1.Controls.Add(this.rbRederModeFull);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(34, 310);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(369, 34);
+            this.groupBox1.Size = new System.Drawing.Size(369, 42);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
             // 
@@ -196,7 +204,7 @@
             // 
             this.rbRederModeSelect.AutoSize = true;
             this.rbRederModeSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRederModeSelect.Location = new System.Drawing.Point(169, 13);
+            this.rbRederModeSelect.Location = new System.Drawing.Point(124, 15);
             this.rbRederModeSelect.Name = "rbRederModeSelect";
             this.rbRederModeSelect.Size = new System.Drawing.Size(144, 16);
             this.rbRederModeSelect.TabIndex = 2;
@@ -208,7 +216,7 @@
             this.rbRederModeFull.AutoSize = true;
             this.rbRederModeFull.Checked = true;
             this.rbRederModeFull.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRederModeFull.Location = new System.Drawing.Point(103, 13);
+            this.rbRederModeFull.Location = new System.Drawing.Point(287, 15);
             this.rbRederModeFull.Name = "rbRederModeFull";
             this.rbRederModeFull.Size = new System.Drawing.Size(42, 16);
             this.rbRederModeFull.TabIndex = 1;
@@ -354,9 +362,9 @@
             this.label9.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.label9.Location = new System.Drawing.Point(32, 170);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 12);
+            this.label9.Size = new System.Drawing.Size(56, 12);
             this.label9.TabIndex = 89;
-            this.label9.Text = "Mob Lank";
+            this.label9.Text = "Mob Rank";
             // 
             // label8
             // 
@@ -452,7 +460,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(33, 389);
+            this.label1.Location = new System.Drawing.Point(43, 418);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 12);
             this.label1.TabIndex = 104;
@@ -464,7 +472,7 @@
             this.textAlertYpos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textAlertYpos.ForeColor = System.Drawing.Color.White;
             this.textAlertYpos.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textAlertYpos.Location = new System.Drawing.Point(239, 411);
+            this.textAlertYpos.Location = new System.Drawing.Point(249, 442);
             this.textAlertYpos.MaxLength = 5;
             this.textAlertYpos.Name = "textAlertYpos";
             this.textAlertYpos.Size = new System.Drawing.Size(45, 19);
@@ -477,7 +485,7 @@
             this.textAlertXpos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textAlertXpos.ForeColor = System.Drawing.Color.White;
             this.textAlertXpos.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textAlertXpos.Location = new System.Drawing.Point(176, 411);
+            this.textAlertXpos.Location = new System.Drawing.Point(186, 442);
             this.textAlertXpos.MaxLength = 5;
             this.textAlertXpos.Name = "textAlertXpos";
             this.textAlertXpos.Size = new System.Drawing.Size(43, 19);
@@ -488,7 +496,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label2.Location = new System.Drawing.Point(33, 414);
+            this.label2.Location = new System.Drawing.Point(43, 445);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 12);
             this.label2.TabIndex = 108;
@@ -519,7 +527,7 @@
             // 
             this.btSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSave.ForeColor = System.Drawing.Color.White;
-            this.btSave.Location = new System.Drawing.Point(195, 461);
+            this.btSave.Location = new System.Drawing.Point(360, 462);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(55, 23);
             this.btSave.TabIndex = 111;
@@ -536,13 +544,77 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 1.03";
+            this.label4.Text = "MulitiRadar 2.00";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Location = new System.Drawing.Point(85, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(31, 18);
+            this.panel1.TabIndex = 3;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.panel2);
+            this.groupBox2.Controls.Add(this.rbRadarTaegetPlayer);
+            this.groupBox2.Controls.Add(this.rbRadarTaegetMob);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(34, 344);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(369, 42);
+            this.groupBox2.TabIndex = 113;
+            this.groupBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel2.Location = new System.Drawing.Point(85, 13);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(31, 18);
+            this.panel2.TabIndex = 3;
+            // 
+            // rbRadarTaegetPlayer
+            // 
+            this.rbRadarTaegetPlayer.AutoSize = true;
+            this.rbRadarTaegetPlayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.rbRadarTaegetPlayer.Location = new System.Drawing.Point(124, 15);
+            this.rbRadarTaegetPlayer.Name = "rbRadarTaegetPlayer";
+            this.rbRadarTaegetPlayer.Size = new System.Drawing.Size(109, 16);
+            this.rbRadarTaegetPlayer.TabIndex = 2;
+            this.rbRadarTaegetPlayer.Text = "Player Character";
+            this.rbRadarTaegetPlayer.UseVisualStyleBackColor = true;
+            // 
+            // rbRadarTaegetMob
+            // 
+            this.rbRadarTaegetMob.AutoSize = true;
+            this.rbRadarTaegetMob.Checked = true;
+            this.rbRadarTaegetMob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.rbRadarTaegetMob.Location = new System.Drawing.Point(287, 15);
+            this.rbRadarTaegetMob.Name = "rbRadarTaegetMob";
+            this.rbRadarTaegetMob.Size = new System.Drawing.Size(44, 16);
+            this.rbRadarTaegetMob.TabIndex = 1;
+            this.rbRadarTaegetMob.TabStop = true;
+            this.rbRadarTaegetMob.Text = "Mob";
+            this.rbRadarTaegetMob.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label5.Location = new System.Drawing.Point(6, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 12);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Target";
             // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.label3);
@@ -581,6 +653,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,5 +704,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btSave;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbRadarTaegetPlayer;
+        private System.Windows.Forms.RadioButton rbRadarTaegetMob;
+        private System.Windows.Forms.Label label5;
     }
 }

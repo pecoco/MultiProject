@@ -73,7 +73,7 @@ namespace ACT.RadarViewOrder
             x = (x * bW) / (64 * radarZoom * 2);// (scale * 2);//  400;
             y = (y * bH) / (64 * radarZoom * 2);// (scale * 2);//400;
 
-            return new Rect((int)x, (int)y, 3, 3);
+            return new Rect((int)x-5, (int)y, 3, 3);
         }
 
         public static int radarZoom = 10;
@@ -172,12 +172,10 @@ namespace ACT.RadarViewOrder
         {
             public string mobName;
             public string rank;
-            bool alert;
             public HitMobdata(string _mobName, string _rank)
             {
                 mobName = _mobName;
-                rank = _rank;
-                alert = false;
+                rank = _rank;              
             }
             public void RemoveAt(int Index)
             {

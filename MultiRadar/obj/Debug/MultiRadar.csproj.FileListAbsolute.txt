@@ -3,16 +3,16 @@ E:\ACT\MultiProject\MultiRadar\bin\Debug\MultiRadar.pdb
 E:\ACT\MultiProject\MultiRadar\bin\Debug\Advanced Combat Tracker.exe
 E:\ACT\MultiProject\MultiRadar\bin\Debug\GammaJul.LgLcd.dll
 E:\ACT\MultiProject\MultiRadar\bin\Debug\ICSharpCode.SharpZipLib.dll
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.dll
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.pdb
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AddRadarMobForm.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.RadarSettingControl.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csproj.GenerateResource.Cache
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AlertForm.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.Properties.Resources.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.g.cs
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.lref
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.g.resources
-E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.g.cs
 E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.baml
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.g.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AddRadarMobForm.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.AlertForm.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.Properties.Resources.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.RadarSettingControl.resources
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csproj.GenerateResource.Cache
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.dll
+E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.pdb
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache

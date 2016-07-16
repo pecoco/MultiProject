@@ -18,15 +18,13 @@
         Top="{Binding WindowTop ,Mode=TwoWay}"  
         d:DesignHeight="360.69" d:DesignWidth="386.69" 
         Width="{Binding WindowWidth ,Mode=TwoWay}" 
-        Height="{Binding WindowHeight ,Mode=TwoWay}" Loaded="RadarWindow_Loaded">
+        Height="{Binding WindowHeight ,Mode=TwoWay}">
 
 
 
 
 
-    <Grid x:Name="vbox" Margin="0,0,10,0" SizeChanged="Grid_SizeChanged" ClipToBounds="True" IsHitTestVisible="True"  >
-
-
+    <Grid x:Name="vbox" Margin="0,0,10,0" ClipToBounds="True" IsHitTestVisible="True"  >
 
         <Image x:Name="img" IsHitTestVisible="False" IsEnabled="True"  UseLayoutRounding="True" Stretch="Fill" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True"
                    
@@ -119,7 +117,7 @@
 
 
         <!--#region btTarget Mob or Player-->
-        <ToggleButton x:Name="btAntiPersonal" Content="j" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding AntiPersonalChecked ,Mode=TwoWay}" >
+        <ToggleButton x:Name="btAntiPersonal" Content="j" HorizontalAlignment="Left" Margin="214,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding AntiPersonalChecked ,Mode=TwoWay}" Click="btAntiPersonal_Click" >
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="border" BorderThickness="1" Background="#DDBBEE99" BorderBrush="Gray" Height="21" >
@@ -176,18 +174,18 @@
         </ToggleButton>
         <!--#endregion-->
         <!--#region btSelect-->
-        <ToggleButton x:Name="btSelect" Content="" HorizontalAlignment="Left" Margin="187,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding SelectChecked ,Mode=TwoWay}" >
+        <ToggleButton x:Name="btSelect" Content="" HorizontalAlignment="Left" Margin="187,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding SelectChecked ,Mode=TwoWay}" Click="btSelect_Click" >
             <ToggleButton.Template>
 
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="border" BorderThickness="1" Background="#DDAA99FF" BorderBrush="Gray" Height="21">
+                    <Border x:Name="border" BorderThickness="1" Background="#DD77BBFF" BorderBrush="Gray" Height="21">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF11DDFF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
@@ -196,7 +194,7 @@
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF1155FF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
@@ -209,7 +207,7 @@
 
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF1155FF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
@@ -253,7 +251,7 @@
         </Button>
         <Button x:Name="btSwitch" Content="" VerticalAlignment="Top" ClipToBounds="True" Background="#FF9FFF9A" Click="btSwitch_Click" HorizontalAlignment="Left" Width="16"/>
 
-        <Rectangle x:Name="rtClipBar" Height="12" Margin="26,8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78">
+        <Rectangle x:Name="rtClipBar" Height="12" Margin="26,8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" MouseLeave="rtClipBar_MouseLeave">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF0F1F0" Offset="0.104"/>
@@ -265,8 +263,16 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="245,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
 
+        
+        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="242,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
+        <Canvas x:Name="myIcon" HorizontalAlignment="Center" Height="8" VerticalAlignment="Center" Width="8" IsEnabled="False" >
+            <Canvas.Background>
+                <ImageBrush ImageSource="/MultiRadar;component/Resources/Arrow.png"/>
+            </Canvas.Background>
+            <!--/myIcon.Margin> ="187,186,0,0"-->
+
+        </Canvas>
 
 
     </Grid>

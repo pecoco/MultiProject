@@ -15,4 +15,3 @@ E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.lref
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.g.resources
 E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.g.cs
 E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.baml
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache

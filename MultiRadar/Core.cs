@@ -62,6 +62,10 @@ namespace MultiRadar
             {
                 
                 radarForm = new MainWindow();
+
+                radarForm.isRadarSelect = rbRederModeSelect.Checked;
+                radarForm.isRadarAntiParsonal = rbRadarTaegetPlayer.Checked;
+
                 radarForm.Show();
                 radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 300,300));
                 /*radarForm.Left = int.Parse(textRadarXpos.Text);

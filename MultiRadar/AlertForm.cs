@@ -52,20 +52,20 @@ namespace MultiRadar
             {
                 switch (viewCount)
                 {
-                    case 8: lbMessage.Text= "it isn't hard to find."; break;
-                    case 7: lbMessage.Text = "You can have the love you need to live."; break;
-                    case 6: lbMessage.Text = "But if you look for truthfulness"; break;
-                    case 5: lbMessage.Text = "You might just as well be blind."; break;
-                    case 4: lbMessage.Text = "It always seems to be so hard to give."; break;
-                    case 3: lbMessage.Text = "Honesty is such a lonely word."; break;
+                    case 8: lbMessage.Text = "M-u-l-t-i Rader for Final Fantasy XIV"; break;
+                    case 7: lbMessage.Text = "Alert Window And Sound. S-RankMob Log PickUp"; break;
+                    case 6: lbMessage.Text = "---Panel---"; break;
+                    case 5: lbMessage.Text = "■ Green Button Flash to Target Player"; break;
+                    case 4: lbMessage.Text = "▶ Marking (Flont Line Used)"; break;
+                    case 3: lbMessage.Text = "■ Blue Button Flash to Mob."; break;
                     case 2: lbMessage.Text = "Good Luck!"; break;
                 }
             }
             switch (viewCount)
             {
-                case 5: lbMessage.ForeColor = Color.AliceBlue; break;
-                case 4: lbMessage.ForeColor = Color.Yellow; break;
-                case 3: lbMessage.ForeColor = Color.Lime; break;
+                case 5: lbMessage.ForeColor = Color.Lime; break;
+                case 4: lbMessage.ForeColor = Color.LightCyan; break;
+                case 3: lbMessage.ForeColor = Color.LightSkyBlue; break;
                 case 2: lbMessage.ForeColor = Color.White; break;
                 case 1: lbMessage.ForeColor = Color.White; break;
             }

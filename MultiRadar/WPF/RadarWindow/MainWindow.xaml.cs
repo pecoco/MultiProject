@@ -267,7 +267,7 @@ namespace Wpf.RadarWindow
         {
             Rect rect = RadarViewOrder.PlayerRect();//
           
-            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
+            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left-2, rect.Top+2), (double)rect.Width, (double)rect.Height);
 
             dc.DrawText(new FormattedText(rect.Left.ToString()+","+ rect.Top.ToString(),
             System.Globalization.CultureInfo.CurrentUICulture,

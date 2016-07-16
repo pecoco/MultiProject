@@ -178,14 +178,14 @@
             <ToggleButton.Template>
 
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="border" BorderThickness="1" Background="#DDAA99FF" BorderBrush="Gray" Height="21">
+                    <Border x:Name="border" BorderThickness="1" Background="#DD77BBFF" BorderBrush="Gray" Height="21">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF11DDFF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
@@ -194,7 +194,7 @@
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF1155FF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />
@@ -207,7 +207,7 @@
 
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
-                                                        To="#FF5555FF"
+                                                        To="#FF1155FF"
                                                         Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                         Storyboard.TargetName="border"
                                                         d:IsOptimized="True" />

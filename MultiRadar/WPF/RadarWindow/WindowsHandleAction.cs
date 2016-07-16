@@ -83,14 +83,18 @@ namespace Wpf.RadarWindow
                 }
 
                 model.WindowWidth = btSwitch.Width + btSwitch.Margin.Left + 16;
-                model.WindowHeight = btSwitch.Height + btSwitch.Height;
+                model.WindowHeight = 32;
                 btSwitch.Background = new SolidColorBrush(Color.FromArgb(255, 70, 70, 70));
+                myIcon.Width = 0;
+
             }
             else
             {
                 model.WindowWidth = keepWidth;
                 model.WindowHeight = keepHeight;
                 btSwitch.Background = new SolidColorBrush(Color.FromArgb(255, 200, 255, 200));
+                myIcon.Width = 8;
+
             }
 
             isOpen = !isOpen;

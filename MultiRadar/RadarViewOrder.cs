@@ -175,8 +175,7 @@ namespace ACT.RadarViewOrder
             public HitMobdata(string _mobName, string _rank)
             {
                 mobName = _mobName;
-                rank = _rank;
-               
+                rank = _rank;              
             }
             public void RemoveAt(int Index)
             {

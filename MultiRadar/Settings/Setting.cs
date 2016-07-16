@@ -37,11 +37,11 @@ namespace MultiRadar
 
             if (textRadarDataPath.Text == "")
             {
-                textRadarDataPath.Text = Application.StartupPath + "\\MultiViewerResources\\"; ;
+                textRadarDataPath.Text = Application.StartupPath + "\\MultiProjectResources\\"; ;
             }
             if (textSePath.Text == "")
             {
-                textSePath.Text = Application.StartupPath + "\\MultiViewerResources\\se\\";
+                textSePath.Text = Application.StartupPath + "\\MultiProjectResources\\se\\";
             }
             RadarViewOrder.SePathName = textSePath.Text;
             

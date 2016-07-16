@@ -39,6 +39,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.rbRederModeSelect = new System.Windows.Forms.RadioButton();
             this.rbRederModeFull = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btSave = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rbRadarTaegetPlayer = new System.Windows.Forms.RadioButton();
@@ -199,6 +199,14 @@
             this.groupBox1.Size = new System.Drawing.Size(369, 42);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Location = new System.Drawing.Point(85, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(31, 18);
+            this.panel1.TabIndex = 3;
             // 
             // rbRederModeSelect
             // 
@@ -544,15 +552,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.00";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel1.Location = new System.Drawing.Point(85, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(31, 18);
-            this.panel1.TabIndex = 3;
+            this.label4.Text = "MulitiRadar 2.01";
             // 
             // groupBox2
             // 

@@ -49,9 +49,6 @@ namespace MultiRadar
             ActData.AllCharactor = ActHelper.GetCombatantList();
             if (ActData.AllCharactor.Count > 0)
             {
-                //radarForm.upDate();
-                //CallSetLine();
-
 
             }
  
@@ -83,18 +80,15 @@ namespace MultiRadar
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
                 ReSetComboRadarZoneItem(false);
                 RadarViewOrder.AllRadarMode = rbRederModeFull.Checked;
-                //radarForm.Show();
             }
         }
         partial void CloseWindow()
         {
-            /*
+            
             if (radarForm != null)
             {
                 radarForm.Hide();
-                radarForm.Dispose();
-            }
-            */
+            }            
             if (alertForm != null)
             {
                 alertForm.Hide();

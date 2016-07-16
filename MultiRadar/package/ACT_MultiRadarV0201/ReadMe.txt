@@ -1,7 +1,8 @@
-﻿■名称　MultiRader v2.00
+﻿■名称　MultiRader v2.01
 
 
 ■変更点　WPFに変更
+Closeされていなかったバグ修正
 
 
 ■用途　FF14 ACTPluginです。

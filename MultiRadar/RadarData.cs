@@ -59,7 +59,10 @@ namespace MultiRadar
                 {
                     if (zoneData.name == zoneName)
                     {
-
+                        if (ZoneNameJp != "")
+                        {
+                            zoneData.nameJp = ZoneNameJp;
+                        }
                         List<string> mobs = new List<string>();
                         switch (mobType)
                         {
@@ -87,6 +90,9 @@ namespace MultiRadar
                     }
                     if (addName == true)
                     {
+                        if (ZoneNameJp != "") {
+                            zoneData.nameJp = ZoneNameJp;
+                        }
                         switch (mobType)
                         {
                             case MobType.S:
@@ -106,6 +112,10 @@ namespace MultiRadar
                 {
                     ZoneMobData zone = new ZoneMobData();
                     zone.name = zoneName;
+                    if (ZoneNameJp != "")
+                    {
+                        zone.nameJp = ZoneNameJp;
+                    }
                     switch (mobType)
                     {
                         case MobType.S:

@@ -59,9 +59,8 @@ namespace MultiRadar
         {
             if (ComboRadarZone.Text != "")
             {
-                /*
-                ZoneMobData zone = radarForm.getMobList(ComboRadarZone.Text);
-
+                //RadardataInstance
+                ZoneMobData zone = RadardataInstance.radarData.getMobList(ComboRadarZone.Text);
                 textAreaJp.Text = zone.nameJp;
 
                 listMobSS.Items.Clear();
@@ -84,7 +83,7 @@ namespace MultiRadar
                 {
                     listMobETC.Items.Add(zone.etc[i]);
                 }
-                */
+                
             }
         }
 

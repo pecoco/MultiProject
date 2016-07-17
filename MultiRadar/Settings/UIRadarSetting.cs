@@ -30,10 +30,10 @@ namespace MultiRadar
 
             if (addRadarDataForm.ShowDialog() == DialogResult.OK)
             {
-                /*
-                radarForm.AddMob(addRadarDataForm.ZoneName, addRadarDataForm.SelectMobtype, addRadarDataForm.MobName, addRadarDataForm.ZoneNameJp);
-                radarForm.SaveRadarData();
-                */
+
+                RadardataInstance.radarData.AddMob(addRadarDataForm.ZoneName, addRadarDataForm.SelectMobtype, addRadarDataForm.MobName, addRadarDataForm.ZoneNameJp);
+                RadardataInstance.radarData.SaveAreaData();
+                
                 ReSetComboRadarZoneItem();
                 ComboRadarZone.SelectedIndex = keepIndex;
             }
@@ -49,7 +49,7 @@ namespace MultiRadar
             }
             if (saveAction)
             {
-                //radarForm.SaveRadarData();
+                RadardataInstance.radarData.SaveAreaData();
             }
             //表示処理
             setSettingFormRederData();
@@ -59,7 +59,7 @@ namespace MultiRadar
         {
             if (ComboRadarZone.Text != "")
             {
-                //RadardataInstance
+               
                 ZoneMobData zone = RadardataInstance.radarData.getMobList(ComboRadarZone.Text);
                 textAreaJp.Text = zone.nameJp;
 
@@ -95,27 +95,27 @@ namespace MultiRadar
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*
+            
             switch (tabControlMob.SelectedIndex)
             {
                 
                 case 0:
-                    radarForm.RemoveMob(ComboRadarZone.Text, MobType.S, listMobSS.SelectedItem.ToString());
+                    RadardataInstance.radarData.RemoveMob(ComboRadarZone.Text, MobType.S, listMobSS.SelectedItem.ToString());
                     listMobSS.Items.Clear();
                     break;
                 case 1:
-                    radarForm.RemoveMob(ComboRadarZone.Text, MobType.A, listMobA.SelectedItem.ToString());
+                    RadardataInstance.radarData.RemoveMob(ComboRadarZone.Text, MobType.A, listMobA.SelectedItem.ToString());
                     listMobA.Items.Clear();
                     break;
                 case 2:
-                    radarForm.RemoveMob(ComboRadarZone.Text, MobType.B, listMobB.SelectedItem.ToString());
+                    RadardataInstance.radarData.RemoveMob(ComboRadarZone.Text, MobType.B, listMobB.SelectedItem.ToString());
                     listMobB.Items.Clear();
                     break;
                 case 3:
-                    radarForm.RemoveMob(ComboRadarZone.Text, MobType.ETC, listMobETC.SelectedItem.ToString());
+                    RadardataInstance.radarData.RemoveMob(ComboRadarZone.Text, MobType.ETC, listMobETC.SelectedItem.ToString());
                     listMobETC.Items.Clear();
                     break;
-            }*/
+            }
             ReSetComboRadarZoneItem();
         }
     }

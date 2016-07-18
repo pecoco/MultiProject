@@ -72,7 +72,7 @@ namespace MultiRadar
             viewCount -= 1;
             if (viewCount > 0)
             {
-                this.Visible = true;
+                if (this != null) { this.Visible = true; }                
             }
             else
             {

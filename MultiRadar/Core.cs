@@ -77,9 +77,8 @@ namespace MultiRadar
 
                 alertForm.Show();
 
-                RadardataInstance.SetRadarData(textRadarDataPath.Text + "RadarData.xml");
+                RadardataInstance.SetRadarData(textRadarDataPath.Text + "\\RadarData.xml");
                 ReSetComboRadarZoneItem(false);
-                RadarViewOrder.AllRadarMode = rbRederModeFull.Checked;
             }
         }
         partial void CloseWindow()

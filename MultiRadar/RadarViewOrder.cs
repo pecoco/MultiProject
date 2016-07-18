@@ -5,6 +5,7 @@ using System.Drawing;
 namespace ACT.RadarViewOrder
 {
     using MultiProject;
+    using System.IO;
     using System.Windows;
     public static class RadarViewOrder
     {
@@ -109,58 +110,56 @@ namespace ACT.RadarViewOrder
         }
         private static System.Media.SoundPlayer SeA = null;
         private static System.Media.SoundPlayer SeB = null;
+        private static System.Media.SoundPlayer SeE = null;
         private static System.Media.SoundPlayer SeS = null;
 
-        public static string SePathName;
+        private static bool SeEnable = true;
+
+
+        private static string sePathName;
+        public static string SePathName
+        {
+            set {
+                if (Directory.Exists(value))
+                {
+                    sePathName = value;
+                    SeEnable = true; ;
+                }
+                else
+                {
+                    SeEnable = false;
+                }
+            }
+        }
+
 
         public static void PlaySeS()
         {
-            SeS = SeS ?? new System.Media.SoundPlayer(SePathName + "/s.wav");
+            if (SeEnable != true) { return; }
+            SeS = SeS ?? new System.Media.SoundPlayer(sePathName + "/s.wav");
             //SeS.PlaySync();
             SeS.Play();
         }
         public static void PlaySeA()
         {
-            SeA = SeA ?? new System.Media.SoundPlayer(SePathName + "/a.wav");
+            if (SeEnable != true) { return; }
+            SeA = SeA ?? new System.Media.SoundPlayer(sePathName + "/a.wav");
             SeA.Play();
         }
         public static void PlaySeB()
         {
-            SeB = SeB ?? new System.Media.SoundPlayer(SePathName + "/b.wav");
+            if (SeEnable != true) { return; }
+            SeB = SeB ?? new System.Media.SoundPlayer(sePathName + "/b.wav");
             SeB.Play();
         }
         public static void PlaySeE()
         {
-            SeB = SeB ?? new System.Media.SoundPlayer(SePathName + "/b.wav");
-            SeB.Play();
+            if (SeEnable != true) { return; }
+            SeE = SeE ?? new System.Media.SoundPlayer(sePathName + "/e.wav");
+            SeE.Play();
         }
 
-        private static bool allRadarMode = true;
-        public static bool AllRadarMode 
-        {
-            set { allRadarMode = value; }
-            get { return allRadarMode; }
-        }
-        public static string ChengeRadarMode(bool notDataChange = false)
-        {
-            if (notDataChange == false)
-            {
-                AllRadarMode = !allRadarMode;
-            }
-            return allRadarMode ? "A" : "O";
-        }
-        private static Point keepPoint;
-
-        public static void keepWindowSize(int width, int height)
-        {
-            keepPoint = new Point(width, height);
-        }
-        public static int getKeepWindowHeightSize()
-        {
-            return (int)keepPoint.Y;
-        }
         public static bool windowsStatus;
-
         public static List<HitMobdata> hitMobdatasFromLog;
         public static void AddHitMobfromLog(HitMobdata mobdata)
         {

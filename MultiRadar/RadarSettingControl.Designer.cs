@@ -77,6 +77,7 @@
             this.rbRadarTaegetPlayer = new System.Windows.Forms.RadioButton();
             this.rbRadarTaegetMob = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.ofdSePath = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -108,6 +109,7 @@
             this.btSePath.TabIndex = 99;
             this.btSePath.Text = "...";
             this.btSePath.UseVisualStyleBackColor = false;
+            this.btSePath.Click += new System.EventHandler(this.btSePath_Click);
             // 
             // textSePath
             // 
@@ -552,7 +554,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.03";
+            this.label4.Text = "MulitiRadar 2.05";
             // 
             // groupBox2
             // 
@@ -710,5 +712,6 @@
         private System.Windows.Forms.RadioButton rbRadarTaegetPlayer;
         private System.Windows.Forms.RadioButton rbRadarTaegetMob;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.FolderBrowserDialog ofdSePath;
     }
 }

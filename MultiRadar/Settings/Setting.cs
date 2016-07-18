@@ -24,32 +24,21 @@ namespace MultiRadar
             BasePlugin.xmlSettings.AddControlSetting(textRadarXpos.Name, textRadarXpos);
             BasePlugin.xmlSettings.AddControlSetting(textRadarYpos.Name, textRadarYpos);
             BasePlugin.xmlSettings.AddControlSetting(ckRadarVisible.Name, ckRadarVisible);
-
-           
             BasePlugin.xmlSettings.AddControlSetting(rbRederModeSelect.Name, rbRederModeSelect);
             BasePlugin.xmlSettings.AddControlSetting(rbRadarTaegetPlayer.Name, rbRadarTaegetPlayer);
-            
-
             BasePlugin.xmlSettings.AddControlSetting(textAlertXpos.Name, textAlertXpos);
             BasePlugin.xmlSettings.AddControlSetting(textAlertYpos.Name, textAlertYpos);
             //SE
             BasePlugin.xmlSettings.AddControlSetting(ckRadarSE.Name, ckRadarSE);
+            //Path
+            BasePlugin.xmlSettings.AddControlSetting(textRadarDataPath.Name, textRadarDataPath);
+            //SePath
+            BasePlugin.xmlSettings.AddControlSetting(textSePath.Name, textSePath);
 
-            if (textRadarDataPath.Text == "")
-            {
-                textRadarDataPath.Text = Application.StartupPath + "\\MultiProjectResources\\"; ;
-            }
-            if (textSePath.Text == "")
-            {
-                textSePath.Text = Application.StartupPath + "\\MultiProjectResources\\se\\";
-            }
-            RadarViewOrder.SePathName = textSePath.Text;
-            
             if (System.IO.File.Exists(settingsFile))
             {
                 FileStream fs = new FileStream(settingsFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 XmlTextReader xReader = new XmlTextReader(fs);
-
                 try
                 {
                     while (xReader.Read())
@@ -69,7 +58,21 @@ namespace MultiRadar
                 }
                 xReader.Close();
             }
-            
+            if (textRadarDataPath.Text == "")
+            {
+                textRadarDataPath.Text = Application.StartupPath + "\\MultiProjectResources\\"; ;
+            }
+            if (textSePath.Text == "")
+            {
+                textSePath.Text = Application.StartupPath + "\\MultiProjectResources\\se\\";
+            }
+            if (Directory.Exists(textSePath.Text))
+            {
+                RadarViewOrder.SePathName = textSePath.Text;
+            }else
+            {
+                MessageBox.Show("SE Pathが無効です。("+ textSePath.Text + ") 設定パネルでSEのパスを確認、再設定が必要です。");
+            }
         }
         partial void SaveSettings()
         {
@@ -79,21 +82,31 @@ namespace MultiRadar
         {
             if (skipSetWindowPos == false)
             {
-                
                 if (radarForm != null)
                 {
                     textRadarXpos.Text = radarForm.Left.ToString();
                     textRadarYpos.Text = radarForm.Top.ToString();
-
                     rbRederModeSelect.Checked = radarForm.isRadarSelect;
                     rbRadarTaegetPlayer.Checked = radarForm.isRadarAntiParsonal;
-
                 }
-                
                 if (alertForm != null)
                 {
                     textAlertXpos.Text = alertForm.Left.ToString();
                     textAlertYpos.Text = alertForm.Top.ToString();
+                }
+            }
+
+            if (textSePath.Text.Length > 0) { 
+                if (textSePath.Text[textSePath.Text.Length - 1] != '\\')
+                {
+                    textSePath.Text = textSePath.Text + "\\";
+                }
+            }
+            if (textRadarDataPath.Text.Length > 0)
+            {
+                if (textRadarDataPath.Text[textRadarDataPath.Text.Length - 1] != '\\')
+                {
+                    textRadarDataPath.Text = textRadarDataPath.Text + "\\";
                 }
             }
 

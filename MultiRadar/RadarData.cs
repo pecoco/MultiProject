@@ -181,13 +181,21 @@ namespace MultiRadar
                 fileName = fileNamePath;
             }
             
-            System.Xml.Serialization.XmlSerializer serializer =
-            new System.Xml.Serialization.XmlSerializer(typeof(Zones));
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(
-            fileName, false, new System.Text.UTF8Encoding(false));
-            //シリアル化し、XMLファイルに保存する
-            serializer.Serialize(sw, area);
-            sw.Close();
+            try
+            {
+                System.Xml.Serialization.XmlSerializer serializer =
+                new System.Xml.Serialization.XmlSerializer(typeof(Zones));
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(
+                fileName, false, new System.Text.UTF8Encoding(false));
+                //シリアル化し、XMLファイルに保存する
+                serializer.Serialize(sw, area);
+                sw.Close();
+            }
+            catch (IOException e)
+            {
+                System.Windows.MessageBox.Show(e.Message + "("+ fileName +")MultiProjectResourcesフォルダが存在しないか、RadarData.xmlが存在しません", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                
+            }
         }
 
         //読み出し

@@ -1,0 +1,9 @@
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\bin\Debug\TimeLinetoDB.exe.config
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\bin\Debug\TimeLinetoDB.exe
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\bin\Debug\TimeLinetoDB.pdb
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLine2XML.TimeLinetoDB.resources
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLinetoDB.Properties.Resources.resources
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLinetoDB.csproj.GenerateResource.Cache
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLinetoDB.exe
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLinetoDB.pdb
+E:\ACT\MultiProject\TimeLinetoDB\TimeLine2XML\obj\Debug\TimeLinetoDB.csprojResolveAssemblyReference.cache

@@ -1,0 +1,9 @@
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Release\TimeLine2XML.exe.config
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Release\TimeLine2XML.exe
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Release\TimeLine2XML.pdb
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.Form1.resources
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.Properties.Resources.resources
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.csproj.GenerateResource.Cache
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.exe
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.pdb
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Release\TimeLine2XML.csprojResolveAssemblyReference.cache

@@ -12,14 +12,43 @@ namespace MultiRadar
         {
             if (ofdRederPath.ShowDialog() == DialogResult.OK)
             {
-                textRadarDataPath.Text = ofdRederPath.SelectedPath;
+                textRadarDataPath.Text = ofdRederPath.SelectedPath+"\\";
+                SaveSettings();
             }
+        }
+
+        private void btSePath_Click(object sender, EventArgs e)
+        {
+            if (ofdSePath.ShowDialog() == DialogResult.OK)
+            {
+                textSePath.Text = ofdSePath.SelectedPath+"\\";
+                SaveSettings();
+            }            
+        }
+
+        private void Setting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onInputCheck(ref e);
+        }
+
+        private void ComboRadarZone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setSettingFormRederData();
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            SaveSettings(true);
+        }
+
+        private void ckRadarSE_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveSettings(true);
         }
 
         //地名追加ボタン
         private void btAddAction_Click(object sender, EventArgs e)
         {
-
             int keepIndex = ComboRadarZone.SelectedIndex;
             addRadarDataForm = new AddRadarMobForm();
             Point btnClientLocation = btAddAction.ClientRectangle.Location;
@@ -27,13 +56,10 @@ namespace MultiRadar
             addRadarDataForm.Location = btnScreenLocation;
             addRadarDataForm.ZoneName = ComboRadarZone.Text;
             addRadarDataForm.ZoneNameJp = textAreaJp.Text;
-
             if (addRadarDataForm.ShowDialog() == DialogResult.OK)
             {
-
                 RadardataInstance.radarData.AddMob(addRadarDataForm.ZoneName, addRadarDataForm.SelectMobtype, addRadarDataForm.MobName, addRadarDataForm.ZoneNameJp);
-                RadardataInstance.radarData.SaveAreaData();
-                
+                RadardataInstance.radarData.SaveAreaData();                
                 ReSetComboRadarZoneItem();
                 ComboRadarZone.SelectedIndex = keepIndex;
             }
@@ -82,8 +108,7 @@ namespace MultiRadar
                 for (int i = 0; i < zone.etc.Count; i++)
                 {
                     listMobETC.Items.Add(zone.etc[i]);
-                }
-                
+                }                
             }
         }
 
@@ -94,11 +119,9 @@ namespace MultiRadar
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
+        {            
             switch (tabControlMob.SelectedIndex)
-            {
-                
+            {                
                 case 0:
                     RadardataInstance.radarData.RemoveMob(ComboRadarZone.Text, MobType.S, listMobSS.SelectedItem.ToString());
                     listMobSS.Items.Clear();

@@ -80,26 +80,6 @@ namespace MultiRadar
             CloseWindow();
             lbStatus.Text = "Plugin Exited";
         }
-
-        private void Setting_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onInputCheck(ref e);
-        }
-
-        private void ComboRadarZone_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            setSettingFormRederData();
-        }
-        
-        private void btSave_Click(object sender, EventArgs e)
-        {
-            SaveSettings(true);
-        }
-
-        private void ckRadarSE_CheckedChanged(object sender, EventArgs e)
-        {
-            SaveSettings(true);
-        }
     }
 }
 

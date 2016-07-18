@@ -43,11 +43,11 @@ namespace Wpf.RadarWindow
         
         private RadarMainWindowViewModel model;
 
-        
         public bool isRadarSelect{
             get{ return model.SelectChecked;}
             set { model.SelectChecked = value; }
         }
+
         public bool isRadarAntiParsonal
         {
             get { return model.AntiPersonalChecked;}

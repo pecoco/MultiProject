@@ -34,6 +34,8 @@ namespace MultiRadar
             BasePlugin.xmlSettings.AddControlSetting(textRadarDataPath.Name, textRadarDataPath);
             //SePath
             BasePlugin.xmlSettings.AddControlSetting(textSePath.Name, textSePath);
+            //Fontsize
+            BasePlugin.xmlSettings.AddControlSetting(numFontSize.Name, numFontSize);
 
             if (System.IO.File.Exists(settingsFile))
             {

@@ -63,6 +63,7 @@ namespace MultiRadar
                 radarForm.isRadarSelect = rbRederModeSelect.Checked;
                 radarForm.isRadarAntiParsonal = rbRadarTaegetPlayer.Checked;
 
+                RadarViewOrder.FontSize = (int)numFontSize.Value > 5 ? (int)numFontSize.Value : 6;
                 radarForm.Show();
                 radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 300,300));
                 /*radarForm.Left = int.Parse(textRadarXpos.Text);

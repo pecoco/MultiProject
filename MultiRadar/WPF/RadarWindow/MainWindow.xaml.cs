@@ -300,10 +300,47 @@ namespace Wpf.RadarWindow
                     if (rect.X > img.Width - 40) { continue; }
                     if (rect.Y > img.Height - 20) { continue; }
 
-                    dc.DrawEllipse(getBrush(hpPar, flag), null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
+                    if (model.IdModeCheckrd && mob.type == 1)
+                    {
+                        dc.DrawEllipse(getBrush(hpPar, true), null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
+                    }
+                    else
+                    {
+                        if (model.IdModeCheckrd && mob.Name == "トラップ")
+                        {
+                            dc.DrawRectangle( Brushes.Yellow, null,rect);
+                        }
+                        else {
+                            dc.DrawEllipse(getBrush(hpPar, flag), null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
+                        }
+                    }
+                }
+                this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
+
+                if (model.IdModeCheckrd)
+                {
+
+                    /* if (true)
+                     {
+                         if (mob.type != 2)
+                         {
+                             jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
+                             dc.DrawText(new FormattedText(job.job,
+                             System.Globalization.CultureInfo.CurrentUICulture,
+                             FlowDirection.LeftToRight, new Typeface("Verdana"),
+                             6, job.brush), new Point(job.left + 2, rect.Y - 4));
+                         }
+
+                         dc.DrawText(new FormattedText(mob.MaxHP.ToString(),
+                         System.Globalization.CultureInfo.CurrentUICulture,
+                         FlowDirection.LeftToRight, new Typeface("Verdana"),
+                         6, Brushes.Aqua), new Point(rect.X + 2, rect.Y));
+                         return;
+                     }
+                     */
+                    continue;
                 }
 
-                this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
                 if (model.AntiPersonalChecked)
                 {
                     jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
@@ -311,18 +348,27 @@ namespace Wpf.RadarWindow
                     dc.DrawText(new FormattedText(job.job,
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    6, job.brush), new Point(job.left + 2, rect.Y -4));
+                    RadarViewOrder.FontSize, job.brush), new Point(job.left + 2, rect.Y -4));
                     if (mob.CastTargetID == RadarViewOrder.myData.ID)
                     {
-                       
                         dc.DrawText(new FormattedText(job.job,
                         System.Globalization.CultureInfo.CurrentUICulture,
                         FlowDirection.LeftToRight, new Typeface("Verdana"),
-                        6, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
+                        RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
                     }
+                }else
+                {
+                    dc.DrawText(new FormattedText(mob.MaxHP.ToString(),
+                    System.Globalization.CultureInfo.CurrentUICulture,
+                    FlowDirection.LeftToRight, new Typeface("Verdana"),
+                    RadarViewOrder.FontSize, Brushes.Aqua), new Point(rect.X + 2, rect.Y));
+
                 }
             }
         }
+
+
+
 
         private struct jobTextLayout
         {
@@ -389,7 +435,7 @@ namespace Wpf.RadarWindow
                     name.Append(ss[0].Substring(0, 1));
                     if (ss[1].Length>6)
                     {
-                        name.Append('.' + ss[1].Substring(1, 6));
+                        name.Append('.' + ss[1].Substring(0, 6));
                     }
                     else
                     {
@@ -400,7 +446,7 @@ namespace Wpf.RadarWindow
                 {
                     if (ss[0].Length > 6)
                     {
-                        name.Append(ss[0].Substring(1, 6));
+                        name.Append(ss[0].Substring(0, 6));
                     }else
                     {
                         name.Append(ss[0]);
@@ -417,19 +463,19 @@ namespace Wpf.RadarWindow
                 dc.DrawText(new FormattedText("▶",
                 System.Globalization.CultureInfo.CurrentUICulture,
                 FlowDirection.LeftToRight, new Typeface("Verdana"),
-                8, Brushes.Aqua), new Point(left, top));
+                RadarViewOrder.FontSize+2, Brushes.Aqua), new Point(left, top));
 
                 dc.DrawText(new FormattedText(name.ToString(),
                 System.Globalization.CultureInfo.CurrentUICulture,
                 FlowDirection.LeftToRight, new Typeface("Verdana"),
-                8, Brushes.WhiteSmoke), new Point(left + 8, top));
+                RadarViewOrder.FontSize+2, Brushes.WhiteSmoke), new Point(left + 8, top));
 
                 return;
             }
             dc.DrawText(new FormattedText(name.ToString(),
             System.Globalization.CultureInfo.CurrentUICulture,
             FlowDirection.LeftToRight, new Typeface("Verdana"),
-            8, Brushes.WhiteSmoke), new Point(left, top));
+            RadarViewOrder.FontSize+2, Brushes.WhiteSmoke), new Point(left, top));
 
         }
 
@@ -482,6 +528,14 @@ namespace Wpf.RadarWindow
                 {
                     continue;
                 }
+
+
+                if (model.IdModeCheckrd)//ID Mode
+                {
+                    searchObjects.Add(charcter);
+                    continue;
+                }
+
 
                 if (!model.AntiPersonalChecked)
                 {

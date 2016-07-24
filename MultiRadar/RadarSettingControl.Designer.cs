@@ -78,6 +78,8 @@
             this.rbRadarTaegetMob = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.ofdSePath = new System.Windows.Forms.FolderBrowserDialog();
+            this.numFontSize = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -86,6 +88,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).BeginInit();
             this.SuspendLayout();
             // 
             // label30
@@ -552,9 +555,9 @@
             this.label4.ForeColor = System.Drawing.Color.SeaShell;
             this.label4.Location = new System.Drawing.Point(27, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 18);
+            this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.05";
+            this.label4.Text = "MulitiRadar 2.1.0";
             // 
             // groupBox2
             // 
@@ -611,11 +614,47 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Target";
             // 
+            // numFontSize
+            // 
+            this.numFontSize.BackColor = System.Drawing.Color.Black;
+            this.numFontSize.ForeColor = System.Drawing.Color.White;
+            this.numFontSize.Location = new System.Drawing.Point(311, 417);
+            this.numFontSize.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numFontSize.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numFontSize.Name = "numFontSize";
+            this.numFontSize.Size = new System.Drawing.Size(41, 19);
+            this.numFontSize.TabIndex = 114;
+            this.numFontSize.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label11.Location = new System.Drawing.Point(308, 399);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 12);
+            this.label11.TabIndex = 115;
+            this.label11.Text = "FontSize";
+            // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.numFontSize);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btSave);
@@ -657,6 +696,7 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,5 +753,7 @@
         private System.Windows.Forms.RadioButton rbRadarTaegetMob;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FolderBrowserDialog ofdSePath;
+        private System.Windows.Forms.NumericUpDown numFontSize;
+        private System.Windows.Forms.Label label11;
     }
 }

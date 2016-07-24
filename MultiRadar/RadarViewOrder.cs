@@ -10,6 +10,12 @@ namespace ACT.RadarViewOrder
     public static class RadarViewOrder
     {
         static bool playerView = false;
+        private static int fontSize;
+        public static int FontSize
+        {
+            get { return fontSize; }
+            set { fontSize = value; }
+        }
 
         public static bool PlayerView
         {

@@ -116,6 +116,21 @@ namespace Wpf.RadarWindow
                 }
             }
         }
+        private bool idModeCheckrd;
+        public bool IdModeCheckrd
+        {
+            get { return idModeCheckrd; }
+            set
+            {
+                if (idModeCheckrd != value)
+                {
+                    idModeCheckrd = value;
+                    RaisePropertyChanged("IdModeCheckrd");
+                }
+            }
+        }
+
+
         /*
         private Margin myIconMargin;
         public double MyIconX

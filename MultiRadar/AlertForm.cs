@@ -25,7 +25,7 @@ namespace MultiRadar
             t = new System.Timers.Timer(3000);
 
             t.Elapsed += OnTimedEvent;
-            viewCount = 8;
+            viewCount = 9;
             t.Enabled = true;
 
         }
@@ -52,22 +52,23 @@ namespace MultiRadar
             {
                 switch (viewCount)
                 {
-                    case 8: lbMessage.Text = "M-u-l-t-i Radar Act Plug-in for Final Fantasy XIV"; break;
-                    case 7: lbMessage.Text = "Alert Window And Sound. S-RankMob catch to log"; break;
-                    case 6: lbMessage.Text = "---Panel---"; break;
-                    case 5: lbMessage.Text = "■ Green Button Player or Mob."; break;
-                    case 4: lbMessage.Text = "▶ Marking (Front Line Used.)"; break;
-                    case 3: lbMessage.Text = "■ Blue Button Select or All."; break;
+                    case 9: lbMessage.Text = "M-u-l-t-i Radar Act Plug-in for Final Fantasy XIV"; break;
+                    case 8: lbMessage.Text = "Alert Window And Sound. Catch to log"; break;
+                    case 7: lbMessage.Text = "---Panel---"; break;
+                    case 6: lbMessage.Text = "■ Green Button Player or Mob."; break;
+                    case 5: lbMessage.Text = "▶ Marking (Front Line Used.) +/- Zoom."; break;
+                    case 4: lbMessage.Text = "■ Blue Button Select or All."; break;
+                    case 3: lbMessage.Text = "■ Yellow Button ID mode."; break;
                     case 2: lbMessage.Text = "Good Luck!"; break;
                 }
             }
             switch (viewCount)
             {
-                case 5: lbMessage.ForeColor = Color.Lime; break;
-                case 4: lbMessage.ForeColor = Color.LightCyan; break;
-                case 3: lbMessage.ForeColor = Color.LightSkyBlue; break;
+                case 6: lbMessage.ForeColor = Color.Lime; break;
+                case 5: lbMessage.ForeColor = Color.LightCyan; break;
+                case 4: lbMessage.ForeColor = Color.LightSkyBlue; break;
+                case 3: lbMessage.ForeColor = Color.Yellow; break;
                 case 2: lbMessage.ForeColor = Color.White; break;
-                case 1: lbMessage.ForeColor = Color.White; break;
             }
             viewCount -= 1;
             if (viewCount > 0)

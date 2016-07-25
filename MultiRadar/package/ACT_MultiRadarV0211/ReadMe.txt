@@ -1,7 +1,7 @@
-﻿■名称　MultiRader v2.1.0
+﻿■名称　MultiRader v2.1.1
 
 
-■変更点　IDMode追加　Fontサイズの変更
+■変更点　 ZOOMの数値表示
 
 
 ■用途　FF14 ACTPluginです。
@@ -70,6 +70,7 @@ http://www14.big.or.jp/~amiami/happy/voice.html
 
 
 変更履歴
+2016/07/26  2.1.1  ZOOMの数値表示
 2016/07/24  2.1.0  IDモード　フォントサイズ変更処理追加
 2016/07/17  2.02  バグ修正
 2016/07/16  2.00  WPF版

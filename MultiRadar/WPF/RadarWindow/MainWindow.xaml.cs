@@ -182,6 +182,10 @@ namespace Wpf.RadarWindow
                 RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)img.Width-1, (int)img.Height-1);
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
+                //Zoom
+                dc.DrawText(new FormattedText((21 - RadarViewOrder.radarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
+                FlowDirection.LeftToRight, new Typeface("Verdana"),7, Brushes.LightGray), new Point(140, 10));
+
                 lock (ActData.AllCharactor)
                 {
                     List<Combatant> searchObjects = new List<Combatant>();
@@ -297,7 +301,7 @@ namespace Wpf.RadarWindow
                 {
                     if (rect.X < 20) { continue; }
                     if (rect.Y < 20) { continue; }
-                    if (rect.X > img.Width - 40) { continue; }
+                    if (rect.X > img.Width - (40 + (RadarViewOrder.FontSize*4))) { continue; }
                     if (rect.Y > img.Height - 20) { continue; }
 
                     if (model.IdModeCheckrd && mob.type == 1)
@@ -317,27 +321,12 @@ namespace Wpf.RadarWindow
                 }
                 this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
 
+
+
+
+
                 if (model.IdModeCheckrd)
                 {
-
-                    /* if (true)
-                     {
-                         if (mob.type != 2)
-                         {
-                             jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
-                             dc.DrawText(new FormattedText(job.job,
-                             System.Globalization.CultureInfo.CurrentUICulture,
-                             FlowDirection.LeftToRight, new Typeface("Verdana"),
-                             6, job.brush), new Point(job.left + 2, rect.Y - 4));
-                         }
-
-                         dc.DrawText(new FormattedText(mob.MaxHP.ToString(),
-                         System.Globalization.CultureInfo.CurrentUICulture,
-                         FlowDirection.LeftToRight, new Typeface("Verdana"),
-                         6, Brushes.Aqua), new Point(rect.X + 2, rect.Y));
-                         return;
-                     }
-                     */
                     continue;
                 }
 

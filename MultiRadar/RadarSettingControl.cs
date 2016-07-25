@@ -80,6 +80,40 @@ namespace MultiRadar
             CloseWindow();
             lbStatus.Text = "Plugin Exited";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+        /*
+            dynamic list = ActHelper.ff14PluginScancombat.GetCombatantList();
+            foreach (dynamic item in list.ToArray())
+            {
+                if (item == null)
+                {
+                    continue;
+                }
+
+                var combatant = new Combatant();
+
+                combatant.Name = (string)item.Name;
+                combatant.ID = (uint)item.ID;
+                combatant.Job = (int)item.Job;
+                combatant.CurrentMP = (int)item.CurrentMP;
+                combatant.MaxMP = (int)item.MaxMP;
+                combatant.CastTargetID = (int)item.CastTargetID;
+                combatant.IsCasting = (bool)item.IsCasting;
+                combatant.OwnerID = (uint)item.OwnerID;
+                combatant.Name = (string)item.Name;
+                combatant.type = (byte)item.type;
+                combatant.Level = (int)item.Level;
+                combatant.CurrentHP = (int)item.CurrentHP;
+                combatant.MaxHP = (int)item.MaxHP;
+                combatant.CurrentTP = (int)item.CurrentTP;
+                combatant.PosX = (float)item.PosX;
+                combatant.PosY = (float)item.PosY;
+            }
+            */
+        }
     }
 }
 

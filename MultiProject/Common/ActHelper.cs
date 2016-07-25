@@ -13,7 +13,7 @@ namespace MultiProject
         private static object ff14Plugin;
         private static object ff14PluginMemory;
         private static dynamic ff14PluginConfig;
-        private static dynamic ff14PluginScancombat;
+        public static dynamic ff14PluginScancombat;
 
         public static bool Initialize()
         {

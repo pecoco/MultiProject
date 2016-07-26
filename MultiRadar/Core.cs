@@ -64,10 +64,10 @@ namespace MultiRadar
                 radarForm.isRadarAntiParsonal = rbRadarTaegetPlayer.Checked;
 
                 RadarViewOrder.FontSize = (int)numFontSize.Value > 5 ? (int)numFontSize.Value : 6;
+                RadarViewOrder.Opacity = (int)numOpacity.Value> 40 ? (int)numOpacity.Value : 100;
+
                 radarForm.Show();
-                radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 300,300));
-                /*radarForm.Left = int.Parse(textRadarXpos.Text);
-                radarForm.Top = int.Parse(textRadarYpos.Text);*/
+                radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 460, 460));
                 radarForm.CallbackSaveSetting = SaveSettings;
                 
                 RadarViewOrder.SoundEnable = ckRadarSE.Checked;

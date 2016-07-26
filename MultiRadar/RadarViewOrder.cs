@@ -16,6 +16,13 @@ namespace ACT.RadarViewOrder
             get { return fontSize; }
             set { fontSize = value; }
         }
+        public static int opacity;
+        public static int Opacity
+        {
+            get { return opacity; }
+            set { opacity = value; }
+        }
+
 
         public static bool PlayerView
         {

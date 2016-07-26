@@ -16,9 +16,9 @@
         Topmost="True" IsHitTestVisible="True" IsTabStop="False" SizeChanged="RadarWindow_SizeChanged" 
         Left="{Binding WindowLeft ,Mode=TwoWay}" 
         Top="{Binding WindowTop ,Mode=TwoWay}"  
-        d:DesignHeight="360.69" d:DesignWidth="458.69" 
+        d:DesignHeight="460" d:DesignWidth="460" 
         Width="{Binding WindowWidth ,Mode=TwoWay}" 
-        Height="{Binding WindowHeight ,Mode=TwoWay}" SizeToContent="Width">
+        Height="{Binding WindowHeight ,Mode=TwoWay}" Opacity="{Binding WindowOpacity ,Mode=TwoWay}">
 
 
 
@@ -47,7 +47,7 @@
         <!--#region ResizeButton-->
         <Rectangle Name="rect"/>
 
-        <ToggleButton x:Name="btResize" Content="" Margin="0,0,10,0" VerticalAlignment="Top" ClipToBounds="True" Click="btResie_Click" HorizontalAlignment="Right" Width="16">
+        <ToggleButton x:Name="btResize" Content="" Margin="0,0,10,0" VerticalAlignment="Top" ClipToBounds="True" Click="btResie_Click" Width="16" HorizontalAlignment="Right">
 
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">
@@ -264,7 +264,7 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        
+
         <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="267,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
         <Canvas x:Name="myIcon" HorizontalAlignment="Center" Height="8" VerticalAlignment="Center" Width="8" IsEnabled="False" >
             <Canvas.Background>

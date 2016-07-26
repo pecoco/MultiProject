@@ -64,9 +64,11 @@ namespace Wpf.RadarWindow
             InitializeComponent();
             
             windowRectBrush.Color = Color.FromArgb(1, 80, 80, 80);
+            model = new RadarMainWindowViewModel();
 
             Loaded += (o, e) =>
             {
+                model.WindowOpacity = (float)RadarViewOrder.Opacity / 100;
                 var source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
                 source.AddHook(new HwndSourceHook(WndProc));
                 mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
@@ -75,7 +77,9 @@ namespace Wpf.RadarWindow
             };
 
             //-
-            model = new RadarMainWindowViewModel();
+         
+
+
             String propertyName = "";
             model.PropertyChanged += new PropertyChangedEventHandler((s, e) => { propertyName = e.PropertyName; });
             DataContext = model;
@@ -301,7 +305,7 @@ namespace Wpf.RadarWindow
                 {
                     if (rect.X < 20) { continue; }
                     if (rect.Y < 20) { continue; }
-                    if (rect.X > img.Width - (40 + (RadarViewOrder.FontSize*4))) { continue; }
+                    if (rect.X > img.Width - (40 + (RadarViewOrder.FontSize*5))) { continue; }
                     if (rect.Y > img.Height - 20) { continue; }
 
                     if (model.IdModeCheckrd && mob.type == 1)

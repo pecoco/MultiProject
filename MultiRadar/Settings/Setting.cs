@@ -36,6 +36,8 @@ namespace MultiRadar
             BasePlugin.xmlSettings.AddControlSetting(textSePath.Name, textSePath);
             //Fontsize
             BasePlugin.xmlSettings.AddControlSetting(numFontSize.Name, numFontSize);
+            //Opacity
+            BasePlugin.xmlSettings.AddControlSetting(numOpacity.Name, numOpacity);
 
             if (System.IO.File.Exists(settingsFile))
             {

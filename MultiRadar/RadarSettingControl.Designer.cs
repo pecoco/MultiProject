@@ -81,6 +81,8 @@
             this.numFontSize = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.numOpacity = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -90,6 +92,7 @@
             this.tabPage4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOpacity)).BeginInit();
             this.SuspendLayout();
             // 
             // label30
@@ -558,7 +561,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.1";
+            this.label4.Text = "MulitiRadar 2.1.2";
             // 
             // groupBox2
             // 
@@ -634,7 +637,7 @@
             this.numFontSize.Size = new System.Drawing.Size(41, 19);
             this.numFontSize.TabIndex = 114;
             this.numFontSize.Value = new decimal(new int[] {
-            6,
+            7,
             0,
             0,
             0});
@@ -660,11 +663,42 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // numOpacity
+            // 
+            this.numOpacity.BackColor = System.Drawing.Color.Black;
+            this.numOpacity.ForeColor = System.Drawing.Color.White;
+            this.numOpacity.Location = new System.Drawing.Point(368, 417);
+            this.numOpacity.Minimum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.numOpacity.Name = "numOpacity";
+            this.numOpacity.Size = new System.Drawing.Size(41, 19);
+            this.numOpacity.TabIndex = 117;
+            this.numOpacity.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label12.Location = new System.Drawing.Point(363, 399);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 12);
+            this.label12.TabIndex = 118;
+            this.label12.Text = "Opacity";
+            // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.numOpacity);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.numFontSize);
@@ -710,6 +744,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOpacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -769,5 +804,7 @@
         private System.Windows.Forms.NumericUpDown numFontSize;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numOpacity;
+        private System.Windows.Forms.Label label12;
     }
 }

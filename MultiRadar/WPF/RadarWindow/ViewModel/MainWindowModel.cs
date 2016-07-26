@@ -130,6 +130,24 @@ namespace Wpf.RadarWindow
             }
         }
 
+        private float windowOpacity;
+        public float WindowOpacity
+        {
+            get { return windowOpacity; }
+            set
+            {
+                if (windowOpacity != value)
+                {
+                    windowOpacity = value;
+                    RaisePropertyChanged("WindowOpacity");
+                }
+            }
+        }
+
+        
+
+
+
 
         /*
         private Margin myIconMargin;

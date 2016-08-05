@@ -144,8 +144,20 @@ namespace Wpf.RadarWindow
             }
         }
 
+        private bool viewAreaCheckrd;
+        public bool ViewAreaCheckrd
+        {
+            get { return viewAreaCheckrd; }
+            set
+            {
+                if (viewAreaCheckrd != value)
+                {
+                    viewAreaCheckrd = value;
+                    RaisePropertyChanged("ViewAreaCheckrd");
+                }
+            }
+        }
         
-
 
 
 

@@ -66,10 +66,10 @@ namespace MultiRadar
                 RadarViewOrder.FontSize = (int)numFontSize.Value > 5 ? (int)numFontSize.Value : 6;
                 RadarViewOrder.Opacity = (int)numOpacity.Value> 40 ? (int)numOpacity.Value : 100;
 
-                radarForm.Show();
                 radarForm.SetWindowRect( new Rect(int.Parse(textRadarXpos.Text), int.Parse(textRadarYpos.Text), 460, 460));
                 radarForm.CallbackSaveSetting = SaveSettings;
-                
+                radarForm.Show();
+
                 RadarViewOrder.SoundEnable = ckRadarSE.Checked;
                 alertForm = new AlertForm();
                 alertForm.CallbackSaveSetting = SaveSettings;

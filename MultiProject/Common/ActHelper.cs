@@ -41,9 +41,10 @@ namespace MultiProject
                         FieldInfo fieldInfo;
                         fieldInfo = ff14PluginConfig.GetType().GetField("ScanCombatants", BindingFlags.GetField | BindingFlags.NonPublic | BindingFlags.Instance);
                         ff14PluginScancombat = fieldInfo.GetValue(ff14PluginConfig);
+
                     }
 
-                    if(ff14PluginConfig!=null && ff14PluginScancombat != null)
+                    if (ff14PluginConfig!=null && ff14PluginScancombat != null)
                     {
                         return true;
                     }
@@ -121,11 +122,11 @@ namespace MultiProject
             #endif
             */
         }
-
+       
         public static List<Combatant> GetCombatantList()
         {
             var result = new List<Combatant>();
-
+            dynamic list2 = null;
             if (Initialize())
             {
                 if (ff14PluginConfig.Process == null)
@@ -133,6 +134,7 @@ namespace MultiProject
                     return result;
                 }
                 dynamic list = ff14PluginScancombat.GetCombatantList();
+                if(list2==null) list2 = ff14PluginScancombat.GetCombatantList();
                 foreach (dynamic item in list.ToArray())
                 {
                     if (item == null)
@@ -141,7 +143,6 @@ namespace MultiProject
                     }
 
                     var combatant = new Combatant();
-
                     combatant.Name = (string)item.Name;
                     combatant.ID = (uint)item.ID;
                     combatant.Job = (int)item.Job;

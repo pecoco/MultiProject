@@ -265,7 +265,7 @@
         </Rectangle>
 
 
-        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="267,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
+        <Button x:Name="btFlagOn" Content="▶" HorizontalAlignment="Left" Margin="298,5,0,0" VerticalAlignment="Top" Width="23" Foreground="#CC33C5FF" Background="#5508272C" BorderBrush="{x:Null}" Click="btFlagOn_Click"/>
         <Canvas x:Name="myIcon" HorizontalAlignment="Center" Height="8" VerticalAlignment="Center" Width="8" IsEnabled="False" >
             <Canvas.Background>
                 <ImageBrush ImageSource="/MultiRadar;component/Resources/Arrow.png"/>
@@ -273,7 +273,7 @@
             <!--/myIcon.Margin> ="187,186,0,0"-->
 
         </Canvas>
-        <ToggleButton x:Name="btIDmode" Content="j" HorizontalAlignment="Left" Margin="242,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding IdModeCheckrd, Mode=TwoWay}" Click="btAntiPersonal_Click" >
+        <ToggleButton x:Name="btIDmode" Content="j" HorizontalAlignment="Left" Margin="241,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding IdModeCheckrd, Mode=TwoWay}" Click="btAntiPersonal_Click" >
             <ToggleButton.Template>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border x:Name="border" BorderThickness="1" Background="#DDCCCC44" BorderBrush="Gray" Height="21" >
@@ -304,6 +304,57 @@
                                     <Storyboard>
                                         <ColorAnimation Duration="0"
         									To="#FFCCCC55"
+        									Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+        									Storyboard.TargetName="border"
+        									d:IsOptimized="True" />
+                                        <DoubleAnimation
+        									Storyboard.TargetProperty="Opacity"
+        									From="1" To="0.2" Duration="0:0:1"
+        									RepeatBehavior="Forever" AutoReverse="true" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard/>
+
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </ToggleButton.Template>
+        </ToggleButton>
+        <ToggleButton x:Name="btIDmode_Copy" Content="j" HorizontalAlignment="Left" Margin="269,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding ViewAreaCheckrd, Mode=TwoWay}" >
+            <ToggleButton.Template>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="border" BorderThickness="1" Background="#DDCC5555" BorderBrush="Gray" Height="21" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0"
+        									To="#FFFF6060"
+        									Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+        									Storyboard.TargetName="border"
+        									d:IsOptimized="True" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0"
+        									To="#FFFF6060"
+        									Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+        									Storyboard.TargetName="border"
+        									d:IsOptimized="True" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0"
+        									To="#FFCC5555"
         									Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
         									Storyboard.TargetName="border"
         									d:IsOptimized="True" />

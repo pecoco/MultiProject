@@ -84,7 +84,7 @@ namespace MultiRadar
         private void button1_Click(object sender, EventArgs e)
         {
           
-        /*
+        
             dynamic list = ActHelper.ff14PluginScancombat.GetCombatantList();
             foreach (dynamic item in list.ToArray())
             {
@@ -112,7 +112,7 @@ namespace MultiRadar
                 combatant.PosX = (float)item.PosX;
                 combatant.PosY = (float)item.PosY;
             }
-            */
+            
         }
     }
 }

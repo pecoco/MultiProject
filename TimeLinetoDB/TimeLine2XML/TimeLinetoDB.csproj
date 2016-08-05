@@ -34,6 +34,14 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>TimeLine2DB.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,6 +61,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetDB.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dbcontroller.cs" />
+    <Compile Include="DbControllerBase.cs" />
+    <Compile Include="MemoryManeger.cs" />
+    <Compile Include="MemoryScan.cs" />
+    <Compile Include="PlayerInfoData.cs" />
+    <Compile Include="PlayerStructure.cs" />
+    <Compile Include="ProcessUtilities.cs" />
+    <Compile Include="Signature.cs" />
+    <Compile Include="Signatures.cs" />
+    <Compile Include="SqlCmmandText.cs" />
+    <Compile Include="SqlTables.cs" />
     <Compile Include="TimeLinetoDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +81,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeLineXML.cs" />
+    <Compile Include="WindowsApi.cs" />
     <EmbeddedResource Include="TimeLinetoDB.resx">
       <DependentUpon>TimeLinetoDB.cs</DependentUpon>
     </EmbeddedResource>

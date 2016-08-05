@@ -277,11 +277,34 @@ namespace Wpf.RadarWindow
           
             dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left-2, rect.Top+2), (double)rect.Width, (double)rect.Height);
 
-            dc.DrawText(new FormattedText(rect.Left.ToString()+","+ rect.Top.ToString(),
-            System.Globalization.CultureInfo.CurrentUICulture,
-            FlowDirection.LeftToRight, new Typeface("Verdana"),
-            6, Brushes.Red), new Point(rect.X-10, rect.Y+6 ));
 
+            //
+            Rect area = RadarViewOrder.AreaRect();
+            Pen pen = new Pen(Brushes.LawnGreen,1);
+            dc.DrawEllipse(null, pen, new Point(rect.Left - 2, rect.Top + 2), (double)area.X/2, (double)area.Y/2);
+
+            if (model.ViewAreaCheckrd)
+            {
+
+                area = RadarViewOrder.AreaRect(30);
+                dc.DrawEllipse(null, pen, new Point(rect.Left - 2, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+
+                area = RadarViewOrder.AreaRect(15);
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromArgb(100, 106, 48, 80);
+                dc.DrawEllipse(mySolidColorBrush, null, new Point(rect.Left - 2, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+            }
+            //
+
+            /*
+
+
+
+                        dc.DrawText(new FormattedText(rect.Left.ToString()+","+ rect.Top.ToString(),
+                        System.Globalization.CultureInfo.CurrentUICulture,
+                        FlowDirection.LeftToRight, new Typeface("Verdana"),
+                        10, Brushes.Red), new Point(rect.X-10, rect.Y+6 ));
+            */
             float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
 
             RotateTransform rt = new RotateTransform(sf+90);
@@ -300,6 +323,15 @@ namespace Wpf.RadarWindow
                 if (model.SelectChecked) { shortName = false; }
 
                 Rect rect = RadarViewOrder.MobRect(RadarViewOrder.myData.PosX, RadarViewOrder.myData.PosY, mob.PosX, mob.PosY);
+
+/*
+                dc.DrawText(new FormattedText(mob.PosX.ToString() + "," + mob.PosY.ToString(),
+System.Globalization.CultureInfo.CurrentUICulture,
+FlowDirection.LeftToRight, new Typeface("Verdana"),
+10, Brushes.Red), new Point(rect.X - 10, rect.Y + 6));
+                //9-10 
+*/
+
 
                 if (mob.ID != RadarViewOrder.myData.ID)
                 {

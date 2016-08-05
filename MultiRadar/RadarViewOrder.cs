@@ -55,10 +55,12 @@ namespace ACT.RadarViewOrder
         public static Rect oldPlayerRect;
         public static Rect PlayerRect()
         {
-
             oldPlayerRect = new Rect((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 4, 4);
             return oldPlayerRect;
         }
+
+
+
 
         private static double getRadian(double x, double y, double x2, double y2)
         {
@@ -90,6 +92,32 @@ namespace ACT.RadarViewOrder
             return new Rect((int)x-5, (int)y, 3, 3);
         }
 
+        public static Rect AreaRect()
+        {
+            float x = (128);//0-2000
+            float y = (128);
+
+            x = (x * bW) / (64 * radarZoom);// (scale * 2);//  400;
+            y = (y * bH) / (64 * radarZoom);// (scale * 2);//400;
+
+            return new Rect((int)x , (int)y, 0, 0);
+        }
+
+        public static Rect AreaRect(int value)
+        {
+            float x = (value);//0-2000
+            float y = (value);
+
+            x = (x * bW) / (64 * radarZoom);// (scale * 2);//  400;
+            y = (y * bH) / (64 * radarZoom);// (scale * 2);//400;
+
+            return new Rect((int)x, (int)y, 0, 0);
+        }
+
+
+
+
+
         public static int radarZoom = 10;
 
         public static void ZoomIn()
@@ -98,7 +126,7 @@ namespace ACT.RadarViewOrder
         }
         public static void ZoomOut()
         {
-            radarZoom = radarZoom < 20 ? radarZoom + 1 : 20;
+            radarZoom = radarZoom < 18 ? radarZoom + 1 : 18;
         }
 
         public static Combatant oldMyData;

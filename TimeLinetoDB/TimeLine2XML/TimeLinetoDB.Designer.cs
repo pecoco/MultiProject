@@ -43,6 +43,10 @@
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.lbDataBaseName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btTestConnect = new System.Windows.Forms.Button();
             this.btResize = new System.Windows.Forms.Button();
             this.dataGV = new System.Windows.Forms.DataGridView();
             this.AutoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,7 +93,7 @@
             this.ToolStripMenuItemExportXML = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFLD = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.MicroSoftSqlPathFLD = new System.Windows.Forms.FolderBrowserDialog();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -109,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alertallGV)).BeginInit();
             this.toolStrip1.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -154,7 +157,10 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelTop.Controls.Add(this.button1);
+            this.panelTop.Controls.Add(this.lbDataBaseName);
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Controls.Add(this.panel1);
+            this.panelTop.Controls.Add(this.btTestConnect);
             this.panelTop.Controls.Add(this.btResize);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
@@ -164,6 +170,46 @@
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
             this.panelTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LogForm_MouseUp);
+            // 
+            // lbDataBaseName
+            // 
+            this.lbDataBaseName.AutoSize = true;
+            this.lbDataBaseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbDataBaseName.Location = new System.Drawing.Point(746, 18);
+            this.lbDataBaseName.Name = "lbDataBaseName";
+            this.lbDataBaseName.Size = new System.Drawing.Size(0, 12);
+            this.lbDataBaseName.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label1.Location = new System.Drawing.Point(652, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 12);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "DataBase Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Location = new System.Drawing.Point(883, 13);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(23, 23);
+            this.panel1.TabIndex = 3;
+            // 
+            // btTestConnect
+            // 
+            this.btTestConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTestConnect.ForeColor = System.Drawing.Color.White;
+            this.btTestConnect.Location = new System.Drawing.Point(827, 13);
+            this.btTestConnect.Name = "btTestConnect";
+            this.btTestConnect.Size = new System.Drawing.Size(50, 23);
+            this.btTestConnect.TabIndex = 2;
+            this.btTestConnect.Text = "接続";
+            this.btTestConnect.UseVisualStyleBackColor = true;
+            this.btTestConnect.Click += new System.EventHandler(this.button1_Click);
             // 
             // btResize
             // 
@@ -706,16 +752,6 @@
             // saveFLD
             // 
             this.saveFLD.Filter = "*.*|*.txt";
-             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(825, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TimeLinetoDB
             // 
@@ -732,6 +768,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
@@ -755,7 +792,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.alertallGV)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-
             this.ResumeLayout(false);
 
         }
@@ -818,7 +854,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SyncText;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn WindowSec;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btTestConnect;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbDataBaseName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FolderBrowserDialog MicroSoftSqlPathFLD;
     }
 }
 

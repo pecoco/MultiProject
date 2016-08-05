@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,6 +9,7 @@ using System.IO;
 using System.Text;
 
 using System.Windows.Forms;
+using TimeLinetoDB;
 
 //using Microsoft.SqlServer.Management.Smo;
 //using Microsoft.SqlServer.Management.Common;
@@ -1026,56 +1027,70 @@ namespace TimeLine2XML
 
         }
         //DBConnect
+        bool initDatabaseFlag = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = null;
-            SqlCommand command = null;
-            DataTable dt = new DataTable();
-            var connectionString = GetConnectionString();
-            try
+            if (!initDatabaseFlag)
             {
-                // データベース接続の準備
-                connection = new SqlConnection(connectionString);
+                //２重起動防止
+                initDatabaseFlag = true;
+                InitDatabase();
+                initDatabaseFlag = false;
+            }
+         }
 
-                // データベースの接続開始
-                connection.Open();
 
-                // SQLの実行
-                command = new SqlCommand()
+        private void InitDatabase()
+        {
+            DbController dbCon = new DbController();
+            dbCon.SetCommand(new SqlCmmandTextMicrosoftSql());
+            if (!dbCon.ConnectDBTest())
+            {
+                if (MessageBox.Show("DataBase Not Found. Create Database OK? データベースが見つかりません。新規に作成しますか?", "確認", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    Connection = connection,
-                    CommandText = SQL_CHACK_DB
-                };
-                SqlDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("DataBase Path Setting. Select Install MicrosoftSql path. データーベースのデーターパスを設定します。MicrosoftSqlをインストールしたパスを選択してください。", "確認");
 
-                string name;
-                while (reader.Read())
+                    bool success = false;
+
+                    while (!success)
+                    {
+                        if (MicroSoftSqlPathFLD.ShowDialog() == DialogResult.OK)
+                        {
+                            success = Directory.Exists(MicroSoftSqlPathFLD.SelectedPath + @"\MSSQL12.MSSQLSERVER\MSSQL\DATA");
+                            if (!success)
+                            {
+                                MessageBox.Show(MicroSoftSqlPathFLD.SelectedPath + @"[\MSSQL12.MSSQLSERVER\MSSQL\DATA]" + " is Not found. 指定のパスは存在しません");
+                                continue;
+                            }
+                            success = dbCon.DBCreate(MicroSoftSqlPathFLD.SelectedPath);
+                            if (success)
+                            {
+                                MessageBox.Show("Success create database. データベースの作成に成功しました。 Next Step. Create Tables. 次にテーブルを作成します。");
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
                 {
-                    name = (string)reader.GetValue(0);
+                    MessageBox.Show("キャンセルしました。");
+                    return;
                 }
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-            finally
-            {
-                // データベースの接続終了
-                connection.Close();
-            }
+            ArrayList tables = dbCon.DbCheckTables();
+            //Table Create
+
+
         }
 
-        const string SQL_CHACK_DB = @"SELECT NAME FROM SYS.DATABASES WHERE NAME='multi_project'";
-        public string GetConnectionString()
+        private void label1_Click(object sender, EventArgs e)
         {
-            var builder = new SqlConnectionStringBuilder()
-            {
-                DataSource = "FFF",
-                IntegratedSecurity = true,
-            };
-            return builder.ToString();
-        }
 
+            MemoryManeger mm = new MemoryManeger("ffxiv_dx11");
+            mm.ReadMemory("PLAYERINFO");
+        }
     }
 }

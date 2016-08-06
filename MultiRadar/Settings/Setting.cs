@@ -88,15 +88,15 @@ namespace MultiRadar
             {
                 if (radarForm != null)
                 {
-                    textRadarXpos.Text = radarForm.Left.ToString();
-                    textRadarYpos.Text = radarForm.Top.ToString();
+                    textRadarXpos.Text = ((int)radarForm.Left).ToString();
+                    textRadarYpos.Text = ((int)radarForm.Top).ToString();
                     rbRederModeSelect.Checked = radarForm.isRadarSelect;
                     rbRadarTaegetPlayer.Checked = radarForm.isRadarAntiParsonal;
                 }
                 if (alertForm != null)
                 {
-                    textAlertXpos.Text = alertForm.Left.ToString();
-                    textAlertYpos.Text = alertForm.Top.ToString();
+                    textAlertXpos.Text = ((int)alertForm.Left).ToString();
+                    textAlertYpos.Text = ((int)alertForm.Top).ToString();
                 }
             }
 

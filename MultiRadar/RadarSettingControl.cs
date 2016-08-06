@@ -94,7 +94,6 @@ namespace MultiRadar
                 }
 
                 var combatant = new Combatant();
-
                 combatant.Name = (string)item.Name;
                 combatant.ID = (uint)item.ID;
                 combatant.Job = (int)item.Job;

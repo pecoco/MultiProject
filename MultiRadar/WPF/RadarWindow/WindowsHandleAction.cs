@@ -19,7 +19,6 @@ namespace Wpf.RadarWindow
         private void RadarWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             img.Width = RadarWindow.Width; img.Height = RadarWindow.Height;
-            SaveAction();
         }
         private void btZoomIn_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +62,7 @@ namespace Wpf.RadarWindow
             {
                 this.ResizeMode = ResizeMode.CanResizeWithGrip;
             }
+            SaveAction();
         }
 
         bool isOpen = true;

@@ -7,6 +7,14 @@ namespace MultiRadar
    
     partial class RadarSettingControl
     {
+        private void onInputCheck(ref KeyPressEventArgs e)
+        {
+            //0～9と、バックスペース以外の時は、イベントをキャンセルする
+            if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
         AddRadarMobForm addRadarDataForm;
         private void btOpenRadar_Click(object sender, EventArgs e)
         {

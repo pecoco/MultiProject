@@ -65,14 +65,20 @@ namespace MultiRadar
 
                 RadarViewOrder.FontSize = (int)numFontSize.Value > 5 ? (int)numFontSize.Value : 6;
                 RadarViewOrder.Opacity = (int)numOpacity.Value> 40 ? (int)numOpacity.Value : 100;
+                RadarViewOrder.radarZoom = 21-(int)numZoom.Value>11 ? 21 - (int)numZoom.Value:11;
+
 
                 int valueX = 0;
                 int valueY = 0;
-
+                int valueWidth = 0;
+                int valueHeight = 0;
                 int.TryParse(textRadarXpos.Text, out valueX);
                 int.TryParse(textRadarYpos.Text, out valueY);
+                int.TryParse(textRadarWidth.Text, out valueWidth);
+                int.TryParse(textRadarHeight.Text, out valueHeight);
+                RadarViewOrder.keepWindowHeight = valueHeight;
 
-                radarForm.SetWindowRect( new Rect(valueX, valueY, 460, 460));
+                radarForm.SetWindowRect( new Rect(valueX, valueY, valueWidth, valueHeight));
                 radarForm.CallbackSaveSetting = SaveSettings;
                 radarForm.Show();
 

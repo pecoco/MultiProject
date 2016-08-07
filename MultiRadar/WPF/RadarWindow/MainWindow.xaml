@@ -16,7 +16,7 @@
         Topmost="True" IsHitTestVisible="True" IsTabStop="False" SizeChanged="RadarWindow_SizeChanged" 
         Left="{Binding WindowLeft ,Mode=TwoWay}" 
         Top="{Binding WindowTop ,Mode=TwoWay}"  
-        d:DesignHeight="460" d:DesignWidth="460" 
+        d:DesignHeight="450" d:DesignWidth="450" 
         Width="{Binding WindowWidth ,Mode=TwoWay}" 
         Height="{Binding WindowHeight ,Mode=TwoWay}" Opacity="{Binding WindowOpacity ,Mode=TwoWay}">
 
@@ -24,7 +24,7 @@
 
 
 
-    <Grid x:Name="vbox" Margin="0,0,10,0" ClipToBounds="True" IsHitTestVisible="True"  >
+    <Grid x:Name="vbox" Margin="0,0,0,0" ClipToBounds="True" IsHitTestVisible="True"  >
 
         <Image x:Name="img" IsHitTestVisible="False" IsEnabled="True"  UseLayoutRounding="True" Stretch="Fill" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True"
                    
@@ -45,7 +45,7 @@
 
 
         <!--#region ResizeButton-->
-        <Rectangle Name="rect"/>
+        <Rectangle Name="rect" Height="450" Width="450"/>
 
         <ToggleButton x:Name="btResize" Content="" Margin="0,0,10,0" VerticalAlignment="Top" ClipToBounds="True" Click="btResie_Click" Width="16" HorizontalAlignment="Right">
 

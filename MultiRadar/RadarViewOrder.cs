@@ -36,6 +36,7 @@ namespace ACT.RadarViewOrder
         public static int bH = 0;
         public static int infoX = 0;
         public static int infoY = 0;
+        public static int scale = 16;
         static float scaleX = 0;
         static float scaleY = 0;
 
@@ -76,31 +77,31 @@ namespace ACT.RadarViewOrder
             bW = width;
             infoX = 0;// bX;
             infoY = 54;
-            scaleX = bW / 2;
-            scaleY = bH / 2;
+            scaleX = bW / 2f;
+            scaleY = bH / 2f;
 
         }
 
         public static Rect MobRect(float myX, float myY, float mobX, float mobY)
         {
-            float x = (mobX) - myX + (64 * radarZoom);//0-2000
-            float y = (mobY) - myY + (64 * radarZoom);
+            float x = (mobX) - myX + (scale * radarZoom);//0-2000
+            float y = (mobY) - myY + (scale * radarZoom);
 
-            x = (x * bW) / (64 * radarZoom * 2);// (scale * 2);//  400;
-            y = (y * bH) / (64 * radarZoom * 2);// (scale * 2);//400;
+            x = (x * bW) / (scale * radarZoom * 2);// (scale * 2);//  400;
+            y = (y * bH) / (scale * radarZoom * 2);// (scale * 2);//400;
 
             return new Rect((int)x-5, (int)y, 3, 3);
         }
 
-        public static Rect AreaRect()
+        public static Point AreaPos()
         {
-            float x = (128);//0-2000
-            float y = (128);
+            float x = (145);//0-2000
+            float y = (145);
 
-            x = (x * bW) / (64 * radarZoom);// (scale * 2);//  400;
-            y = (y * bH) / (64 * radarZoom);// (scale * 2);//400;
+            x = (x * bW) / (scale * radarZoom);// (scale * 2);//  400;
+            y = (y * bH) / (scale * radarZoom);// (scale * 2);//400;
 
-            return new Rect((int)x , (int)y, 0, 0);
+            return new Point((int)x , (int)y);
         }
 
         public static Rect AreaRect(int value)
@@ -108,8 +109,8 @@ namespace ACT.RadarViewOrder
             float x = (value);//0-2000
             float y = (value);
 
-            x = (x * bW) / (64 * radarZoom);// (scale * 2);//  400;
-            y = (y * bH) / (64 * radarZoom);// (scale * 2);//400;
+            x = (x * bW) / (scale * radarZoom);// (scale * 2);//  400;
+            y = (y * bH) / (scale * radarZoom);// (scale * 2);//400;
 
             return new Rect((int)x, (int)y, 0, 0);
         }
@@ -122,11 +123,11 @@ namespace ACT.RadarViewOrder
 
         public static void ZoomIn()
         {
-            radarZoom = radarZoom > 1 ? radarZoom - 1 : 1;
+            radarZoom = radarZoom > 10 ? radarZoom - 1 : 10;
         }
         public static void ZoomOut()
         {
-            radarZoom = radarZoom < 18 ? radarZoom + 1 : 18;
+            radarZoom = radarZoom < 20 ? radarZoom + 1 : 20;
         }
 
         public static Combatant oldMyData;

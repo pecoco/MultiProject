@@ -561,7 +561,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.4";
+            this.label4.Text = "MulitiRadar 2.1.5";
             // 
             // groupBox2
             // 

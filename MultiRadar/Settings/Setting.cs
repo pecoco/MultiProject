@@ -10,14 +10,7 @@ namespace MultiRadar
 {
     public partial class RadarSettingControl
     {
-        private void onInputCheck(ref KeyPressEventArgs e)
-        {
-            //0～9と、バックスペース以外の時は、イベントをキャンセルする
-            if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-        }
+
         partial void LoadSettings()
         {
             //Radar(Map)(Contrall Window)
@@ -26,8 +19,14 @@ namespace MultiRadar
             BasePlugin.xmlSettings.AddControlSetting(ckRadarVisible.Name, ckRadarVisible);
             BasePlugin.xmlSettings.AddControlSetting(rbRederModeSelect.Name, rbRederModeSelect);
             BasePlugin.xmlSettings.AddControlSetting(rbRadarTaegetPlayer.Name, rbRadarTaegetPlayer);
+
             BasePlugin.xmlSettings.AddControlSetting(textAlertXpos.Name, textAlertXpos);
             BasePlugin.xmlSettings.AddControlSetting(textAlertYpos.Name, textAlertYpos);
+
+            BasePlugin.xmlSettings.AddControlSetting(textRadarWidth.Name, textRadarWidth);
+            BasePlugin.xmlSettings.AddControlSetting(textRadarHeight.Name, textRadarHeight);
+
+            BasePlugin.xmlSettings.AddControlSetting(numZoom.Name, numZoom);
             //SE
             BasePlugin.xmlSettings.AddControlSetting(ckRadarSE.Name, ckRadarSE);
             //Path
@@ -90,6 +89,13 @@ namespace MultiRadar
                 {
                     textRadarXpos.Text = ((int)radarForm.Left).ToString();
                     textRadarYpos.Text = ((int)radarForm.Top).ToString();
+                    textRadarWidth.Text = ((int)radarForm.Width).ToString();
+                    if (radarForm.Height > 300)
+                    {
+                        textRadarHeight.Text = ((int)radarForm.Height).ToString();
+                    }
+                    numZoom.Value = 21 - RadarViewOrder.radarZoom;
+
                     rbRederModeSelect.Checked = radarForm.isRadarSelect;
                     rbRadarTaegetPlayer.Checked = radarForm.isRadarAntiParsonal;
                 }

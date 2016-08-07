@@ -57,7 +57,8 @@ namespace Wpf.RadarWindow
         SolidColorBrush windowRectBrush = new SolidColorBrush();
         MainWindow instance = null;
 
-        private Pen AreaPen;
+        private Pen areaPen;
+        private Pen myAreaPen;
 
         public MainWindow()
         {
@@ -73,7 +74,10 @@ namespace Wpf.RadarWindow
                 model.WindowOpacity = (float)RadarViewOrder.Opacity / 100;
                 var source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
                 source.AddHook(new HwndSourceHook(WndProc));
-                AreaPen = new Pen(Brushes.LawnGreen, 1);
+                areaPen = new Pen(Brushes.LawnGreen, 1);
+                myAreaPen = new Pen(Brushes.LightCyan, 1);
+
+
                 mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
                 mTimer.Tick += new EventHandler(TickTimer);
                 mTimer.Start();
@@ -220,7 +224,7 @@ namespace Wpf.RadarWindow
                             FirstOpenWindowAnimetion();
                         }
 
-                        if (OpenWindowAnimetion(dc,300))
+                        if (OpenWindowAnimetion(dc, RadarViewOrder.keepWindowHeight))
                         {
                             //場所
                             if (RadardataInstance.Zone != "")
@@ -293,21 +297,21 @@ namespace Wpf.RadarWindow
                 {
                     case 19://knight
                     case 32://暗黒
-                        DrawingArea(dc, rect, 15, 5); break;//Flash
+                        DrawingArea(dc, rect, 15, 5, myAreaPen); break;//Flash
                     case 21://戦士
-                        DrawingArea(dc, rect, 15, 0); break;//Flash
+                        DrawingArea(dc, rect, 15, 0, myAreaPen); break;//Flash
                     case 23://詩人
-                        DrawingArea(dc, rect, 25, 20); break;//Flash
+                        DrawingArea(dc, rect, 25, 20, myAreaPen); break;//Flash
                     case 31://機工
-                        DrawingArea(dc, rect, 25, 0); break;//Flash
+                        DrawingArea(dc, rect, 25, 0, myAreaPen); break;//Flash
                     case 25://黒
                     case 27://召喚
-                        DrawingArea(dc, rect, 25, 0); break;//30
+                        DrawingArea(dc, rect, 25, 0, myAreaPen); break;//30
                     case 24://白
                     case 28://学
                     case 33://占
                             //ケアル、メディカラ
-                        DrawingArea(dc, rect, 30, 15); break;//30 15
+                        DrawingArea(dc, rect, 30, 15, areaPen); break;//30 15
                 }
             }
             float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
@@ -354,13 +358,13 @@ namespace Wpf.RadarWindow
 
                 if (model.IdModeCheckrd)
                 {
-                    if (model.ViewAreaCheckrd)
+                    if (model.ViewAreaCheckrd && RadarViewOrder.myData.ID != mob.ID)
                     {
                         switch (mob.Job)
                         {
                             case 24:
                             case 28:
-                            case 33: DrawingArea(dc, rect, 30, 15); break;//ケアル、メディカラ
+                            case 33: DrawingArea(dc, rect, 30, 15,areaPen); break;//ケアル、メディカラ
                         }
                     }
                     continue;
@@ -394,13 +398,13 @@ namespace Wpf.RadarWindow
             }
         }
 
-        private void DrawingArea(DrawingContext dc,Rect rect, int r1Value, int r2Value)
+        private void DrawingArea(DrawingContext dc,Rect rect, int r1Value, int r2Value ,Pen pen)
         {
             Rect area;
             if (r1Value > 0)
             {
                 area = RadarViewOrder.AreaRect(r1Value);
-                dc.DrawEllipse(null, AreaPen, new Point(rect.Left, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+                dc.DrawEllipse(null, pen, new Point(rect.Left, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
             }
             if (r2Value > 0)
             {

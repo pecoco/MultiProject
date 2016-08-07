@@ -59,7 +59,7 @@ namespace ACT.RadarViewOrder
             oldPlayerRect = new Rect((int)(scaleX * bW / bW) - 2, (int)(scaleY * bH / bH) - 2, 4, 4);
             return oldPlayerRect;
         }
-
+        public static int keepWindowHeight;
 
 
 

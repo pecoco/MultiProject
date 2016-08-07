@@ -55,8 +55,10 @@ namespace Wpf.RadarWindow
         }
 
         SolidColorBrush windowRectBrush = new SolidColorBrush();
-
         MainWindow instance = null;
+
+        private Pen AreaPen;
+
         public MainWindow()
         {
 
@@ -71,6 +73,7 @@ namespace Wpf.RadarWindow
                 model.WindowOpacity = (float)RadarViewOrder.Opacity / 100;
                 var source = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
                 source.AddHook(new HwndSourceHook(WndProc));
+                AreaPen = new Pen(Brushes.LawnGreen, 1);
                 mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
                 mTimer.Tick += new EventHandler(TickTimer);
                 mTimer.Start();
@@ -183,6 +186,7 @@ namespace Wpf.RadarWindow
                 if (ActData.AllCharactor.Count == 0) { return; }
                 if (!isOpen) { return; }
 
+
                 RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)img.Width-1, (int)img.Height-1);
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
@@ -245,10 +249,10 @@ namespace Wpf.RadarWindow
 
                     if (RadarViewOrder.windowsStatus)
                     {
-                        DrowMyCharacter(dc);
+                        DrowMyCharacter(searchObjects[0],dc);
                     }
                 }
-
+                
             }
         }
 
@@ -271,40 +275,41 @@ namespace Wpf.RadarWindow
             return true;
         }
 
-        private void DrowMyCharacter(DrawingContext dc)
+        private void DrowMyCharacter(Combatant myData,DrawingContext dc)
         {
             Rect rect = RadarViewOrder.PlayerRect();//
           
-            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left-2, rect.Top+2), (double)rect.Width, (double)rect.Height);
+            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top+2), (double)rect.Width, (double)rect.Height);
 
 
             //
-            Rect area = RadarViewOrder.AreaRect();
+            Point areaPos = RadarViewOrder.AreaPos();
             Pen pen = new Pen(Brushes.LawnGreen,1);
-            dc.DrawEllipse(null, pen, new Point(rect.Left - 2, rect.Top + 2), (double)area.X/2, (double)area.Y/2);
+            dc.DrawEllipse(null, pen, new Point(rect.Left , rect.Top + 2), (double)areaPos.X/2, (double)areaPos.Y/2);
 
             if (model.ViewAreaCheckrd)
             {
-
-                area = RadarViewOrder.AreaRect(30);
-                dc.DrawEllipse(null, pen, new Point(rect.Left - 2, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
-
-                area = RadarViewOrder.AreaRect(15);
-                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-                mySolidColorBrush.Color = Color.FromArgb(100, 106, 48, 80);
-                dc.DrawEllipse(mySolidColorBrush, null, new Point(rect.Left - 2, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+                switch (myData.Job)
+                {
+                    case 19://knight
+                    case 32://暗黒
+                        DrawingArea(dc, rect, 15, 5); break;//Flash
+                    case 21://戦士
+                        DrawingArea(dc, rect, 15, 0); break;//Flash
+                    case 23://詩人
+                        DrawingArea(dc, rect, 25, 20); break;//Flash
+                    case 31://機工
+                        DrawingArea(dc, rect, 25, 0); break;//Flash
+                    case 25://黒
+                    case 27://召喚
+                        DrawingArea(dc, rect, 25, 0); break;//30
+                    case 24://白
+                    case 28://学
+                    case 33://占
+                            //ケアル、メディカラ
+                        DrawingArea(dc, rect, 30, 15); break;//30 15
+                }
             }
-            //
-
-            /*
-
-
-
-                        dc.DrawText(new FormattedText(rect.Left.ToString()+","+ rect.Top.ToString(),
-                        System.Globalization.CultureInfo.CurrentUICulture,
-                        FlowDirection.LeftToRight, new Typeface("Verdana"),
-                        10, Brushes.Red), new Point(rect.X-10, rect.Y+6 ));
-            */
             float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
 
             RotateTransform rt = new RotateTransform(sf+90);
@@ -323,22 +328,12 @@ namespace Wpf.RadarWindow
                 if (model.SelectChecked) { shortName = false; }
 
                 Rect rect = RadarViewOrder.MobRect(RadarViewOrder.myData.PosX, RadarViewOrder.myData.PosY, mob.PosX, mob.PosY);
-
-/*
-                dc.DrawText(new FormattedText(mob.PosX.ToString() + "," + mob.PosY.ToString(),
-System.Globalization.CultureInfo.CurrentUICulture,
-FlowDirection.LeftToRight, new Typeface("Verdana"),
-10, Brushes.Red), new Point(rect.X - 10, rect.Y + 6));
-                //9-10 
-*/
-
-
                 if (mob.ID != RadarViewOrder.myData.ID)
                 {
                     if (rect.X < 20) { continue; }
                     if (rect.Y < 20) { continue; }
                     if (rect.X > img.Width - (40 + (RadarViewOrder.FontSize*5))) { continue; }
-                    if (rect.Y > img.Height - 20) { continue; }
+                    if (rect.Y > img.Height ) { continue; }
 
                     if (model.IdModeCheckrd && mob.type == 1)
                     {
@@ -357,12 +352,17 @@ FlowDirection.LeftToRight, new Typeface("Verdana"),
                 }
                 this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
 
-
-
-
-
                 if (model.IdModeCheckrd)
                 {
+                    if (model.ViewAreaCheckrd)
+                    {
+                        switch (mob.Job)
+                        {
+                            case 24:
+                            case 28:
+                            case 33: DrawingArea(dc, rect, 30, 15); break;//ケアル、メディカラ
+                        }
+                    }
                     continue;
                 }
 
@@ -381,7 +381,9 @@ FlowDirection.LeftToRight, new Typeface("Verdana"),
                         FlowDirection.LeftToRight, new Typeface("Verdana"),
                         RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
                     }
-                }else
+
+                }
+                else
                 {
                     dc.DrawText(new FormattedText(mob.MaxHP.ToString(),
                     System.Globalization.CultureInfo.CurrentUICulture,
@@ -392,7 +394,22 @@ FlowDirection.LeftToRight, new Typeface("Verdana"),
             }
         }
 
-
+        private void DrawingArea(DrawingContext dc,Rect rect, int r1Value, int r2Value)
+        {
+            Rect area;
+            if (r1Value > 0)
+            {
+                area = RadarViewOrder.AreaRect(r1Value);
+                dc.DrawEllipse(null, AreaPen, new Point(rect.Left, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+            }
+            if (r2Value > 0)
+            {
+                area = RadarViewOrder.AreaRect(r2Value);
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush.Color = Color.FromArgb(100, 106, 48, 80);
+                dc.DrawEllipse(mySolidColorBrush, null, new Point(rect.Left, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
+            }
+        }
 
 
         private struct jobTextLayout
@@ -520,7 +537,10 @@ FlowDirection.LeftToRight, new Typeface("Verdana"),
             }
             foreach (Combatant charcter in ActData.AllCharactor)
             {
-
+                if (charcter.Name == "カーバンクル")
+                {
+                    continue;
+                }
                 if (charcter.Name == "ガルーダ・エギ")
                 {
                     continue;

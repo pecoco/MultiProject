@@ -127,7 +127,7 @@ namespace ACT.RadarViewOrder
         }
         public static void ZoomOut()
         {
-            radarZoom = radarZoom < 20 ? radarZoom + 1 : 20;
+            radarZoom = radarZoom < 30 ? radarZoom + 1 : 30;
         }
 
         public static Combatant oldMyData;

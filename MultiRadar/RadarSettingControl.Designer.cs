@@ -316,7 +316,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(361, 91);
+            this.tabPage2.Size = new System.Drawing.Size(427, 91);
             this.tabPage2.TabIndex = 5;
             this.tabPage2.Text = "A";
             // 
@@ -330,7 +330,7 @@
             this.listMobA.ItemHeight = 12;
             this.listMobA.Location = new System.Drawing.Point(3, 3);
             this.listMobA.Name = "listMobA";
-            this.listMobA.Size = new System.Drawing.Size(355, 85);
+            this.listMobA.Size = new System.Drawing.Size(421, 85);
             this.listMobA.TabIndex = 1;
             // 
             // tabPage3
@@ -340,7 +340,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(361, 91);
+            this.tabPage3.Size = new System.Drawing.Size(427, 91);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "B";
             // 
@@ -354,7 +354,7 @@
             this.listMobB.ItemHeight = 12;
             this.listMobB.Location = new System.Drawing.Point(3, 3);
             this.listMobB.Name = "listMobB";
-            this.listMobB.Size = new System.Drawing.Size(355, 85);
+            this.listMobB.Size = new System.Drawing.Size(421, 85);
             this.listMobB.TabIndex = 2;
             // 
             // tabPage4
@@ -364,7 +364,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(361, 91);
+            this.tabPage4.Size = new System.Drawing.Size(427, 91);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "ETC";
             // 
@@ -378,7 +378,7 @@
             this.listMobETC.ItemHeight = 12;
             this.listMobETC.Location = new System.Drawing.Point(3, 3);
             this.listMobETC.Name = "listMobETC";
-            this.listMobETC.Size = new System.Drawing.Size(355, 85);
+            this.listMobETC.Size = new System.Drawing.Size(421, 85);
             this.listMobETC.TabIndex = 1;
             // 
             // label9
@@ -569,7 +569,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.6";
+            this.label4.Text = "MulitiRadar 2.1.7";
             // 
             // groupBox2
             // 
@@ -764,15 +764,15 @@
             this.numZoom.ForeColor = System.Drawing.Color.White;
             this.numZoom.Location = new System.Drawing.Point(428, 418);
             this.numZoom.Maximum = new decimal(new int[] {
-            11,
+            20,
             0,
             0,
             0});
             this.numZoom.Minimum = new decimal(new int[] {
-            1,
+            10,
             0,
             0,
-            0});
+            -2147483648});
             this.numZoom.Name = "numZoom";
             this.numZoom.Size = new System.Drawing.Size(41, 19);
             this.numZoom.TabIndex = 123;

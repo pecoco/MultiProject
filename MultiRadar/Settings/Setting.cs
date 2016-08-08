@@ -90,11 +90,12 @@ namespace MultiRadar
                     textRadarXpos.Text = ((int)radarForm.Left).ToString();
                     textRadarYpos.Text = ((int)radarForm.Top).ToString();
                     textRadarWidth.Text = ((int)radarForm.Width).ToString();
-                    if (radarForm.Height > 300)
+                    if (radarForm.Height > 280)
                     {
                         textRadarHeight.Text = ((int)radarForm.Height).ToString();
+                        RadarViewOrder.keepWindowHeight = ((int)radarForm.Height);
                     }
-                    numZoom.Value = 21 - RadarViewOrder.radarZoom;
+                    numZoom.Value = 30 - RadarViewOrder.radarZoom;
 
                     rbRederModeSelect.Checked = radarForm.isRadarSelect;
                     rbRadarTaegetPlayer.Checked = radarForm.isRadarAntiParsonal;

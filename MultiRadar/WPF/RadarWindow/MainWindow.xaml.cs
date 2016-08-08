@@ -83,11 +83,7 @@ namespace Wpf.RadarWindow
                 mTimer.Start();
             };
 
-            //-
-         
-
-
-            String propertyName = "";
+            string propertyName = "";
             model.PropertyChanged += new PropertyChangedEventHandler((s, e) => { propertyName = e.PropertyName; });
             DataContext = model;
             //-
@@ -143,7 +139,6 @@ namespace Wpf.RadarWindow
         const int VK_F4 = 0x73;
         const int VM_LBUTTON = 0x0201;
         static Int32 MES;
-
 
         private static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
@@ -285,8 +280,6 @@ namespace Wpf.RadarWindow
           
             dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top+2), (double)rect.Width, (double)rect.Height);
 
-
-            //
             Point areaPos = RadarViewOrder.AreaPos();
             Pen pen = new Pen(Brushes.LawnGreen,1);
             dc.DrawEllipse(null, pen, new Point(rect.Left , rect.Top + 2), (double)areaPos.X/2, (double)areaPos.Y/2);
@@ -297,21 +290,21 @@ namespace Wpf.RadarWindow
                 {
                     case 19://knight
                     case 32://暗黒
-                        DrawingArea(dc, rect, 15, 5, myAreaPen); break;//Flash
+                        DrawingArea(dc, rect, 15, 5, myAreaPen, Color.FromArgb(100, 106, 48, 80)); break;//Flash
                     case 21://戦士
-                        DrawingArea(dc, rect, 15, 0, myAreaPen); break;//Flash
+                        DrawingArea(dc, rect, 15, 0, myAreaPen, Color.FromArgb(100, 106, 48, 80)); break;//Flash
                     case 23://詩人
-                        DrawingArea(dc, rect, 25, 20, myAreaPen); break;//Flash
+                        DrawingArea(dc, rect, 25, 20, myAreaPen, Color.FromArgb(100, 106, 148, 80)); break;//Flash
                     case 31://機工
-                        DrawingArea(dc, rect, 25, 0, myAreaPen); break;//Flash
+                        DrawingArea(dc, rect, 25, 0, myAreaPen, Color.FromArgb(100, 106, 48, 80)); break;//Flash
                     case 25://黒
                     case 27://召喚
-                        DrawingArea(dc, rect, 25, 0, myAreaPen); break;//30
+                        DrawingArea(dc, rect, 25, 0, myAreaPen, Color.FromArgb(100, 106, 48, 80)); break;//30
                     case 24://白
                     case 28://学
                     case 33://占
                             //ケアル、メディカラ
-                        DrawingArea(dc, rect, 30, 15, areaPen); break;//30 15
+                        DrawingArea(dc, rect, 30, 15, areaPen, Color.FromArgb(100, 40, 148, 80)); break;//30 15
                 }
             }
             float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
@@ -320,7 +313,6 @@ namespace Wpf.RadarWindow
             myIcon.LayoutTransform = rt;
 
         }
-
 
         private void namePlate(List<Combatant> searchObjects, DrawingContext dc )
         {
@@ -364,7 +356,7 @@ namespace Wpf.RadarWindow
                         {
                             case 24:
                             case 28:
-                            case 33: DrawingArea(dc, rect, 30, 15,areaPen); break;//ケアル、メディカラ
+                            case 33: DrawingArea(dc, rect, 30, 15,areaPen, Color.FromArgb(100, 40, 148, 80)); break;//ケアル、メディカラ
                         }
                     }
                     continue;
@@ -385,7 +377,6 @@ namespace Wpf.RadarWindow
                         FlowDirection.LeftToRight, new Typeface("Verdana"),
                         RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
                     }
-
                 }
                 else
                 {
@@ -398,7 +389,7 @@ namespace Wpf.RadarWindow
             }
         }
 
-        private void DrawingArea(DrawingContext dc,Rect rect, int r1Value, int r2Value ,Pen pen)
+        private void DrawingArea(DrawingContext dc,Rect rect, int r1Value, int r2Value ,Pen pen, Color color)
         {
             Rect area;
             if (r1Value > 0)
@@ -410,11 +401,10 @@ namespace Wpf.RadarWindow
             {
                 area = RadarViewOrder.AreaRect(r2Value);
                 SolidColorBrush mySolidColorBrush = new SolidColorBrush();
-                mySolidColorBrush.Color = Color.FromArgb(100, 106, 48, 80);
+                mySolidColorBrush.Color = color;
                 dc.DrawEllipse(mySolidColorBrush, null, new Point(rect.Left, rect.Top + 2), (double)area.X / 2, (double)area.Y / 2);
             }
         }
-
 
         private struct jobTextLayout
         {
@@ -444,7 +434,7 @@ namespace Wpf.RadarWindow
                 case 33:
                     if (IsCasting)
                     {
-                        job.job = "HEAL◎"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
+                        job.job = "HEAL●"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
                     }
                     else
                     {
@@ -454,11 +444,11 @@ namespace Wpf.RadarWindow
                 case 27:
                     if (IsCasting)
                     {
-                        job.job = "CAS@"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
+                        job.job = "CAS●"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
                     }
                     else
                     {
-                        job.job = "CAS@"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
+                        job.job = "CAS"; job.brush = Brushes.Yellow; job.left = rect.Left + 5; break;
                     }
                 default:
                     job.job = ""; job.brush = Brushes.Black; job.left = rect.Left + 5; break;
@@ -642,20 +632,9 @@ namespace Wpf.RadarWindow
             model.WindowHeight = rect.Height;
         }
 
-
-
         private static Timer SetWindowTimer { get; set; }
         public string DesignHeight { get; private set; }
         public bool FlagKeepOn { get; private set; }
-
-
-
-
-
-
-
-
-
 
         #region  Click Not Hit
         //Spcial Spell Timer を参考にしました！　ありがとう
@@ -668,8 +647,6 @@ namespace Wpf.RadarWindow
             WindowInteropHelper helper = new WindowInteropHelper(this);
             WindowsApi32.SetWindowLong(helper.Handle, GWL_EXSTYLE, WindowsApi32.GetWindowLong(helper.Handle, GWL_EXSTYLE) | WS_EX_NOACTIVATE);
         }
-
-
 
         #endregion
         private void rtClipBar_MouseLeave(object sender, MouseEventArgs e)

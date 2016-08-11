@@ -82,7 +82,7 @@ namespace Wpf.RadarWindow
                     btResize.IsChecked = false;
                 }
 
-                model.WindowWidth = btSwitch.Width + btSwitch.Margin.Left + 16;
+                model.WindowWidth = btSwitch.Width ;
                 model.WindowHeight = 32;
                 btSwitch.Background = new SolidColorBrush(Color.FromArgb(255, 70, 70, 70));
                 myIcon.Width = 0;

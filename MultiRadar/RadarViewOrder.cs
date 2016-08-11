@@ -84,11 +84,11 @@ namespace ACT.RadarViewOrder
 
         public static Rect MobRect(float myX, float myY, float mobX, float mobY)
         {
-            float x = (mobX) - myX + (scale * radarZoom);//0-2000
-            float y = (mobY) - myY + (scale * radarZoom);
+            float x =   myX + (scale * (radarZoom - 20))- (mobX);//0-2000
+            float y =   myY + (scale * (radarZoom - 20))- (mobY);
 
-            x = (x * bW) / (scale * radarZoom * 2);// (scale * 2);//  400;
-            y = (y * bH) / (scale * radarZoom * 2);// (scale * 2);//400;
+            x = (x * bW) / (scale * (radarZoom - 20) * 2);// (scale * 2);//  400;
+            y = (y * bH) / (scale * (radarZoom - 20) * 2);// (scale * 2);//400;
 
             return new Rect((int)x-5, (int)y, 3, 3);
         }
@@ -98,8 +98,8 @@ namespace ACT.RadarViewOrder
             float x = (145);//0-2000
             float y = (145);
 
-            x = (x * bW) / (scale * radarZoom);// (scale * 2);//  400;
-            y = (y * bH) / (scale * radarZoom);// (scale * 2);//400;
+            x = (x * bW) / (scale * (radarZoom - 20));// (scale * 2);//  400;
+            y = (y * bH) / (scale * (radarZoom - 20));// (scale * 2);//400;
 
             return new Point((int)x , (int)y);
         }
@@ -109,8 +109,8 @@ namespace ACT.RadarViewOrder
             float x = (value);//0-2000
             float y = (value);
 
-            x = (x * bW) / (scale * radarZoom);// (scale * 2);//  400;
-            y = (y * bH) / (scale * radarZoom);// (scale * 2);//400;
+            x = (x * bW) / (scale * (radarZoom - 20));// (scale * 2);//  400;
+            y = (y * bH) / (scale * (radarZoom - 20));// (scale * 2);//400;
 
             return new Rect((int)x, (int)y, 0, 0);
         }
@@ -123,11 +123,11 @@ namespace ACT.RadarViewOrder
 
         public static void ZoomIn()
         {
-            radarZoom = radarZoom > 10 ? radarZoom - 1 : 10;
+            radarZoom = radarZoom > -40 ? radarZoom - 1 : -40;
         }
         public static void ZoomOut()
         {
-            radarZoom = radarZoom < 30 ? radarZoom + 1 : 30;
+            radarZoom = radarZoom < 10 ? radarZoom + 1 : 10;
         }
 
         public static Combatant oldMyData;

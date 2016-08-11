@@ -190,7 +190,7 @@ namespace Wpf.RadarWindow
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
                 //Zoom
-                dc.DrawText(new FormattedText((21 - RadarViewOrder.radarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
+                dc.DrawText(new FormattedText((RadarViewOrder.radarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
                 FlowDirection.LeftToRight, new Typeface("Verdana"),7, Brushes.LightGray), new Point(140, 10));
 
                 lock (ActData.AllCharactor)
@@ -347,6 +347,35 @@ namespace Wpf.RadarWindow
                     }
                 }
                 this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
+
+                float vX = 0;
+                float vY = 0;
+
+                if (mob.PosX < 0)
+                {
+                    vX = 22- 22*((mob.PosX * -1)/1100);
+                }else
+                {
+                    vX = 22 + 22 * ((mob.PosX ) / 1100);
+                }
+                if (mob.PosY < 0)
+                {
+                    vY = 22 - 22 * ((mob.PosY * -1) / 1100);
+                }
+                else
+                {
+                    vY = 22 + 22 * ((mob.PosY) / 1100);
+                }
+
+
+                if (!model.AntiPersonalChecked)
+                {
+                    dc.DrawText(new FormattedText(((int)(vX)).ToString() + "," + ((int)(vY)).ToString(),
+                    System.Globalization.CultureInfo.CurrentUICulture,
+                    FlowDirection.LeftToRight, new Typeface("Verdana"),
+                    RadarViewOrder.FontSize + 2, Brushes.Red), new Point(rect.X + 2, rect.Y + 8));
+                }
+
 
                 if (model.IdModeCheckrd)
                 {

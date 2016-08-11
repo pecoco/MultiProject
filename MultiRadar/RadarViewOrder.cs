@@ -115,15 +115,11 @@ namespace ACT.RadarViewOrder
             return new Rect((int)x, (int)y, 0, 0);
         }
 
-
-
-
-
         public static int radarZoom = 10;
 
         public static void ZoomIn()
         {
-            radarZoom = radarZoom > -40 ? radarZoom - 1 : -40;
+            radarZoom = radarZoom > -90 ? radarZoom - 1 : -90;
         }
         public static void ZoomOut()
         {

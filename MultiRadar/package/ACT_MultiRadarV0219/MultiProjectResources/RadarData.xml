@@ -19,7 +19,7 @@
       <name>Lower La Noscea.</name>
       <nameJp>低地ラノシア</nameJp>
       <s>
-        <string>ダイダロス</string>
+        <string>ケロゲロス</string>
       </s>
       <a>
         <string>ウンクテヒ</string>
@@ -195,7 +195,7 @@
         <string>ギルタブ</string>
       </a>
       <b>
-        <string>サウザンドキャスト・セダ</string>
+        <string>フェクダ</string>
       </b>
       <etc />
     </ZoneMobData>
@@ -203,20 +203,22 @@
       <name>Mor Dhona.</name>
       <nameJp>モードゥナ</nameJp>
       <s>
-        <string>サファト</string>
+        <string>アグリッパ</string>
       </s>
       <a>
         <string>クーレア</string>
       </a>
       <b>
-        <string>アグリッパ</string>
+        <string>リーチキング</string>
       </b>
       <etc />
     </ZoneMobData>
     <ZoneMobData>
       <name>Outer La Noscea.</name>
       <nameJp>外地ラノシア</nameJp>
-      <s />
+      <s>
+        <string>チェルノボーグ</string>
+      </s>
       <a>
         <string>コンヌ</string>
       </a>

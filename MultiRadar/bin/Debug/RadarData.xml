@@ -1,4 +1,341 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Zones xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <zones />
+  <zones>
+    <ZoneMobData>
+      <name>Middle La Noscea.</name>
+      <nameJp>中央ラノシア</nameJp>
+      <s>
+        <string>クロック・ミテーヌ</string>
+      </s>
+      <a>
+        <string>醜男のヴォガージャ</string>
+      </a>
+      <b>
+        <string>スコッグ・フリュー</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Lower La Noscea.</name>
+      <nameJp>低地ラノシア</nameJp>
+      <s>
+        <string>ケロゲロス</string>
+      </s>
+      <a>
+        <string>ウンクテヒ</string>
+      </a>
+      <b>
+        <string>バーバステル</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Eastern La Noscea.</name>
+      <nameJp>東ラノシア</nameJp>
+      <s>
+        <string>ガーロック</string>
+      </s>
+      <a>
+        <string>魔導ヘルズクロー</string>
+      </a>
+      <b>
+        <string>ブラッディ・マリー</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Western La Noscea.</name>
+      <nameJp>西ラノシア</nameJp>
+      <s>
+        <string>ボナコン</string>
+      </s>
+      <a>
+        <string>ナン</string>
+      </a>
+      <b>
+        <string>ダークヘルメット</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Upper La Noscea.</name>
+      <nameJp>高地ラノシア</nameJp>
+      <s>
+        <string>ナンディ</string>
+      </s>
+      <a>
+        <string>マーベリー</string>
+      </a>
+      <b>
+        <string>ミラドロッシュ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Western Thanalan.</name>
+      <nameJp>西ザナラーン</nameJp>
+      <s>
+        <string>ゾーナ・シーカー</string>
+      </s>
+      <a>
+        <string>アレクトリオン</string>
+      </a>
+      <b>
+        <string>スェアーシロップ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Central Thanalan.</name>
+      <nameJp>中央ザナラーン</nameJp>
+      <s>
+        <string>ブロンテス</string>
+      </s>
+      <a>
+        <string>サボテンダー・バイラリーナ</string>
+      </a>
+      <b>
+        <string>アヴゼン</string>
+      </b>
+      <etc>
+        <string>ブロンテス</string>
+      </etc>
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Eastern Thanalan.</name>
+      <nameJp>東ザナラーン</nameJp>
+      <s>
+        <string>バルウール</string>
+      </s>
+      <a>
+        <string>マヘス</string>
+      </a>
+      <b>
+        <string>ガトリングス</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Southern Thanalan.</name>
+      <nameJp>南ザナラーン</nameJp>
+      <s>
+        <string>ヌニュヌウィ</string>
+      </s>
+      <a>
+        <string>ザニゴ</string>
+      </a>
+      <b>
+        <string>死灰のアルビン</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Northern Thanalan.</name>
+      <nameJp>北ザナラーン</nameJp>
+      <s>
+        <string>ミニョーカオン</string>
+      </s>
+      <a>
+        <string>ファイナルフレイム</string>
+      </a>
+      <b>
+        <string>不滅のフェランド闘軍曹</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Central Shroud.</name>
+      <nameJp>黒衣森：中央森林</nameJp>
+      <s>
+        <string>レドロネット</string>
+      </s>
+      <a>
+        <string>ファルネウス</string>
+      </a>
+      <b>
+        <string>ホワイトジョーカー</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>East Shroud.</name>
+      <nameJp>黒衣森：東部森林</nameJp>
+      <s>
+        <string>ウルガル</string>
+      </s>
+      <a>
+        <string>メルティゼリー</string>
+      </a>
+      <b>
+        <string>スティンギング・ソフィー</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>South Shroud.</name>
+      <nameJp>黒衣森：南部森林	</nameJp>
+      <s>
+        <string>マインドフレア</string>
+      </s>
+      <a>
+        <string>ゲーデ</string>
+      </a>
+      <b>
+        <string>モナーク・オーガフライ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>North Shroud.</name>
+      <nameJp>黒衣森：北部森林</nameJp>
+      <s>
+        <string>サウザンドキャスト・セダ</string>
+      </s>
+      <a>
+        <string>ギルタブ</string>
+      </a>
+      <b>
+        <string>フェクダ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Mor Dhona.</name>
+      <nameJp>モードゥナ</nameJp>
+      <s>
+        <string>アグリッパ</string>
+      </s>
+      <a>
+        <string>クーレア</string>
+      </a>
+      <b>
+        <string>リーチキング</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Outer La Noscea.</name>
+      <nameJp>外地ラノシア</nameJp>
+      <s>
+        <string>チェルノボーグ</string>
+      </s>
+      <a>
+        <string>コンヌ</string>
+      </a>
+      <b>
+        <string>ヴオコー</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Coerthas Central Highlands.</name>
+      <nameJp>クルザス中央高地</nameJp>
+      <s>
+        <string>サファト</string>
+      </s>
+      <a>
+        <string>マラク</string>
+      </a>
+      <b>
+        <string>ナウル</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Abalathia's Spine: The Sea Of Clouds.</name>
+      <nameJp>アバラシア雲海</nameJp>
+      <s>
+        <string>極楽鳥</string>
+      </s>
+      <a>
+        <string>シシウトゥル</string>
+        <string>エンケドラス</string>
+      </a>
+      <b>
+        <string>舞手のサヌバリ</string>
+        <string>スクオンク</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Azys Lla.</name>
+      <nameJp>アジス・ラー</nameJp>
+      <s>
+        <string>レウクロッタ</string>
+      </s>
+      <a>
+        <string>センチブロッサム</string>
+        <string>キャムパクティ</string>
+      </a>
+      <b>
+        <string>オムニ</string>
+        <string>リュキダス</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Dravanian Forelands.</name>
+      <nameJp>高地ドラバニア</nameJp>
+      <s>
+        <string>セーンムルウ</string>
+      </s>
+      <a>
+        <string>ワイバーンロード</string>
+        <string>パイルラスタ</string>
+      </a>
+      <b>
+        <string>テクスタ</string>
+        <string>グナース・コメットドローン</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Churning Mists.</name>
+      <nameJp>ドラヴァニア雲海</nameJp>
+      <s>
+        <string>ガンダルヴァ</string>
+      </s>
+      <a>
+        <string>アガトス</string>
+        <string>ブネ</string>
+      </a>
+      <b>
+        <string>スケアクロウ</string>
+        <string>スキタリス</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Dravanian Hinterlands.</name>
+      <nameJp>低地ドラヴァニア</nameJp>
+      <s>
+        <string>ペイルライダー</string>
+      </s>
+      <a>
+        <string>ストラス</string>
+        <string>機兵のスリップキンクス</string>
+      </a>
+      <b>
+        <string>ブラクキ</string>
+        <string>プテリゴトゥス</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Coerthas Western Highlands.</name>
+      <nameJp>クルザス西部高地</nameJp>
+      <s>
+        <string>カイザーベヒーモス</string>
+      </s>
+      <a>
+        <string>リューバ</string>
+        <string>ミルカ</string>
+      </a>
+      <b>
+        <string>クルーゼ</string>
+        <string>アルティック</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+  </zones>
 </Zones>

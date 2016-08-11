@@ -569,7 +569,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.8";
+            this.label4.Text = "MulitiRadar 2.1.9";
             // 
             // groupBox2
             // 
@@ -769,7 +769,7 @@
             0,
             0});
             this.numZoom.Minimum = new decimal(new int[] {
-            40,
+            90,
             0,
             0,
             -2147483648});

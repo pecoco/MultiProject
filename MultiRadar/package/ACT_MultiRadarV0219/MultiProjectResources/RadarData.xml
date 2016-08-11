@@ -97,9 +97,7 @@
       <b>
         <string>アヴゼン</string>
       </b>
-      <etc>
-        <string>ブロンテス</string>
-      </etc>
+      <etc />
     </ZoneMobData>
     <ZoneMobData>
       <name>Eastern Thanalan.</name>

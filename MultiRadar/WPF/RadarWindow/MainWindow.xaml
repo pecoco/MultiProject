@@ -230,7 +230,7 @@
             </ToggleButton.Template>
         </ToggleButton>
         <!--#endregion-->
-        <Button x:Name="btZoomIn" Content="+" HorizontalAlignment="Left" Margin="153,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Click="btZoomIn_Click" >
+        <Button x:Name="btZoomIn" Content="ー" HorizontalAlignment="Left" Margin="153,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Click="btZoomIn_Click" FontWeight="Bold" >
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FFB8B8B8" Offset="0.846"/>
@@ -240,7 +240,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btZoomOut" Content="-" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Foreground="#FF2B2A2A" Click="btZoomOut_Click">
+        <Button x:Name="btZoomOut" Content="+" HorizontalAlignment="Left" Margin="105,5,0,0" VerticalAlignment="Top" Width="30" ClipToBounds="True" OpacityMask="Black" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="14" Foreground="#FF2B2A2A" Click="btZoomOut_Click">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FFB8B8B8" Offset="0.846"/>

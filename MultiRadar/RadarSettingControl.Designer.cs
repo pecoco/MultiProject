@@ -569,7 +569,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.7";
+            this.label4.Text = "MulitiRadar 2.1.8";
             // 
             // groupBox2
             // 
@@ -764,12 +764,12 @@
             this.numZoom.ForeColor = System.Drawing.Color.White;
             this.numZoom.Location = new System.Drawing.Point(428, 418);
             this.numZoom.Maximum = new decimal(new int[] {
-            20,
+            10,
             0,
             0,
             0});
             this.numZoom.Minimum = new decimal(new int[] {
-            10,
+            40,
             0,
             0,
             -2147483648});

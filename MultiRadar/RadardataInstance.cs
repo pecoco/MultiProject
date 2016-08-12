@@ -7,10 +7,19 @@ namespace ACT.Radardata
     {
         //マスターデータのオリジナルが維持されているデーター
         public static RadarData radarData;
+        public static RadarViewOptionData viewOptionData;
+
         public static void SetRadarData(string path)
         {
             radarData = new RadarData(path);
         }
+        public static void SetViewOptionData(string path)
+        {
+            viewOptionData = new RadarViewOptionData(path);
+        }
+
+
+
 
         //現在のゾーン
         static StringBuilder zone;

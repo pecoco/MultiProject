@@ -28,6 +28,7 @@ using MultiProject;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.IO;
+using MultiRadar;
 
 namespace Wpf.RadarWindow
 {
@@ -346,8 +347,11 @@ namespace Wpf.RadarWindow
                         }
                     }
                 }
-                this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X-4, rect.Y - 14, flag, shortName);
 
+                if (RadardataInstance.viewOptionData.IsNameView(RadarViewOrder.radarZoomSelect))
+                {
+                    this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y - 14, flag, shortName);
+                }
                 float vX = 0;
                 float vY = 0;
 
@@ -368,13 +372,14 @@ namespace Wpf.RadarWindow
                 }
 
 
-                if (!model.AntiPersonalChecked)
+                if (RadardataInstance.viewOptionData.IsPositionView(RadarViewOrder.radarZoomSelect))
                 {
                     dc.DrawText(new FormattedText(((int)(vX)).ToString() + "," + ((int)(vY)).ToString(),
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    RadarViewOrder.FontSize + 2, Brushes.Red), new Point(rect.X + 2, rect.Y + 8));
+                    RadarViewOrder.FontSize + 2, Brushes.Red), new Point(rect.X - 4, rect.Y + 4));
                 }
+
 
 
                 if (model.IdModeCheckrd)
@@ -391,29 +396,28 @@ namespace Wpf.RadarWindow
                     continue;
                 }
 
-                if (model.AntiPersonalChecked)
+                if (RadardataInstance.viewOptionData.IsJobView(RadarViewOrder.radarZoomSelect))
                 {
                     jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
                     // テキスト
                     dc.DrawText(new FormattedText(job.job,
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    RadarViewOrder.FontSize, job.brush), new Point(job.left + 2, rect.Y -4));
+                    RadarViewOrder.FontSize, job.brush), new Point(job.left + 2, rect.Y - 4));
                     if (mob.CastTargetID == RadarViewOrder.myData.ID)
                     {
                         dc.DrawText(new FormattedText(job.job,
                         System.Globalization.CultureInfo.CurrentUICulture,
                         FlowDirection.LeftToRight, new Typeface("Verdana"),
-                        RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y -4));
+                        RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y - 4));
                     }
                 }
-                else
+                if (RadardataInstance.viewOptionData.IsHpView(RadarViewOrder.radarZoomSelect))
                 {
                     dc.DrawText(new FormattedText(mob.MaxHP.ToString(),
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    RadarViewOrder.FontSize, Brushes.Aqua), new Point(rect.X + 2, rect.Y));
-
+                    RadarViewOrder.FontSize, Brushes.Aqua), new Point(rect.X + 4, rect.Y-4));
                 }
             }
         }

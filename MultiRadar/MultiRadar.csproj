@@ -67,7 +67,7 @@
       <Link>ClockTimer.cs</Link>
     </Compile>
     <Compile Include="..\MultiProject\Common\mobType.cs">
-      <Link>mobType.cs</Link>
+      <Link>Structure\mobType.cs</Link>
     </Compile>
     <Compile Include="..\MultiProject\Common\WindowsApi32.cs">
       <Link>WindowsApi32.cs</Link>
@@ -103,6 +103,7 @@
     <Compile Include="RadarSettingControl.Designer.cs">
       <DependentUpon>RadarSettingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="RadarViewOptionData.cs" />
     <Compile Include="RadarViewOrder.cs" />
     <Compile Include="Settings\Setting.cs">
       <SubType>UserControl</SubType>
@@ -110,6 +111,7 @@
     <Compile Include="Settings\UIRadarSetting.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Structure\RadarViewType.cs" />
     <Compile Include="WPF\RadarWindow\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

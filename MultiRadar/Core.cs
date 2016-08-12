@@ -65,7 +65,9 @@ namespace MultiRadar
 
                 RadarViewOrder.FontSize = (int)numFontSize.Value > 5 ? (int)numFontSize.Value : 6;
                 RadarViewOrder.Opacity = (int)numOpacity.Value> 40 ? (int)numOpacity.Value : 100;
-                RadarViewOrder.radarZoom = (int)numZoom.Value;
+                RadarViewOrder.radarZoomMob = (int)numZoomMob.Value;
+                RadarViewOrder.radarZoomHum = (int)numZoomHum.Value;
+                RadarViewOrder.radarZoomId = (int)numZoomId.Value;
 
 
                 int valueX = 0;

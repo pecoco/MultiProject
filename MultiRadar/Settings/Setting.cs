@@ -26,7 +26,11 @@ namespace MultiRadar
             BasePlugin.xmlSettings.AddControlSetting(textRadarWidth.Name, textRadarWidth);
             BasePlugin.xmlSettings.AddControlSetting(textRadarHeight.Name, textRadarHeight);
 
-            BasePlugin.xmlSettings.AddControlSetting(numZoom.Name, numZoom);
+            BasePlugin.xmlSettings.AddControlSetting(numZoomMob.Name, numZoomMob);
+            BasePlugin.xmlSettings.AddControlSetting(numZoomHum.Name, numZoomHum);
+            BasePlugin.xmlSettings.AddControlSetting(numZoomId.Name, numZoomId);
+
+
             //SE
             BasePlugin.xmlSettings.AddControlSetting(ckRadarSE.Name, ckRadarSE);
             //Path
@@ -99,7 +103,11 @@ namespace MultiRadar
                         textRadarHeight.Text = ((int)radarForm.Height).ToString();
                         RadarViewOrder.keepWindowHeight = ((int)radarForm.Height);
                     }
-                    numZoom.Value = RadarViewOrder.radarZoom;
+
+                    
+                    numZoomMob.Value = RadarViewOrder.radarZoomMob;
+                    numZoomHum.Value = RadarViewOrder.radarZoomHum;
+                    numZoomId.Value = RadarViewOrder.radarZoomId;
 
                     rbRederModeSelect.Checked = radarForm.isRadarSelect;
                     rbRadarTaegetPlayer.Checked = radarForm.isRadarAntiParsonal;

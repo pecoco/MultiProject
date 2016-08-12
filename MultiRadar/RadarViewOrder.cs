@@ -84,11 +84,11 @@ namespace ACT.RadarViewOrder
 
         public static Rect MobRect(float myX, float myY, float mobX, float mobY)
         {
-            float x =   myX + (scale * (radarZoom - 20))- (mobX);//0-2000
-            float y =   myY + (scale * (radarZoom - 20))- (mobY);
+            float x =   myX + (scale * (RadarZoom - 20))- (mobX);//0-2000
+            float y =   myY + (scale * (RadarZoom - 20))- (mobY);
 
-            x = (x * bW) / (scale * (radarZoom - 20) * 2);// (scale * 2);//  400;
-            y = (y * bH) / (scale * (radarZoom - 20) * 2);// (scale * 2);//400;
+            x = (x * bW) / (scale * (RadarZoom - 20) * 2);// (scale * 2);//  400;
+            y = (y * bH) / (scale * (RadarZoom - 20) * 2);// (scale * 2);//400;
 
             return new Rect((int)x-5, (int)y, 3, 3);
         }
@@ -98,8 +98,8 @@ namespace ACT.RadarViewOrder
             float x = (145);//0-2000
             float y = (145);
 
-            x = (x * bW) / (scale * (radarZoom - 20));// (scale * 2);//  400;
-            y = (y * bH) / (scale * (radarZoom - 20));// (scale * 2);//400;
+            x = (x * bW) / (scale * (RadarZoom - 20));// (scale * 2);//  400;
+            y = (y * bH) / (scale * (RadarZoom - 20));// (scale * 2);//400;
 
             return new Point((int)x , (int)y);
         }
@@ -109,21 +109,61 @@ namespace ACT.RadarViewOrder
             float x = (value);//0-2000
             float y = (value);
 
-            x = (x * bW) / (scale * (radarZoom - 20));// (scale * 2);//  400;
-            y = (y * bH) / (scale * (radarZoom - 20));// (scale * 2);//400;
+            x = (x * bW) / (scale * (RadarZoom - 20));// (scale * 2);//  400;
+            y = (y * bH) / (scale * (RadarZoom - 20));// (scale * 2);//400;
 
             return new Rect((int)x, (int)y, 0, 0);
         }
 
-        public static int radarZoom = 10;
+        public static RadarZoomSelect radarZoomSelect;
+
+        public enum RadarZoomSelect : int { 
+            mob=1,
+            hum=2,
+            id=3
+        }
+
+       
+        public static int radarZoomMob;
+        public static int radarZoomHum;
+        public static int radarZoomId;
+
+        public static int RadarZoom
+        {
+            set{
+                switch (radarZoomSelect)
+                {
+                    case RadarZoomSelect.mob:
+                        radarZoomMob = value;break;
+                    case RadarZoomSelect.hum:
+                        radarZoomHum = value; break;
+                    case RadarZoomSelect.id:
+                        radarZoomId = value; break;
+                }
+            }
+            get {
+                switch (radarZoomSelect)
+                {
+                    case RadarZoomSelect.mob:
+                        return radarZoomMob;
+                    case RadarZoomSelect.hum:
+                        return radarZoomHum;
+                    case RadarZoomSelect.id:
+                        return radarZoomId;
+                    default:
+                        return 0; 
+                }
+            }
+        }
+
 
         public static void ZoomIn()
         {
-            radarZoom = radarZoom > -90 ? radarZoom - 1 : -90;
+            RadarZoom = RadarZoom > -90 ? RadarZoom - 1 : -90;
         }
         public static void ZoomOut()
         {
-            radarZoom = radarZoom < 10 ? radarZoom + 1 : 10;
+            RadarZoom = RadarZoom < 10 ? RadarZoom + 1 : 10;
         }
 
         public static Combatant oldMyData;

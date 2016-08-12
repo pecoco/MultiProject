@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace Memory.Helper
+{
+    public class Signature
+    {
+  
+        public Signature()
+        {
+            Key = "";
+            Value = "";
+            Offset = 0;
+        }
+        public string Key { get; set; }
+        public string Value { get; set; }
+        public long Offset { get; set; }
+        private Int64 baseAddress;
+        public Int64 BaseAddress
+        {
+            set { baseAddress = value; }
+        }
+
+
+       
+
+        public IntPtr GetAddress()
+        {
+            return (IntPtr)( baseAddress + Offset );
+        }
+
+        // convenience conversion for less code breakage. 
+        // FIXME: convert all calling functions to handle IntPtr properly someday, and stop using long for addresses
+        public static implicit operator IntPtr(Signature value)
+        {
+            return value.GetAddress();
+        }
+
+    }
+
+}
+

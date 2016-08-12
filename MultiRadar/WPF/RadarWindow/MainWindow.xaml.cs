@@ -68,7 +68,7 @@ namespace Wpf.RadarWindow
             
             windowRectBrush.Color = Color.FromArgb(1, 80, 80, 80);
             model = new RadarMainWindowViewModel();
-
+   
             Loaded += (o, e) =>
             {
                 model.WindowOpacity = (float)RadarViewOrder.Opacity / 100;
@@ -76,7 +76,7 @@ namespace Wpf.RadarWindow
                 source.AddHook(new HwndSourceHook(WndProc));
                 areaPen = new Pen(Brushes.LawnGreen, 1);
                 myAreaPen = new Pen(Brushes.LightCyan, 1);
-
+                SelectZoomSelect();
 
                 mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
                 mTimer.Tick += new EventHandler(TickTimer);
@@ -190,7 +190,7 @@ namespace Wpf.RadarWindow
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
                 //Zoom
-                dc.DrawText(new FormattedText((RadarViewOrder.radarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
+                dc.DrawText(new FormattedText((RadarViewOrder.RadarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
                 FlowDirection.LeftToRight, new Typeface("Verdana"),7, Brushes.LightGray), new Point(140, 10));
 
                 lock (ActData.AllCharactor)
@@ -682,6 +682,8 @@ namespace Wpf.RadarWindow
         {
             SaveAction();
         }
+
+
     }
 
 

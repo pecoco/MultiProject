@@ -8,12 +8,14 @@ namespace MultiRadar.Structure
 {
     public class RadarViewType
     {
-        public List<ViewOption> viewOptions = new List<ViewOption>();
+        public ViewOption mob = new ViewOption();
+        public ViewOption hum = new ViewOption();
+        public ViewOption id = new ViewOption();
+
     }
 
     public class ViewOption
     {
-        public string optionName;
         public bool name;
         public bool positon;
         public bool hp;

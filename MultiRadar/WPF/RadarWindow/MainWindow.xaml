@@ -273,7 +273,7 @@
             <!--/myIcon.Margin> ="187,186,0,0"-->
 
         </Canvas>
-        <ToggleButton x:Name="btIDmode" Content="j" HorizontalAlignment="Left" Margin="241,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding IdModeCheckrd, Mode=TwoWay}" Click="btAntiPersonal_Click" >
+        <ToggleButton x:Name="btIDmode" Content="j" HorizontalAlignment="Left" Margin="241,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding IdModeCheckrd, Mode=TwoWay}" Click="btIDmode_Click" >
             <ToggleButton.Template>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border x:Name="border" BorderThickness="1" Background="#DDCCCC44" BorderBrush="Gray" Height="21" >
@@ -324,7 +324,7 @@
                 </ControlTemplate>
             </ToggleButton.Template>
         </ToggleButton>
-        <ToggleButton x:Name="btIDmode_Copy" Content="j" HorizontalAlignment="Left" Margin="269,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding ViewAreaCheckrd, Mode=TwoWay}" >
+        <ToggleButton x:Name="btViewRenge" Content="j" HorizontalAlignment="Left" Margin="269,4,0,0" VerticalAlignment="Top" Width="26" ClipToBounds="True" IsChecked ="{Binding ViewAreaCheckrd, Mode=TwoWay}" Click="btViewRenge_Click" >
             <ToggleButton.Template>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border x:Name="border" BorderThickness="1" Background="#DDCC5555" BorderBrush="Gray" Height="21" >

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadarViewType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <mob>
+   <name>true</name>
+   <positon>true</positon>
+   <hp>true</hp>
+   <job>false</job>
+  </mob>
+  <hum>
+   <name>false</name>
+   <positon>false</positon>
+   <hp>false</hp>
+   <job>true</job>
+  </hum>
+  <id>
+   <name>true</name>
+   <positon>false</positon>
+   <hp>false</hp>
+   <job>true</job>
+  </id>
+</RadarViewType>

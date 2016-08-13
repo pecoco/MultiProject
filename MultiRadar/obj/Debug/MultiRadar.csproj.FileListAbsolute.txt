@@ -3,7 +3,6 @@ E:\ACT\MultiProject\MultiRadar\bin\Debug\MultiRadar.pdb
 E:\ACT\MultiProject\MultiRadar\bin\Debug\Advanced Combat Tracker.exe
 E:\ACT\MultiProject\MultiRadar\bin\Debug\GammaJul.LgLcd.dll
 E:\ACT\MultiProject\MultiRadar\bin\Debug\ICSharpCode.SharpZipLib.dll
-E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar.csprojResolveAssemblyReference.cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\WPF\RadarWindow\MainWindow.g.cs
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.cache
 E:\ACT\MultiProject\MultiRadar\obj\Debug\MultiRadar_MarkupCompile.lref

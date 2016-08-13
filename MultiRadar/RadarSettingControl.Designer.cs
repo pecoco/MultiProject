@@ -88,7 +88,15 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textRadarHeight = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.numZoom = new System.Windows.Forms.NumericUpDown();
+            this.numZoomMob = new System.Windows.Forms.NumericUpDown();
+            this.numZoomHum = new System.Windows.Forms.NumericUpDown();
+            this.numZoomId = new System.Windows.Forms.NumericUpDown();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControlMob.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -99,7 +107,9 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOpacity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numZoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomMob)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomHum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomId)).BeginInit();
             this.SuspendLayout();
             // 
             // label30
@@ -211,16 +221,16 @@
             this.groupBox1.Controls.Add(this.rbRederModeFull);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(34, 310);
+            this.groupBox1.Location = new System.Drawing.Point(34, 314);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 42);
+            this.groupBox1.Size = new System.Drawing.Size(324, 42);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel1.Location = new System.Drawing.Point(85, 13);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Location = new System.Drawing.Point(77, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(31, 18);
             this.panel1.TabIndex = 3;
@@ -229,7 +239,7 @@
             // 
             this.rbRederModeSelect.AutoSize = true;
             this.rbRederModeSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRederModeSelect.Location = new System.Drawing.Point(124, 15);
+            this.rbRederModeSelect.Location = new System.Drawing.Point(117, 15);
             this.rbRederModeSelect.Name = "rbRederModeSelect";
             this.rbRederModeSelect.Size = new System.Drawing.Size(144, 16);
             this.rbRederModeSelect.TabIndex = 2;
@@ -241,7 +251,7 @@
             this.rbRederModeFull.AutoSize = true;
             this.rbRederModeFull.Checked = true;
             this.rbRederModeFull.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRederModeFull.Location = new System.Drawing.Point(287, 15);
+            this.rbRederModeFull.Location = new System.Drawing.Point(276, 15);
             this.rbRederModeFull.Name = "rbRederModeFull";
             this.rbRederModeFull.Size = new System.Drawing.Size(42, 16);
             this.rbRederModeFull.TabIndex = 1;
@@ -569,7 +579,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.1.9";
+            this.label4.Text = "MulitiRadar 2.2.3";
             // 
             // groupBox2
             // 
@@ -578,16 +588,16 @@
             this.groupBox2.Controls.Add(this.rbRadarTaegetMob);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(34, 344);
+            this.groupBox2.Location = new System.Drawing.Point(34, 348);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(435, 42);
+            this.groupBox2.Size = new System.Drawing.Size(324, 42);
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel2.Location = new System.Drawing.Point(85, 13);
+            this.panel2.Location = new System.Drawing.Point(77, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(31, 18);
             this.panel2.TabIndex = 3;
@@ -596,7 +606,7 @@
             // 
             this.rbRadarTaegetPlayer.AutoSize = true;
             this.rbRadarTaegetPlayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRadarTaegetPlayer.Location = new System.Drawing.Point(124, 15);
+            this.rbRadarTaegetPlayer.Location = new System.Drawing.Point(117, 15);
             this.rbRadarTaegetPlayer.Name = "rbRadarTaegetPlayer";
             this.rbRadarTaegetPlayer.Size = new System.Drawing.Size(109, 16);
             this.rbRadarTaegetPlayer.TabIndex = 2;
@@ -608,7 +618,7 @@
             this.rbRadarTaegetMob.AutoSize = true;
             this.rbRadarTaegetMob.Checked = true;
             this.rbRadarTaegetMob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.rbRadarTaegetMob.Location = new System.Drawing.Point(287, 15);
+            this.rbRadarTaegetMob.Location = new System.Drawing.Point(276, 15);
             this.rbRadarTaegetMob.Name = "rbRadarTaegetMob";
             this.rbRadarTaegetMob.Size = new System.Drawing.Size(44, 16);
             this.rbRadarTaegetMob.TabIndex = 1;
@@ -675,7 +685,7 @@
             // 
             this.numOpacity.BackColor = System.Drawing.Color.Black;
             this.numOpacity.ForeColor = System.Drawing.Color.White;
-            this.numOpacity.Location = new System.Drawing.Point(381, 417);
+            this.numOpacity.Location = new System.Drawing.Point(385, 417);
             this.numOpacity.Minimum = new decimal(new int[] {
             40,
             0,
@@ -694,7 +704,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label12.Location = new System.Drawing.Point(380, 399);
+            this.label12.Location = new System.Drawing.Point(384, 399);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 12);
             this.label12.TabIndex = 118;
@@ -752,43 +762,153 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label16.Location = new System.Drawing.Point(427, 400);
+            this.label16.Location = new System.Drawing.Point(395, 309);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(33, 12);
             this.label16.TabIndex = 124;
             this.label16.Text = "Zoom";
             // 
-            // numZoom
+            // numZoomMob
             // 
-            this.numZoom.BackColor = System.Drawing.Color.Black;
-            this.numZoom.ForeColor = System.Drawing.Color.White;
-            this.numZoom.Location = new System.Drawing.Point(428, 418);
-            this.numZoom.Maximum = new decimal(new int[] {
+            this.numZoomMob.BackColor = System.Drawing.Color.Black;
+            this.numZoomMob.ForeColor = System.Drawing.Color.White;
+            this.numZoomMob.Location = new System.Drawing.Point(415, 325);
+            this.numZoomMob.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numZoom.Minimum = new decimal(new int[] {
+            this.numZoomMob.Minimum = new decimal(new int[] {
             90,
             0,
             0,
             -2147483648});
-            this.numZoom.Name = "numZoom";
-            this.numZoom.Size = new System.Drawing.Size(41, 19);
-            this.numZoom.TabIndex = 123;
-            this.numZoom.Value = new decimal(new int[] {
+            this.numZoomMob.Name = "numZoomMob";
+            this.numZoomMob.Size = new System.Drawing.Size(41, 19);
+            this.numZoomMob.TabIndex = 123;
+            this.numZoomMob.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
+            // 
+            // numZoomHum
+            // 
+            this.numZoomHum.BackColor = System.Drawing.Color.Black;
+            this.numZoomHum.ForeColor = System.Drawing.Color.White;
+            this.numZoomHum.Location = new System.Drawing.Point(415, 350);
+            this.numZoomHum.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numZoomHum.Minimum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            -2147483648});
+            this.numZoomHum.Name = "numZoomHum";
+            this.numZoomHum.Size = new System.Drawing.Size(41, 19);
+            this.numZoomHum.TabIndex = 125;
+            this.numZoomHum.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numZoomId
+            // 
+            this.numZoomId.BackColor = System.Drawing.Color.Black;
+            this.numZoomId.ForeColor = System.Drawing.Color.White;
+            this.numZoomId.Location = new System.Drawing.Point(415, 375);
+            this.numZoomId.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numZoomId.Minimum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            -2147483648});
+            this.numZoomId.Name = "numZoomId";
+            this.numZoomId.Size = new System.Drawing.Size(41, 19);
+            this.numZoomId.TabIndex = 126;
+            this.numZoomId.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel4.Location = new System.Drawing.Point(370, 349);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(16, 18);
+            this.panel4.TabIndex = 128;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel5.Location = new System.Drawing.Point(370, 373);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(16, 18);
+            this.panel5.TabIndex = 129;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel6.Location = new System.Drawing.Point(370, 325);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(16, 18);
+            this.panel6.TabIndex = 130;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label18.Location = new System.Drawing.Point(390, 353);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 12);
+            this.label18.TabIndex = 131;
+            this.label18.Text = "On";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label20.Location = new System.Drawing.Point(391, 377);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 12);
+            this.label20.TabIndex = 132;
+            this.label20.Text = "On";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label21.Location = new System.Drawing.Point(390, 329);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(21, 12);
+            this.label21.TabIndex = 133;
+            this.label21.Text = "Off";
             // 
             // RadarSettingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.numZoomId);
+            this.Controls.Add(this.numZoomHum);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.numZoom);
+            this.Controls.Add(this.numZoomMob);
             this.Controls.Add(this.textRadarHeight);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -841,7 +961,9 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numFontSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numOpacity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numZoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomMob)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomHum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numZoomId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -908,6 +1030,14 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textRadarHeight;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numZoom;
+        private System.Windows.Forms.NumericUpDown numZoomMob;
+        private System.Windows.Forms.NumericUpDown numZoomHum;
+        private System.Windows.Forms.NumericUpDown numZoomId;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }

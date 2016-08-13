@@ -122,7 +122,6 @@ namespace ACT.RadarViewOrder
             hum=2,
             id=3
         }
-
        
         public static int radarZoomMob;
         public static int radarZoomHum;
@@ -134,6 +133,7 @@ namespace ACT.RadarViewOrder
                 switch (radarZoomSelect)
                 {
                     case RadarZoomSelect.mob:
+                        if (LuckUpS) { return; }
                         radarZoomMob = value;break;
                     case RadarZoomSelect.hum:
                         radarZoomHum = value; break;

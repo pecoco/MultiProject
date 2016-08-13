@@ -96,7 +96,7 @@ namespace MultiRadar
                 alertForm.Show();
 
                 RadardataInstance.SetRadarData(textRadarDataPath.Text + "\\RadarData.xml");
-                RadardataInstance.SetViewOptionData(textRadarDataPath.Text + "\\RaderOption.xml");
+                RadardataInstance.SetViewOptionData(textRadarDataPath.Text + "\\RadarOption.xml");
 
                 ReSetComboRadarZoneItem(false);
             }

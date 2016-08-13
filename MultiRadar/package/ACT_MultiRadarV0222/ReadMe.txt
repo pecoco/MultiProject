@@ -1,9 +1,9 @@
-﻿■名称　MultiRader v2.2.0
+﻿■名称　MultiRader v2.2.2
 
 
 ■変更点　 
-３モードそれぞれにズーム率を持つように変更
-
+表示する内容を設定ファイルで調整できる（上級者向け）
+モブモードでＳが発生した場合、自動的に最大ズームアウトする
 
 ■用途　FF14 ACTPluginです。
 
@@ -55,6 +55,9 @@ MultiProjectResourcesをフォルダ名を変えずに、そのままActのデ�
 レーダーに映っていなくても、ログに対象のモブが出た場合には、
 アラート画面がでるようにしています。
 
+自動的に最大ズームアウトします。
+赤ボタンでズームアウトを解除します。
+
 ■範囲
 ナイト 暗黒　15m(ロブ）5m（Flash）
 戦士　15m（トマフォーク）
@@ -75,6 +78,36 @@ http://www14.big.or.jp/~amiami/happy/voice.html
 あみたろの声素材
 
 ランク事に音を鳴らしたくない場合は、音ファイルを無音のものに入れ替えるなどでご対応ください。
+
+■表示内容の調整（上級者向け）
+XMLファイルを直接編集します。編集する前にオリジナルを保存しておいてください。
+
+項目を書き換えることで、カスタマイズできます。
+
+<?xml version="1.0" encoding="utf-8"?>
+<RadarViewType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <mob>　●モブモードの...
+   <name>true</name>　　　●名前の表示を切り替えます
+   <positon>true</positon>●座標の表示を切り替えます
+   <hp>true</hp>　　　　　●ＨＰの表示を切り替えます
+   <job>false</job>　　　 ●ジョブの表示を切り替えます　
+  </mob>
+  <hum>　●対人モードの...
+   <name>false</name>
+   <positon>false</positon>
+   <hp>false</hp>
+   <job>true</job>
+  </hum>
+  <id>　●ＩＤモードの...
+   <name>true</name>
+   <positon>false</positon>
+   <hp>false</hp>
+   <job>true</job>
+  </id>
+</RadarViewType>
+
+表示:true
+非表示:false
 
 ■利用例
 モブで利用したい方は青ボタンにチェックを入れる。
@@ -102,6 +135,10 @@ IDで利用
 
 
 変更履歴
+
+
+2016/08/13  2.2.2　表示する内容を設定ファイルで調整できる（上級者向け）
+		　 モブモードでＳが発生した場合、自動的に最大ズームアウトする
 
 2016/08/12  2.2.0　ズームアウト率を３つのモード別に保存する2016/08/09  2.1.9　ズームアウトの幅をさらに拡大　
 　

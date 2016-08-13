@@ -1,34 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-
 using System.Windows.Threading;
-
-using System.Windows.Media.Media3D;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Messaging;
-using System.Runtime.InteropServices;
-using System.Reflection;
-
 using System.Timers;
-using System.Text.RegularExpressions;
 using ACT.RadarViewOrder;
 using MultiProject.Common;
 using ACT.Radardata;
 using MultiProject;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using System.IO;
-using MultiRadar;
+
 
 namespace Wpf.RadarWindow
 {
@@ -186,7 +170,10 @@ namespace Wpf.RadarWindow
                 if (ActData.AllCharactor.Count == 0) { return; }
                 if (!isOpen) { return; }
 
+                if (RadarViewOrder.LuckUpS)
+                {
 
+                }
                 RadarViewOrder.SetBasePosition((int)this.Left, (int)this.Top, (int)img.Width-1, (int)img.Height-1);
                 RadarViewOrder.myData = ActData.AllCharactor[0];
 
@@ -399,18 +386,20 @@ namespace Wpf.RadarWindow
                 if (RadardataInstance.viewOptionData.IsJobView(RadarViewOrder.radarZoomSelect))
                 {
                     jobTextLayout job = GetJobTextLayout(mob.Job, rect, mob.IsCasting);
-                    // テキスト
+                    // JOBテキスト
+
+                    //HP表示と重なるときは、Job表示をずらす
+                    int plusX = 2;
+                    if (RadardataInstance.viewOptionData.IsHpView(RadarViewOrder.radarZoomSelect))
+                    {
+                        plusX = -28;
+                    }
+
                     dc.DrawText(new FormattedText(job.job,
                     System.Globalization.CultureInfo.CurrentUICulture,
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
-                    RadarViewOrder.FontSize, job.brush), new Point(job.left + 2, rect.Y - 4));
-                    if (mob.CastTargetID == RadarViewOrder.myData.ID)
-                    {
-                        dc.DrawText(new FormattedText(job.job,
-                        System.Globalization.CultureInfo.CurrentUICulture,
-                        FlowDirection.LeftToRight, new Typeface("Verdana"),
-                        RadarViewOrder.FontSize, Brushes.Red), new Point(rect.X + 2, rect.Y - 4));
-                    }
+                    RadarViewOrder.FontSize, job.brush), new Point(job.left + plusX, rect.Y - 4));
+
                 }
                 if (RadardataInstance.viewOptionData.IsHpView(RadarViewOrder.radarZoomSelect))
                 {
@@ -467,7 +456,7 @@ namespace Wpf.RadarWindow
                 case 33:
                     if (IsCasting)
                     {
-                        job.job = "HEAL●"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
+                        job.job = "HEA●"; job.brush = Brushes.LightGreen; job.left = rect.Left + 5; break;
                     }
                     else
                     {

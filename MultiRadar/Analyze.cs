@@ -41,6 +41,7 @@ namespace MultiRadar
                             if (mobName.ToString().IndexOf(mob) > -1)
                             {
                                 RadarViewOrder.AddHitMobfromLog(new RadarViewOrder.HitMobdata(mob, "s"));
+                                RadarViewOrder.LuckUpS = true;
                                 return false;
                             }
                         }

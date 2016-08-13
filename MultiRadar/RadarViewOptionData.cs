@@ -112,7 +112,7 @@ namespace MultiRadar
             }
             catch (IOException e)
             {
-                System.Windows.MessageBox.Show(e.Message + "(" + fileName + ")MultiProjectResourcesフォルダが存在しないか、RaderOption.xmlが存在しません", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+                System.Windows.MessageBox.Show(e.Message + "(" + fileName + ")MultiProjectResourcesフォルダが存在しないか、RadarOption.xmlが存在しません", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
 
             }
         }

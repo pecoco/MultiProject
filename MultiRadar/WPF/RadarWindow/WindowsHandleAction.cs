@@ -59,6 +59,8 @@ namespace Wpf.RadarWindow
                 callbackSaveSetting();
             }
             SelectZoomSelect();
+           
+            
         }
 
         private void btIDmode_Click(object sender, RoutedEventArgs e)
@@ -70,6 +72,13 @@ namespace Wpf.RadarWindow
             SelectZoomSelect();
 
         }
+
+        private void btViewRenge_Click(object sender, RoutedEventArgs e)
+        {
+            RadarViewOrder.LuckUpS = false;
+        }
+
+
         private void SelectZoomSelect()
         {
             if (model.IdModeCheckrd)

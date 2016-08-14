@@ -75,6 +75,21 @@ namespace MultiRadar
             }
         }
 
+        public bool IsLinkView(RadarZoomSelect mode)
+        {
+            switch (mode)
+            {
+                case RadarZoomSelect.mob:
+                    return voMob.link;
+                case RadarZoomSelect.hum:
+                    return voHum.link;
+                case RadarZoomSelect.id:
+                    return voId.link;
+                default:
+                    return false;
+            }
+        }
+
 
         public RadarViewOptionData(string fileNamePath)
         {

@@ -20,6 +20,7 @@ namespace MultiRadar.Structure
         public bool positon;
         public bool hp;
         public bool job;
+        public bool link;
     }
 }
 /*

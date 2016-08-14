@@ -157,6 +157,7 @@ namespace ACT.RadarViewOrder
             }
         }
 
+        public static bool isRadarWindowAnimation { get; set; }
 
         public static void ZoomIn()
         {

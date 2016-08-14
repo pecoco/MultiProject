@@ -44,6 +44,8 @@ namespace Wpf.RadarWindow
 
         private Pen areaPen;
         private Pen myAreaPen;
+        private Pen circlePen;
+        private Pen circleOffPen;
 
         public MainWindow()
         {
@@ -61,6 +63,9 @@ namespace Wpf.RadarWindow
                 source.AddHook(new HwndSourceHook(WndProc));
                 areaPen = new Pen(Brushes.LawnGreen, 1);
                 myAreaPen = new Pen(Brushes.LightCyan, 1);
+                circlePen = new Pen(Brushes.Lime, 1);
+                circleOffPen = new Pen(windowRectBrush, 1);
+
                 SelectZoomSelect();
 
                 mTimer.Interval = TimeSpan.FromSeconds(0.05);//50ミリ秒間隔に設定
@@ -164,6 +169,7 @@ namespace Wpf.RadarWindow
         {
             using (var dc = dg.Open())
             {
+
                 dc.DrawRectangle(null, new Pen(windowRectBrush, 1), new Rect(0, 0, img.Width - 1, img.Height - 1));
 
                 if (ActData.AllCharactor == null) { return; }
@@ -203,7 +209,6 @@ namespace Wpf.RadarWindow
                     {
                         if (this.Height == CLOSE_WINDOW_SET_HEIGHT)
                         {
-                            
                             FirstOpenWindowAnimetion();
                         }
 
@@ -251,14 +256,23 @@ namespace Wpf.RadarWindow
         }
         private bool OpenWindowAnimetion(DrawingContext dc,int maxY)
         {
-            if (openAnimationY < maxY)
+            if (openAnimationY+32 < maxY)
             {
                 openAnimationY+=32;
                 this.Height = openAnimationY;
                 dc.DrawLine(new Pen(Brushes.LightSkyBlue, 1), new Point(0, openAnimationY-4), new Point(this.Width, openAnimationY-4));
                 dc.DrawLine(new Pen(Brushes.Green, 1), new Point(0, openAnimationY), new Point(this.Width, openAnimationY));
+                RadarViewOrder.isRadarWindowAnimation = true;
                 return false;
+            }else
+            {
+                if (openAnimationY != RadarViewOrder.keepWindowHeight)
+                {
+                    openAnimationY = RadarViewOrder.keepWindowHeight;
+                    this.Height = openAnimationY;
+                }
             }
+            RadarViewOrder.isRadarWindowAnimation = false;
             return true;
         }
 
@@ -269,8 +283,15 @@ namespace Wpf.RadarWindow
             dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top+2), (double)rect.Width, (double)rect.Height);
 
             Point areaPos = RadarViewOrder.AreaPos();
-            Pen pen = new Pen(Brushes.LawnGreen,1);
-            dc.DrawEllipse(null, pen, new Point(rect.Left , rect.Top + 2), (double)areaPos.X/2, (double)areaPos.Y/2);
+            
+
+            if (RadardataInstance.viewOptionData.IsLinkView(RadarViewOrder.radarZoomSelect))
+            {
+                dc.DrawEllipse(null, circlePen, new Point(rect.Left , rect.Top + 2), (double)areaPos.X/2, (double)areaPos.Y/2);
+            }else
+            {
+                dc.DrawEllipse(null, circleOffPen, new Point(rect.Left, rect.Top + 2), (double)areaPos.X / 2, (double)areaPos.Y / 2);
+            }
 
             if (model.ViewAreaCheckrd)
             {
@@ -299,7 +320,7 @@ namespace Wpf.RadarWindow
 
             RotateTransform rt = new RotateTransform(sf+90);
             myIcon.LayoutTransform = rt;
-
+            
         }
 
         private void namePlate(List<Combatant> searchObjects, DrawingContext dc )

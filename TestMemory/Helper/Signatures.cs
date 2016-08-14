@@ -19,6 +19,11 @@ namespace Memory.Helper
                     Key = "PLAYERINFO",
                     Offset = 24791840
                 });
+                signatures.Add(new Signature
+                {
+                    Key = "PARTY",
+                    Offset = 22787280
+                });
             }
             else
             {
@@ -26,6 +31,11 @@ namespace Memory.Helper
                 {
                     Key = "PLAYERINFO",
                     Offset = 24791840 
+                });
+                signatures.Add(new Signature
+                {
+                    Key = "PARTY",
+                    Offset = 22787280
                 });
             }
             return signatures;

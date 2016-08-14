@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestMemory.DataStructure;
 using TestMemory.Helper;
 
 namespace Memory
@@ -52,7 +53,9 @@ namespace Memory
             }
 
 
-            ReadMemory("PLAYERINFO");
+            ReadPlayerInfo();
+            ReadParty();
+
         }
         ~Memory()
         {
@@ -73,16 +76,25 @@ namespace Memory
         }
         //この関数でデーターを読み込み
         private static IntPtr PlayerInfoMap { get; set; }
-        public void ReadMemory(string key)
+
+        public void ReadPlayerInfo()
         {
-            PlayerInfoMap = GetLocations(key);
+            PlayerInfoMap = GetLocations("PLAYERINFO");
             var source = MemoryLib.GetByteArray(PlayerInfoMap, 0x256);
             PlayerInfo.ResolvePlayerFromBytes(source);
+
+        }
+        private static IntPtr PartyMap { get; set; }
+        public void ReadParty()
+        {
+            PartyMap = GetLocations("PARTY");
+            var source = MemoryLib.GetByteArray(PartyMap, 0x220);
+            PartyData.ResolvePartyFromBytes(source);
 
         }
 
  
 
-
+        
     }
 }

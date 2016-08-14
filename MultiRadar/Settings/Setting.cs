@@ -89,7 +89,7 @@ namespace MultiRadar
         {
             if (skipSetWindowPos == false)
             {
-                if (radarForm != null)
+                if (radarForm != null && !RadarViewOrder.isRadarWindowAnimation)
                 {
                     textRadarXpos.Text = ((int)radarForm.Left).ToString();
                     textRadarYpos.Text = ((int)radarForm.Top).ToString();

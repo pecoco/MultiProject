@@ -1,7 +1,8 @@
-﻿■名称　MultiRader v2.2.3
+﻿■名称　MultiRader v2.2.4
 
 
 ■変更点　 
+外周のリングの表示、設定ファイルで表示・非表示の切り替え
 自動ズームの値が保存されてしまうバグFix
 
 ■用途　FF14 ACTPluginです。
@@ -90,18 +91,21 @@ XMLファイルを直接編集します。編集する前にオリジナルを�
    <positon>true</positon>●座標の表示を切り替えます
    <hp>true</hp>　　　　　●ＨＰの表示を切り替えます
    <job>false</job>　　　 ●ジョブの表示を切り替えます　
+　 <link>true</link>      ●レーダー範囲の表示を切り替えます
   </mob>
   <hum>　●対人モードの...
    <name>false</name>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
+　 <link>true</link>
   </hum>
   <id>　●ＩＤモードの...
    <name>true</name>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
+　 <link>true</link>
   </id>
 </RadarViewType>
 
@@ -135,6 +139,7 @@ IDで利用
 
 変更履歴
 
+2016/08/13  2.2.4　外周のリングの表示、設定ファイルで表示・非表示の切り替え
 2016/08/13  2.2.3　自動ズームの値が保存されてしまうバグFix
 2016/08/13  2.2.2　表示する内容を設定ファイルで調整できる（上級者向け）
 		　 モブモードでＳが発生した場合、自動的に最大ズームアウトする

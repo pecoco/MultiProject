@@ -5,17 +5,20 @@
    <positon>true</positon>
    <hp>true</hp>
    <job>false</job>
+   <link>false</link>
   </mob>
   <hum>
    <name>false</name>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
+   <link>true</link>
   </hum>
   <id>
    <name>true</name>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
+   <link>false</link>
   </id>
 </RadarViewType>

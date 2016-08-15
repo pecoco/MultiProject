@@ -24,6 +24,12 @@ namespace Memory.Helper
                     Key = "PARTY",
                     Offset = 22787280
                 });
+                signatures.Add(new Signature
+                {
+                    Key = "PARTYCOUNT",
+                    Value = "5F50617274794C69737400",
+                    Offset = 1340
+                });
             }
             else
             {
@@ -36,6 +42,12 @@ namespace Memory.Helper
                 {
                     Key = "PARTY",
                     Offset = 22787280
+                });
+                signatures.Add(new Signature
+                {
+                    Key = "PARTYCOUNT",
+                    Value = "5F50617274794C69737400",
+                    Offset = 1340
                 });
             }
             return signatures;

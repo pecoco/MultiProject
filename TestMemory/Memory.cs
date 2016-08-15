@@ -39,6 +39,10 @@ namespace Memory
 
             handle = ProcessModel.OpenProcessHandle(process);
             MemoryLib.SetHandle(handle);
+
+           
+
+
             foreach (Signature sig in Signatures.Resolve(true))
             {
                 sig.BaseAddress = bip;
@@ -48,7 +52,9 @@ namespace Memory
                     continue;
                 }else
                 {
-                    //toDo Active Search...
+                    Signature retrnSig =MemoryLib.FindExtendedSignatures(sig);                    //toDo Active Search...
+                    sig.BaseAddress = retrnSig.BaseAddress;
+                    Locations[sig.Key] = sig;
                 }
             }
 

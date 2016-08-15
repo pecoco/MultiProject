@@ -23,6 +23,7 @@ namespace Memory.Helper
         public Int64 BaseAddress
         {
             set { baseAddress = value; }
+            get { return baseAddress; }
         }
 
 

@@ -92,12 +92,15 @@ namespace MemoryUtil
         {
             CloseHandle(handle);
         }
+        public static Process process { get; set; }
+        private static IntPtr _handle;
+        public static IntPtr handle { get { return _handle; } }
 
-
-        public static Int64 GetProcessBaseAddress(Process process)
+        public static Int64 GetProcessBaseAddress(Process _process)
         {
+            process = _process;
             int processId = process.Id;
-            IntPtr handle = OpenProcessHandle(process);
+            _handle = OpenProcessHandle(process);
             if (handle == IntPtr.Zero)
                 throw new Win32Exception(Marshal.GetLastWin32Error());
 

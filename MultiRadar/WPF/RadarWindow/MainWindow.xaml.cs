@@ -185,7 +185,7 @@ namespace Wpf.RadarWindow
 
                 //Zoom
                 dc.DrawText(new FormattedText((RadarViewOrder.RadarZoom).ToString(),System.Globalization.CultureInfo.CurrentUICulture,
-                FlowDirection.LeftToRight, new Typeface("Verdana"),7, Brushes.LightGray), new Point(140, 10));
+                FlowDirection.LeftToRight, new Typeface("Verdana"),7, Brushes.LightGray), new Point(136, 10));
 
                 lock (ActData.AllCharactor)
                 {

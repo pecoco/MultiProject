@@ -5,6 +5,7 @@ using System.Drawing;
 namespace ACT.RadarViewOrder
 {
     using MultiProject;
+    using Radardata;
     using System.IO;
     using System.Windows;
     public static class RadarViewOrder
@@ -145,7 +146,7 @@ namespace ACT.RadarViewOrder
                 switch (radarZoomSelect)
                 {
                     case RadarZoomSelect.mob:
-                        if (LuckUpS) { return -90; }
+                        if (LuckUpS) { return RadardataInstance.viewOptionData.DefaultZoomoutValue; }
                         return radarZoomMob;
                     case RadarZoomSelect.hum:
                         return radarZoomHum;
@@ -156,18 +157,22 @@ namespace ACT.RadarViewOrder
                 }
             }
         }
-
+        private static int MIN_ZOOM_VALUE = -999;
         public static bool isRadarWindowAnimation { get; set; }
 
         public static void ZoomIn()
         {
-            RadarZoom = RadarZoom > -90 ? RadarZoom - 1 : -90;
+            RadarZoom = RadarZoom > MIN_ZOOM_VALUE ? RadarZoom - 1 : MIN_ZOOM_VALUE;
         }
         public static void ZoomOut()
         {
             RadarZoom = RadarZoom < 10 ? RadarZoom + 1 : 10;
         }
 
+        // CP & GP //
+        public static int GPSound;
+        public static int CPSound;
+        // CP & GP //
         public static Combatant oldMyData;
         private static Combatant newMyData;
         public static Combatant myData
@@ -192,6 +197,9 @@ namespace ACT.RadarViewOrder
         private static System.Media.SoundPlayer SeB = null;
         private static System.Media.SoundPlayer SeE = null;
         private static System.Media.SoundPlayer SeS = null;
+
+        private static System.Media.SoundPlayer SeGP = null;
+        private static System.Media.SoundPlayer SeCP = null;
 
         private static bool SeEnable = true;
 
@@ -240,6 +248,21 @@ namespace ACT.RadarViewOrder
             SeE = SeE ?? new System.Media.SoundPlayer(sePathName + "/e.wav");
             SeE.Play();
         }
+        public static void PlaySeCP()
+        {
+            if (SeEnable != true) { return; }
+            SeCP = SeCP ?? new System.Media.SoundPlayer(sePathName + "/cp.wav");
+            SeCP.Play();
+        }
+        public static void PlaySeGP()
+        {
+            if (SeEnable != true) { return; }
+            SeGP = SeGP ?? new System.Media.SoundPlayer(sePathName + "/gp.wav");
+            SeGP.Play();
+        }
+
+
+
 
         public static bool windowsStatus;
         public static List<HitMobdata> hitMobdatasFromLog;

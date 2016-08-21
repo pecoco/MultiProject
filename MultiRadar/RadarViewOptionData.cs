@@ -16,6 +16,8 @@ namespace MultiRadar
         ViewOption voMob ;
         ViewOption voHum ;
         ViewOption voId ;
+        public int DefaultZoomoutValue { set; get; }
+
         public bool IsNameView(RadarZoomSelect mode)
         {
             switch (mode)
@@ -97,6 +99,7 @@ namespace MultiRadar
             if (File.Exists(this.fileName))
             {
                 LoadAreaData(fileName);
+                DefaultZoomoutValue = radarViewOption.defaultZoomoutValue;
                 voMob = radarViewOption.mob;
                 voHum = radarViewOption.hum;
                 voId = radarViewOption.id;

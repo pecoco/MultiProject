@@ -97,7 +97,9 @@
       <b>
         <string>アヴゼン</string>
       </b>
-      <etc />
+      <etc>
+        <string>ブロンテス</string>
+      </etc>
     </ZoneMobData>
     <ZoneMobData>
       <name>Eastern Thanalan.</name>
@@ -335,5 +337,23 @@
       </b>
       <etc />
     </ZoneMobData>
+
+    <ZoneMobData>
+      <name>Mist.</name>
+      <nameJp>Mist</nameJp>
+      <s>
+        <string>木人</string>
+      </s>
+      <a>
+        <string>リューバ</string>
+        <string>ミルカ</string>
+      </a>
+      <b>
+        <string>クルーゼ</string>
+        <string>アルティック</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+
   </zones>
 </Zones>

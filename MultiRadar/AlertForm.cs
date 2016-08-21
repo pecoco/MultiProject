@@ -48,7 +48,43 @@ namespace MultiRadar
                         if (mob.rank == "e" && viewCount == 3) { RadarViewOrder.PlaySeB(); }
                     }
                 }
-            }else
+
+                /*
+                // CP & GP //
+                ;
+                if (RadarViewOrder.myData.CurrentGP == RadarViewOrder.myData.MaxGP && RadarViewOrder.myData.CurrentGP > 0)
+                {
+                    GPSound = GPSound < 1 ? 1 : GPSound;
+                }
+                else
+                {
+                    GPSound = 0;
+                }
+
+                if (newMyData.CurrentCP == newMyData.MaxCP && newMyData.CurrentCP > 0)
+                {
+                    CPSound = CPSound < 1 ? 1 : CPSound;
+                }
+                else
+                {
+                    CPSound = 0;
+                }
+                // CP & GP //
+
+
+                if (RadarViewOrder.GPSound==1)
+                {
+                    RadarViewOrder.PlaySeGP();
+                    RadarViewOrder.GPSound = 2;
+                }
+                if (RadarViewOrder.CPSound == 1)
+                {
+                    RadarViewOrder.PlaySeCP();
+                    RadarViewOrder.CPSound = 2;
+                }
+                */
+            }
+            else
             {
                 switch (viewCount)
                 {

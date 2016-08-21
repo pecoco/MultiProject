@@ -8,6 +8,7 @@ namespace MultiRadar.Structure
 {
     public class RadarViewType
     {
+        public int defaultZoomoutValue = -200;
         public ViewOption mob = new ViewOption();
         public ViewOption hum = new ViewOption();
         public ViewOption id = new ViewOption();

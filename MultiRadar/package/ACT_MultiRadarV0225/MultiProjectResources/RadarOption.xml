@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RadarViewType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <defaultZoomoutValue>-400</defaultZoomoutValue>
   <mob>
    <name>true</name>
    <positon>true</positon>

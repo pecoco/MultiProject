@@ -159,6 +159,10 @@ namespace MultiProject
                     combatant.CurrentTP = (int)item.CurrentTP;
                     combatant.PosX = (float)item.PosX;
                     combatant.PosY = (float)item.PosY;
+                    combatant.MaxCP = (int)item.MaxCP;
+                    combatant.MaxGP = (int)item.MaxGP;
+                    combatant.CurrentCP = (int)item.CurrentCP;
+                    combatant.CurrentGP = (int)item.CurrentGP;
 
                     result.Add(combatant);
                 }
@@ -186,6 +190,10 @@ namespace MultiProject
         public int CurrentMP;
         public int MaxMP;
         public int CurrentTP;
+        public int MaxCP;
+        public int CurrentCP;
+        public int MaxGP;
+        public int CurrentGP;
         public float PosX;
         public float PosY;
         public int CastTargetID;

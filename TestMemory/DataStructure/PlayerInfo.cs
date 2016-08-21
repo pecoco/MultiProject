@@ -6,7 +6,9 @@ namespace Memory.DataStructure
 {
     public static class PlayerInfo
     {
-        public static PlaterInfoStructure ResolvePlayerFromBytes(byte[] source)
+        public static PlaterInfoStructure d;
+
+        public static void ResolvePlayerFromBytes(byte[] source)
         {
             var entry = new PlaterInfoStructure();
             try
@@ -217,7 +219,7 @@ namespace Memory.DataStructure
             catch (Exception ex)
             {
             }
-            return entry;
+            d = entry;
 
         }
     }

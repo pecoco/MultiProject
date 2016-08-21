@@ -58,10 +58,11 @@ namespace Memory
                 }
             }
 
+            //ReadPlayerInfo();
+            //ReadParty();
+            //ReadPartyCount();
 
-            ReadPlayerInfo();
-            ReadParty();
-
+            //SearchMem();
         }
         ~Memory()
         {
@@ -88,6 +89,7 @@ namespace Memory
             PlayerInfoMap = GetLocations("PLAYERINFO");
             var source = MemoryLib.GetByteArray(PlayerInfoMap, 0x256);
             PlayerInfo.ResolvePlayerFromBytes(source);
+            
 
         }
         private static IntPtr PartyMap { get; set; }
@@ -99,8 +101,20 @@ namespace Memory
 
         }
 
- 
+        private static IntPtr PartyCount { get; set; }
+        public void ReadPartyCount()
+        {
+            PartyCount = GetLocations("PARTYCOUNT");
+            var source = MemoryLib.GetByteArray(PartyCount, 0x220);
+            PartyData.ResolvePartyFromBytes(source);
 
-        
+        }
+
+        private void SearchMem()
+        {
+
+        }
+
+
     }
 }

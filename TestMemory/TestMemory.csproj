@@ -73,11 +73,11 @@
     <Compile Include="DataStructure\PartyDataStructure.cs" />
     <Compile Include="DataStructure\PlaterInfoStructure.cs" />
     <Compile Include="DataStructure\PlayerInfo.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FFXIVForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FFXIVForm.Designer.cs">
+      <DependentUpon>FFXIVForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\MemoryLib.cs" />
     <Compile Include="Helper\Signatures.cs" />
@@ -87,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\Signature.cs" />
     <Compile Include="Helper\UnsafeNativeMethods.cs" />
+    <EmbeddedResource Include="FFXIVForm.resx">
+      <DependentUpon>FFXIVForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -27,8 +27,9 @@ namespace Memory.Helper
                 signatures.Add(new Signature
                 {
                     Key = "PARTYCOUNT",
-                    Value = "5F50617274794C69737400",
-                    Offset = 1340
+                    //Value = "5F50617274794C69737400",
+                    Offset = //0x10A5E6C
+                             0x10A8EBC
                 });
             }
             else
@@ -46,8 +47,9 @@ namespace Memory.Helper
                 signatures.Add(new Signature
                 {
                     Key = "PARTYCOUNT",
-                    Value = "5F50617274794C69737400",
-                    Offset = 1340
+                    //Value = "5F50617274794C69737400",
+                    Offset = //0x10A5E6C
+                             0x10A8EBC
                 });
             }
             return signatures;

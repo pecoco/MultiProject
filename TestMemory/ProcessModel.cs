@@ -77,10 +77,11 @@ namespace MemoryUtil
 
         private const int PROCESS_QUERY_INFORMATION = 0x400;
         private const int PROCESS_VM_READ = 0x10;
-
+        private static System.Diagnostics.Process[] ps;
         public static Process GetProcessId(string processName)
         {
-            System.Diagnostics.Process[] ps =System.Diagnostics.Process.GetProcessesByName(processName);
+            //System.Diagnostics.Process[] 
+            ps =System.Diagnostics.Process.GetProcessesByName(processName);
             return ps[0];
         }
  

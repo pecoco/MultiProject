@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Memory.Helper
 {
-    class Signatures
+    public class Signatures
     {
         public static IEnumerable<Signature> Resolve(bool IsWin64)
         {

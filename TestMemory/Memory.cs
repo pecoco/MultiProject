@@ -10,9 +10,12 @@ using System.Threading.Tasks;
 using TestMemory.DataStructure;
 using TestMemory.Helper;
 
+
 namespace Memory
 {
     
+    
+        
     public class Memory
     {
         static Process process;
@@ -30,18 +33,17 @@ namespace Memory
             }
         }
 
-        IntPtr handle = IntPtr.Zero;
+        IntPtr processHandle = IntPtr.Zero;
         public Memory()
         {
-            process = ProcessModel.GetProcessId("ffxiv_dx11");
-            //process = ProcessModel.GetProcessId("notepad");
+            //process = ProcessModel.GetProcessId("ffxiv_dx11");
+            process = ProcessModel.GetProcessId("notepad");
             long bip = ProcessModel.GetProcessBaseAddress(process);
 
-            handle = ProcessModel.OpenProcessHandle(process);
-            MemoryLib.SetHandle(handle);
+            processHandle = ProcessModel.OpenProcessHandle(process);
+            MemoryLib.SetHandle(processHandle);
 
-           
-
+            SystemSearch();
 
             foreach (Signature sig in Signatures.Resolve(true))
             {
@@ -58,7 +60,12 @@ namespace Memory
                 }
             }
 
-            //ReadPlayerInfo();
+            ReadPlayerInfo();
+            string playerName = PlayerInfo.d.Name;
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(playerName);
+
+             
+
             //ReadParty();
             //ReadPartyCount();
 
@@ -66,9 +73,9 @@ namespace Memory
         }
         ~Memory()
         {
-            if (handle != IntPtr.Zero)
+            if (processHandle != IntPtr.Zero)
             {
-                ProcessModel.CloseProcessHandle(handle);
+                ProcessModel.CloseProcessHandle(processHandle);
             }
         }
 
@@ -110,8 +117,50 @@ namespace Memory
 
         }
 
-        private void SearchMem()
+        //Search HeapMemory
+        private void SearchPartyCountMemory()
         {
+
+        }
+
+        private void SystemSearch()
+        {
+
+            SYSTEM_INFO sys_info = new SYSTEM_INFO();
+            UnsafeNativeMethods.GetSystemInfo(out sys_info);
+
+            IntPtr proc_min_address = sys_info.minimumApplicationAddress;
+            IntPtr proc_max_address = sys_info.maximumApplicationAddress;
+
+            // saving the values as long ints so I won't have to do a lot of casts later
+            long proc_min_address_l = (long)proc_min_address;
+            long proc_max_address_l = (long)proc_max_address;
+
+
+            MEMORY_BASIC_INFORMATION mem_basic_info = new MEMORY_BASIC_INFORMATION();
+            List<MEMORY_BASIC_INFORMATION> MemReg = new List<MEMORY_BASIC_INFORMATION>();
+            int bytesRead = 0;  // number of bytes read with ReadProcessMemory
+
+            IntPtr processHandle2 = UnsafeNativeMethods.OpenProcess(MemoryLib.PROCESS_QUERY_INFORMATION | MemoryLib.PROCESS_WM_READ, false, process.Id);
+
+            while (proc_min_address_l < proc_max_address_l)
+            {
+
+                // 28 = sizeof(MEMORY_BASIC_INFORMATION)
+                UnsafeNativeMethods.VirtualQueryEx(processHandle2, proc_min_address, out mem_basic_info, 28);
+                // if this memory chunk is accessible
+                if (mem_basic_info.Protect == MemoryLib.PAGE_READWRITE && mem_basic_info.State == MemoryLib.MEM_COMMIT)
+                {
+                    MemReg.Add(mem_basic_info);
+                    byte[] buffer = new byte[mem_basic_info.RegionSize];
+                    // read everything in the buffer above
+                    UnsafeNativeMethods.ReadProcessMemory((int)processHandle, mem_basic_info.BaseAddress, buffer, mem_basic_info.RegionSize, ref bytesRead);
+                }
+                proc_min_address_l += mem_basic_info.RegionSize;
+                proc_min_address = new IntPtr(proc_min_address_l);
+            }
+
+
 
         }
 

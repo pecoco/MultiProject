@@ -1,0 +1,23 @@
+7FF6EB1BB710-7FF6EB1BB711: 2h(2)Byte  [Windows ANSI]
+Address       : +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F  0123456789ABCDEF
+7FF6'EB1BB710 : 53 68 ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ?? ??  Sh.............. 
+015BB710
+
+offset 17A4B020 PlayerInfo >Base+offset 7ff6EB3A4B20
+                                        140698 857025568
+0180D867
+
+
+プログラムが出した結果　140698857025568
+
+欲しい結果　7FF6EB3A4B20 ,140698485148448
+
+ImageAdress 7ff6E9C00000
+Find            017A4B20    
+　
+
+-7ff6C76fb250
+
+58 52 36
+
+00 3A 00 34 00 24

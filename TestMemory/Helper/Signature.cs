@@ -15,10 +15,12 @@ namespace Memory.Helper
             Key = "";
             Value = "";
             Offset = 0;
+            Heap = false;
         }
         public string Key { get; set; }
         public string Value { get; set; }
         public long Offset { get; set; }
+        public bool Heap { get; set; }
         private Int64 baseAddress;
         public Int64 BaseAddress
         {

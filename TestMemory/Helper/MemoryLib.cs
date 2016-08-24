@@ -33,7 +33,16 @@ namespace TestMemory.Helper
         public int Protect;
         public int lType;
     }
-
+    public struct MEMORY_BASIC_INFORMATION64
+    {
+        public ulong BaseAddress;
+        public ulong AllocationBase;
+        public int AllocationProtect;
+        public ulong RegionSize;
+        public int State;
+        public ulong Protect;
+        public ulong Type;
+    }
 
 
     public static class MemoryLib

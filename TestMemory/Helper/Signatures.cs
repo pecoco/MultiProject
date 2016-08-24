@@ -29,7 +29,8 @@ namespace Memory.Helper
                     Key = "PARTYCOUNT",
                     //Value = "5F50617274794C69737400",
                     Offset = //0x10A5E6C
-                             0x10A8EBC
+                             0x10A8EBC,
+                    Heap = true
                 });
             }
             else

@@ -21,6 +21,7 @@ namespace Memory.Helper
         public string Value { get; set; }
         public long Offset { get; set; }
         public bool Heap { get; set; }
+        public ulong RegionSize { get; set; }//Select Heap & Match RegionSize
         private Int64 baseAddress;
         public Int64 BaseAddress
         {

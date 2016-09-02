@@ -52,6 +52,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Memory.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,7 +72,7 @@
     <Compile Include="..\MultiProject\Common\Enumes.cs">
       <Link>Common\Enumes.cs</Link>
     </Compile>
-    <Compile Include="DataStructure\PartyData.cs" />
+    <Compile Include="DataStructure\PartyInfo.cs" />
     <Compile Include="DataStructure\PartyDataStructure.cs" />
     <Compile Include="DataStructure\PlaterInfoStructure.cs" />
     <Compile Include="DataStructure\PlayerInfo.cs" />

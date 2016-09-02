@@ -32,10 +32,9 @@ namespace Memory.Helper
         );
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, ref IntPtr lpBuffer, IntPtr dwSize, IntPtr lpNumberOfBytesRead);
+
         [DllImport("kernel32.dll")]
-        public static extern bool ReadProcessMemory(int hProcess, Int64 lpBaseAddress, ref byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
-        [DllImport("kernel32.dll", SetLastError = true)]
-        public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, ref byte[] lpBuffer, long dwSize, IntPtr lpNumberOfBytesRead);
+        public static extern bool ReadProcessMemory(int hProcess, Int64 lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
 
 
 

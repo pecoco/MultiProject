@@ -23,6 +23,7 @@ namespace TestMemory.Helper
         public ushort processorLevel;
         public ushort processorRevision;
     }
+
     public struct MEMORY_BASIC_INFORMATION
     {
         public int BaseAddress;
@@ -33,17 +34,19 @@ namespace TestMemory.Helper
         public int Protect;
         public int lType;
     }
+
     public struct MEMORY_BASIC_INFORMATION64
     {
         public ulong BaseAddress;
         public ulong AllocationBase;
-        public int AllocationProtect;
+        public uint AllocationProtect;
+        public uint __alognment1;
         public ulong RegionSize;
-        public int State;
-        public ulong Protect;
-        public ulong Type;
+        public uint State;
+        public uint Protect;
+        public uint Type;
+        public uint __alognment2;
     }
-
 
     public static class MemoryLib
     {
@@ -51,9 +54,6 @@ namespace TestMemory.Helper
         public const int MEM_COMMIT = 0x00001000;
         public const int PAGE_READWRITE = 0x04;
         public const int PROCESS_WM_READ = 0x0010;
-
-
-
         static IntPtr handle = IntPtr.Zero;
         public static void SetHandle(IntPtr _handle)
         {
@@ -65,6 +65,13 @@ namespace TestMemory.Helper
             if (handle == IntPtr.Zero) { return false; }
             IntPtr lpNumberOfBytesRead;
             return UnsafeNativeMethods.ReadProcessMemory(handle, address, buffer, new IntPtr(buffer.Length), out lpNumberOfBytesRead);
+        }
+
+        public static byte GetByte(IntPtr address, long offset = 0)
+        {
+            var data = new byte[1];
+            Peek(new IntPtr(address.ToInt64() + offset), data);
+            return data[0];
         }
         public static byte[] GetByteArray(IntPtr address, int length)
         {
@@ -96,14 +103,10 @@ namespace TestMemory.Helper
 
             byte WildCardChar = (byte)'*';
             byte[] sigString = SigToByte(signature, WildCardChar);
-
-
-
-
             return IntPtr.Zero;
         }
 
-        private static byte[] SigToByte(string signature, byte wildcard)
+        public static byte[] SigToByte(string signature, byte wildcard)
         {
             var pattern = new byte[signature.Length / 2];
             var hexTable = new[]
@@ -203,7 +206,7 @@ namespace TestMemory.Helper
             return returnSig;
         }
 
-        private static int FindSuperSig(byte[] buffer, byte[] pattern)
+        public static int FindSuperSig(byte[] buffer, byte[] pattern)
         {
             var result = -1;
             if (buffer.Length <= 0 || pattern.Length <= 0 || buffer.Length < pattern.Length)

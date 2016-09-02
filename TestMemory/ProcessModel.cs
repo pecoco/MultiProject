@@ -8,6 +8,19 @@ namespace MemoryUtil
     static class ProcessModel
     {
 
+        public enum PROCESSMODE :int
+        {
+            isTaeget32bit = 1,
+            isMy32bitTargetWow64bit = 2,
+            isTarget64bit = 3,
+        }
+        private static PROCESSMODE cpumode;
+        public static PROCESSMODE isCpuMode
+        {
+            get { return cpumode; }
+            private set  { cpumode = value; }
+        }
+
 
         public enum PROCESSINFOCLASS : int
         {
@@ -91,17 +104,18 @@ namespace MemoryUtil
                 throw new Win32Exception(Marshal.GetLastWin32Error());
 
             bool Is64BitOperatingSystem = Is64BitChecker.isWindows64bit();
-           // bool IsWow64Process = Is64BitChecker.InternalCheckIsWow64(handle);
-            bool IsTargetWow64Process = Is64BitChecker.GetProcessIsWow64(handle);
-            bool IsTarget64BitProcess = Is64BitOperatingSystem && !IsTargetWow64Process;
+            //bool IsWow64Process = Is64BitChecker.InternalCheckIsWow64(handle);
+            bool IsTargetWow64BitProcess = Is64BitChecker.GetProcessIsWow64(handle);
+            bool IsTarget64BitProcess = Is64BitOperatingSystem && !IsTargetWow64BitProcess;
 
             long processParametersOffset = IsTarget64BitProcess ? 0x10 : 0x8;//オリジナルはox20 ox10
             Int64 pebAddress = 0;
             try
             {
                 int hr; 
-                if (IsTargetWow64Process) // OS : 64Bit, Cur : 32 or 64, Tar: 32bit
+                if (IsTargetWow64BitProcess) // OS : 64Bit Cur : 32 or 64, Tar: 32bit
                 {
+                    isCpuMode = PROCESSMODE.isTaeget32bit;
                     IntPtr peb32 = new IntPtr();
                     hr = UnsafeNativeMethods.NtQueryInformationProcess(handle, (int)PROCESSINFOCLASS.ProcessWow64Information, ref peb32, IntPtr.Size, IntPtr.Zero);
                     if (hr != 0) throw new Win32Exception(hr);
@@ -111,8 +125,9 @@ namespace MemoryUtil
                         throw new Win32Exception(Marshal.GetLastWin32Error());
                     return pp.ToInt64();
                 }
-                else if (IsTargetWow64Process)//Os : 64Bit, Cur 32, Tar 64
+                else if (false)//Os : 64Bit, Cur 32, Tar 64 ThisProgram 32
                 {
+                    isCpuMode = PROCESSMODE.isMy32bitTargetWow64bit;
                     PROCESS_BASIC_INFORMATION_WOW64 pbi = new PROCESS_BASIC_INFORMATION_WOW64();
                     hr = NtWow64QueryInformationProcess64(handle, (int)PROCESSINFOCLASS.ProcessBasicInformation, ref pbi, Marshal.SizeOf(pbi), IntPtr.Zero);
                     if (hr != 0) throw new Win32Exception(hr);
@@ -124,6 +139,7 @@ namespace MemoryUtil
                 }
                 else// Os,Cur,Tar : 64 or 32
                 {
+                    isCpuMode = PROCESSMODE.isTarget64bit;
                     PROCESS_BASIC_INFORMATION pbi = new PROCESS_BASIC_INFORMATION();
                     hr = NtQueryInformationProcess(handle, (int)PROCESSINFOCLASS.ProcessBasicInformation, ref pbi, Marshal.SizeOf(pbi), IntPtr.Zero);
                     if (hr != 0) throw new Win32Exception(hr);

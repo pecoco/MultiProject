@@ -8,9 +8,10 @@ using TestMemory.Helper;
 
 namespace TestMemory.DataStructure
 {
-    public class PartyData
+    public class PartyInfo
     {
-        public static PartyDataStructure ResolvePartyFromBytes(byte[] source)
+        public static PartyDataStructure d;
+        public static void ResolvePartyFromBytes(byte[] source)
         {
             var entry = new PartyDataStructure();
 
@@ -33,8 +34,8 @@ namespace TestMemory.DataStructure
             {
 
             }
-            return entry;
-
+            d = entry;
         }
+        public static int PartyCount;
     }
 }

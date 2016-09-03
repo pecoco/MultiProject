@@ -280,7 +280,7 @@ namespace Wpf.RadarWindow
         {
             Rect rect = RadarViewOrder.PlayerRect();//
           
-            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left, rect.Top+2), (double)rect.Width, (double)rect.Height);
+            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left+2.5, rect.Top+2.5), (double)rect.Width, (double)rect.Height);
 
             Point areaPos = RadarViewOrder.AreaPos();
             
@@ -358,7 +358,7 @@ namespace Wpf.RadarWindow
 
                 if (RadardataInstance.viewOptionData.IsNameView(RadarViewOrder.radarZoomSelect))
                 {
-                    this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y - 14, flag, shortName);
+                    this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, shortName);
                 }
                 float vX = 0;
                 float vY = 0;

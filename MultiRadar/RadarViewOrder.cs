@@ -289,5 +289,14 @@ namespace ACT.RadarViewOrder
                 }
             }
         }
+
+        public static int fontTop
+        {
+            //Base -14
+            //fontSize Base 7
+            get { return ( fontSize + 7) * -1; }
+        }
+
+
     }
 }

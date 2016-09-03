@@ -24,34 +24,38 @@ namespace Memory.DataStructure
                 var step = 2;
                 var i = 0x68 - step;
 
+                var nowLv = source[i += step];
 
-                entry.PGL = source[i += step];
-                entry.GLD = source[i += step];
-                entry.MRD = source[i += step];
-                entry.ARC = source[i += step];
-                entry.LNC = source[i += step];
-                entry.THM = source[i += step];
-                entry.CNJ = source[i += step];
+                entry.PGL = source[i += step];//格闘士■
+                entry.GLD = source[i += step];//剣術士■
+                entry.MRD = source[i += step];//斧術士●■
+                entry.ARC = source[i += step];//弓術士
+                entry.LNC = source[i += step];//槍術士■  
+                entry.THM = source[i += step];//呪術士
+            
+                entry.CNJ = source[i += step];//幻術士■
 
-                entry.CPT = source[i += step];
-                entry.BSM = source[i += step];
+                entry.CPT = source[i += step];//木工士
+                entry.BSM = source[i += step];//黒
                 entry.ARM = source[i += step];
                 entry.GSM = source[i += step];
                 entry.LTW = source[i += step];
                 entry.WVR = source[i += step];
-                entry.ALC = source[i += step];
+ 
                 entry.CUL = source[i += step];
 
-                entry.MIN = source[i += step];
-                entry.BTN = source[i += step];
-                entry.FSH = source[i += step];
+                entry.MIN = source[i += step];//採掘
 
+                entry.BTN = source[i += step];//園芸士
                 entry.ACN = source[i += step];
-                entry.ROG = source[i += step];
+                entry.FSH = source[i += step];//漁師●
+                entry.ALC = source[i += step];//巴術●
+                entry.ROG = source[i += step];//双剣士●
 
-                entry.MCH = source[i += step];
-                entry.DRK = source[i += step];
-                entry.AST = source[i += step];
+                entry.MCH = source[i += step];//機工■
+                entry.DRK = source[i += step];//暗黒■
+                entry.AST = source[i += step];//占■
+
 
                 #endregion
 
@@ -64,9 +68,11 @@ namespace Memory.DataStructure
                 entry.GLD_CurrentEXP = BitConverter.ToInt32(source, i += step);
                 entry.MRD_CurrentEXP = BitConverter.ToInt32(source, i += step);
                 entry.ARC_CurrentEXP = BitConverter.ToInt32(source, i += step);
-                entry.LNC_CurrentEXP = BitConverter.ToInt32(source, i += step);
+                entry.LNC_CurrentEXP = BitConverter.ToInt32(source, i += step);//■
                 entry.THM_CurrentEXP = BitConverter.ToInt32(source, i += step);
-                entry.CNJ_CurrentEXP = BitConverter.ToInt32(source, i += step);
+
+
+                entry.CNJ_CurrentEXP = BitConverter.ToInt32(source, i += step);//■
 
                 entry.CPT_CurrentEXP = BitConverter.ToInt32(source, i += step);
                 entry.BSM_CurrentEXP = BitConverter.ToInt32(source, i += step);
@@ -78,15 +84,19 @@ namespace Memory.DataStructure
                 entry.CUL_CurrentEXP = BitConverter.ToInt32(source, i += step);
 
                 entry.MIN_CurrentEXP = BitConverter.ToInt32(source, i += step);
-                entry.BTN_CurrentEXP = BitConverter.ToInt32(source, i += step);
-                entry.FSH_CurrentEXP = BitConverter.ToInt32(source, i += step);
-
+                entry.BTN_CurrentEXP = BitConverter.ToInt32(source, i += step);//■
                 entry.ACN_CurrentEXP = BitConverter.ToInt32(source, i += step);
+
+
+
+                entry.FSH_CurrentEXP = BitConverter.ToInt32(source, i += step);
                 entry.ROG_CurrentEXP = BitConverter.ToInt32(source, i += step);
 
                 entry.MCH_CurrentEXP = BitConverter.ToInt32(source, i += step);
                 entry.DRK_CurrentEXP = BitConverter.ToInt32(source, i += step);
+
                 entry.AST_CurrentEXP = BitConverter.ToInt32(source, i += step);
+ 
 
                 #endregion
 

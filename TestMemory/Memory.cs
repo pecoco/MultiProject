@@ -137,6 +137,55 @@ namespace Memory
             {
                 if (sig.Heap)
                 {
+                    IntPtr hModuleSnapshot = new IntPtr();
+                    
+                    hModuleSnapshot = UnsafeNativeHeap.CreateToolhelp32Snapshot(UnsafeNativeHeap.TH32CS_SNAPHEAPLIST | UnsafeNativeHeap.TH32CS_SNAPMODULE32, (uint)process.Id);
+
+                    if((int)hModuleSnapshot == UnsafeNativeHeap.INVALID_HANDLE_VALUE)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Not Heap Access. "+Marshal.GetLastWin32Error().ToString());
+                        return;
+                    }
+                    UnsafeNativeHeap.HEAPENTRY64 pe64 =new UnsafeNativeHeap.HEAPENTRY64();
+                    UnsafeNativeHeap.HEAPLIST64 heaplist = new UnsafeNativeHeap.HEAPLIST64();
+                    heaplist.dwSize = (uint)Marshal.SizeOf(heaplist);
+                    UnsafeNativeHeap.PROCESS_HEAP_ENTRY64 phe64 = new UnsafeNativeHeap.PROCESS_HEAP_ENTRY64();
+
+                    System.Threading.Thread.Sleep(10);
+                    bool r = UnsafeNativeHeap.Heap32ListFirst(hModuleSnapshot, ref heaplist);
+                    r = UnsafeNativeHeap.Heap32ListNext(hModuleSnapshot, ref heaplist);
+                    bool r2;
+                    while (r)
+                    {
+                        phe64.lpData = (ulong)UIntPtr.Zero;
+
+
+
+                        r2 = UnsafeNativeHeap.HeapWalk((IntPtr)heaplist.th32HeapID, ref phe64);
+                        System.Windows.Forms.MessageBox.Show("Not Heap Access. " + Marshal.GetLastWin32Error().ToString());
+                        int cc = 0;
+
+                        //System.Windows.Forms.MessageBox.Show("Not Heap Access. " + Marshal.GetLastWin32Error().ToString());
+                        while (r2 && cc<100)
+                        {
+                            
+                            if (pe64.dwBlockSize == 883)
+                            {
+                                int t = 1;
+                            }
+                            r2 = UnsafeNativeHeap.Heap32Next(ref pe64);
+                            cc++;
+                        }
+
+                        r = UnsafeNativeHeap.Heap32ListNext(hModuleSnapshot, ref heaplist);
+                    }
+
+
+                    System.Windows.Forms.MessageBox.Show(Marshal.GetLastWin32Error().ToString());
+                    UnsafeNativeHeap.CloseHandle(hModuleSnapshot);
+                    continue;
+
+                    //この方法もダメ
                     sig.BaseAddress = (long)MemoryLib.ReadPointer((IntPtr)sig.PointerAddress);
                     Locations[sig.Key] = sig;
                     continue;

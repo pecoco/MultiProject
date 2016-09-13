@@ -47,4 +47,137 @@ namespace Memory.Helper
         public static extern bool CloseHandle(IntPtr hObject);
 
     }
+    //Heap
+
+    public static class UnsafeNativeHeap {
+        public const int INVALID_HANDLE_VALUE = -1;
+
+        public const uint TH32CS_SNAPHEAPLIST = 0x00000001;
+        public const uint TH32CS_SNAPMODULE = 0x00000008;
+
+        public const uint TH32CS_SNAPMODULE32 = 0x00000010;
+
+        public struct HEAPLIST32
+        {
+            public uint dwSize;
+            public uint th32ProcessID;
+            public uint th32HeapID;
+            public uint dwFlags;
+        }
+        public struct HEAPLIST64
+        {
+            public UInt64 dwSize;
+            public UInt32 th32ProcessID;
+            public UInt64 th32HeapID;
+            public UInt32 dwFlags;
+        }
+
+        public struct HEAPENTRY32
+        {
+            public uint dwSize;
+            public IntPtr hHandle;
+            public uint dwAddress;
+            public uint dwBlockSize;
+            public uint dwFlags;
+            public uint dwLockCount;
+            public uint dwResvd;
+            public uint th32ProcessID;
+            public uint th32HeapID;
+        }
+
+        public struct HEAPENTRY64
+        {
+            public UInt64 dwSize;
+            public UInt32 hHandle;
+            public UInt64 dwAddress;
+            public UInt64 dwBlockSize;
+            public UInt32 dwFlags;
+            public UInt32 dwLockCount;
+            public UInt32 dwResvd;
+            public UInt32 th32ProcessID;
+            public UInt64 th32HeapID;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        public struct PROCESS_HEAP_ENTRY64
+        {
+            [FieldOffset(0)]
+            public UInt64 lpData;//8
+            [FieldOffset(8)]
+            public UInt32 cbData;//4
+            [FieldOffset(12)]
+            public byte cbOverhead;//1
+            [FieldOffset(13)]
+            public byte iRegionIndex;//1
+            [FieldOffset(14)]
+            public UInt16 wFlags;//2
+            //Union{
+                [FieldOffset(16)]
+                public UInt32 hMem;
+                [FieldOffset(20)]
+                UInt32 dwReserved1;
+                [FieldOffset(24)]
+                UInt32 dwReserved2;
+                [FieldOffset(28)]
+                UInt32 dwReserved3;
+            //}
+            [FieldOffset(16)]
+            public UInt32 dwCommittedSize;
+            [FieldOffset(20)]
+            public UInt32 dwUnCommittedSize;
+            [FieldOffset(24)]
+            public UInt64 lpFirstBlock;
+            [FieldOffset(32)]
+            UInt64 lpLastBlock;
+        }
+/*
+[DllImport("toolhelp.dll", SetLastError = true)]
+internal static extern IntPtr CreateToolhelp32Snapshot(uint flags, uint processid);
+[DllImport("toolhelp.dll", SetLastError = true)]
+internal static extern int CloseToolhelp32Snapshot(IntPtr handle);
+
+
+[DllImport("toolhelp.dll")]
+internal static extern bool Heap32ListFirst(IntPtr hSnapshot, ref HEAPLIST32 lphl);
+[DllImport("toolhelp.dll")]
+internal static extern bool Heap32ListNext(IntPtr hSnapshot, ref HEAPLIST32 lphl);
+[DllImport("toolhelp.dll")]
+internal static extern bool Heap32First(IntPtr hSnapshot, ref HEAPENTRY32 lphe, uint th32ProcessID, uint th32HeapID);
+[DllImport("toolhelp.dll")]
+internal static extern bool Heap32Next(IntPtr hSnapshot, ref HEAPENTRY32 lphe);
+*/
+
+[DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern IntPtr CreateToolhelp32Snapshot(uint flags, uint processid);
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern int CloseHandle(IntPtr handle);
+
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool Heap32ListFirst(IntPtr hSnapshot, ref HEAPLIST32 lphl);
+        [DllImport("kernel32.dll")]
+        internal static extern bool Heap32ListNext(IntPtr hSnapshot, ref HEAPLIST32 lphl);
+
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool Heap32ListFirst(IntPtr hSnapshot, ref HEAPLIST64 lphl);
+        [DllImport("kernel32.dll")]
+        internal static extern bool Heap32ListNext(IntPtr hSnapshot, ref HEAPLIST64 lphl);
+
+            
+        [DllImport("kernel32.dll")]
+        internal static extern bool Heap32First(ref HEAPENTRY32 lphe, uint th32ProcessID, uint th32HeapID);
+        [DllImport("kernel32.dll")]
+        internal static extern bool Heap32Next(ref HEAPENTRY32 lphe);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool Heap32First( ref HEAPENTRY64 lphe, uint th32ProcessID, UInt64 th32HeapID);
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool Heap32Next( ref HEAPENTRY64 lphe);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool HeapWalk(IntPtr hHeap, ref PROCESS_HEAP_ENTRY64 lpEntry);
+
+
+    }
 }

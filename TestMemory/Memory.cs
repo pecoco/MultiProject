@@ -157,8 +157,14 @@ namespace Memory
                     bool r2;
                     while (r)
                     {
-                        phe64.lpData = (ulong)UIntPtr.Zero;
+                        phe64.lpData = IntPtr.Zero;
 
+                        int a = Marshal.SizeOf(phe64);//28 (32)
+                        a = Marshal.SizeOf(phe64.lpData);//4
+                        a = Marshal.SizeOf(phe64.cbData);//4
+                        a = Marshal.SizeOf(phe64.cbOverhead);//2
+                        a = Marshal.SizeOf(phe64.iRegionIndex);//2
+                        a = Marshal.SizeOf(phe64.wFlags);//2
 
 
                         r2 = UnsafeNativeHeap.HeapWalk((IntPtr)heaplist.th32HeapID, ref phe64);

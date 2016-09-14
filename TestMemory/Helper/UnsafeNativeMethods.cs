@@ -98,37 +98,48 @@ namespace Memory.Helper
             public UInt64 th32HeapID;
         }
 
-        [StructLayout(LayoutKind.Explicit)]
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct STRUCT_BLOCK
+        {
+            public IntPtr hMem;
+            public uint dwReserved1_1;
+            public uint dwReserved1_2;
+            public uint dwReserved1_3;
+        }
+
+        [StructLayoutAttribute(LayoutKind.Sequential)]
+        public struct STRUCT_REGION
+        {
+            public uint dwCommittedSize;
+            public uint dwUnCommittedSize;
+            public IntPtr lpFirstBlock;
+            public IntPtr lpLastBlock;
+        }
+        [StructLayoutAttribute(LayoutKind.Explicit)]
+        public struct UNION_BLOCK
+        {
+            [FieldOffset(0)]
+            public STRUCT_BLOCK Block;
+
+            [FieldOffset(0)]
+            public STRUCT_REGION Region;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 28) ]
         public struct PROCESS_HEAP_ENTRY64
         {
             [FieldOffset(0)]
-            public UInt64 lpData;//8
-            [FieldOffset(8)]
+            public IntPtr lpData;//4
+            [FieldOffset(4)]
             public UInt32 cbData;//4
+            [FieldOffset(8)]
+            public UInt16 cbOverhead;//2
+            [FieldOffset(10)]
+            public UInt16 iRegionIndex;//2
             [FieldOffset(12)]
-            public byte cbOverhead;//1
-            [FieldOffset(13)]
-            public byte iRegionIndex;//1
-            [FieldOffset(14)]
             public UInt16 wFlags;//2
-            //Union{
-                [FieldOffset(16)]
-                public UInt32 hMem;
-                [FieldOffset(20)]
-                UInt32 dwReserved1;
-                [FieldOffset(24)]
-                UInt32 dwReserved2;
-                [FieldOffset(28)]
-                UInt32 dwReserved3;
-            //}
-            [FieldOffset(16)]
-            public UInt32 dwCommittedSize;
-            [FieldOffset(20)]
-            public UInt32 dwUnCommittedSize;
-            [FieldOffset(24)]
-            public UInt64 lpFirstBlock;
-            [FieldOffset(32)]
-            UInt64 lpLastBlock;
+            [FieldOffset(14)]
+            public UNION_BLOCK UnionBlock;
         }
 /*
 [DllImport("toolhelp.dll", SetLastError = true)]

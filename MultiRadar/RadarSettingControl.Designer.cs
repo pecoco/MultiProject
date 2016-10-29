@@ -573,13 +573,13 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Meiryo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.ForeColor = System.Drawing.Color.SeaShell;
             this.label4.Location = new System.Drawing.Point(27, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 18);
             this.label4.TabIndex = 112;
-            this.label4.Text = "MulitiRadar 2.2.6";
+            this.label4.Text = "MulitiRadar 2.2.7";
             // 
             // groupBox2
             // 

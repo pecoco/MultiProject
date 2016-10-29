@@ -22,6 +22,15 @@ namespace MultiRadar
             RadardataInstance.Zone= base.GetZoneName(logLine);
             return RadardataInstance.Zone;
         }
+        override protected bool AnalyzeProc00(string logLine)
+        {
+//            if (logLine.IndexOf("魔土器") > 0)
+//            {
+
+//            }
+            return false;
+        }
+
 
         override protected bool AnalyzeProc03(string logLine)
         {

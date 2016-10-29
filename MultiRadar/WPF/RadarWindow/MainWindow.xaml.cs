@@ -280,19 +280,39 @@ namespace Wpf.RadarWindow
         {
             Rect rect = RadarViewOrder.PlayerRect();//
           
-            dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left+2.5, rect.Top+2.5), (double)rect.Width, (double)rect.Height);
 
             Point areaPos = RadarViewOrder.AreaPos();
-            
 
-            if (RadardataInstance.viewOptionData.IsLinkView(RadarViewOrder.radarZoomSelect))
+            if (model.IdModeCheckrd)
             {
-                dc.DrawEllipse(null, circlePen, new Point(rect.Left , rect.Top + 2), (double)areaPos.X/2, (double)areaPos.Y/2);
-            }else
-            {
-                dc.DrawEllipse(null, circleOffPen, new Point(rect.Left, rect.Top + 2), (double)areaPos.X / 2, (double)areaPos.Y / 2);
+                myIcon.Height = 0;
+                myIcon.Width = 0;
+                dc.DrawLine(myAreaPen, new Point(rect.X, rect.Y - 3 + 2 ), new Point(rect.X, rect.Y + 3 + 2));
+                dc.DrawLine(myAreaPen, new Point(rect.X -3 , rect.Y + 2 ), new Point(rect.X +3 , rect.Y + 2));
+
             }
+            else
+            {
+                dc.DrawEllipse(Brushes.Black, null, new Point(rect.Left + 2.5, rect.Top + 2.5), (double)rect.Width, (double)rect.Height);
 
+                if (RadardataInstance.viewOptionData.IsLinkView(RadarViewOrder.radarZoomSelect))
+                {
+                    dc.DrawEllipse(null, circlePen, new Point(rect.Left, rect.Top + 2), (double)areaPos.X / 2, (double)areaPos.Y / 2);
+                }
+                else
+                {
+                    dc.DrawEllipse(null, circleOffPen, new Point(rect.Left, rect.Top + 2), (double)areaPos.X / 2, (double)areaPos.Y / 2);
+                }
+                float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
+
+
+                myIcon.Height = 8;
+                myIcon.Width = 8;
+
+                RotateTransform rt = new RotateTransform(sf + 90);
+                myIcon.LayoutTransform = rt;
+
+            }
             if (model.ViewAreaCheckrd)
             {
                 switch (myData.Job)
@@ -316,10 +336,7 @@ namespace Wpf.RadarWindow
                         DrawingArea(dc, rect, 30, 15, areaPen, Color.FromArgb(100, 40, 148, 80)); break;//30 15
                 }
             }
-            float sf = (180f * (float)RadarViewOrder.myRadian) / (float)3.1415;
 
-            RotateTransform rt = new RotateTransform(sf+90);
-            myIcon.LayoutTransform = rt;
             
         }
 
@@ -348,7 +365,15 @@ namespace Wpf.RadarWindow
                     {
                         if (model.IdModeCheckrd && mob.Name == "トラップ")
                         {
-                            dc.DrawRectangle( Brushes.Yellow, null,rect);
+                            if (mob.CurrentHP > 0)
+                            {
+                                dc.DrawRectangle(Brushes.Yellow, null, rect);
+                            }else
+                            {
+                                dc.DrawRectangle(Brushes.Brown, null, rect);
+                            }
+                            this.TextOut(dc, mob.Job.ToString(), Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, false);
+
                         }
                         else {
                             dc.DrawEllipse(getBrush(hpPar, flag), null, new Point(rect.Left, rect.Top), (double)rect.Width, (double)rect.Height);
@@ -358,7 +383,14 @@ namespace Wpf.RadarWindow
 
                 if (RadardataInstance.viewOptionData.IsNameView(RadarViewOrder.radarZoomSelect))
                 {
-                    this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, shortName);
+                    if (model.IdModeCheckrd)
+                    {
+
+                    }
+                    else
+                    {
+                        this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, shortName);
+                    }
                 }
                 float vX = 0;
                 float vY = 0;
@@ -387,7 +419,6 @@ namespace Wpf.RadarWindow
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
                     RadarViewOrder.FontSize + 2, Brushes.Red), new Point(rect.X - 4, rect.Y + 4));
                 }
-
 
 
                 if (model.IdModeCheckrd)
@@ -429,6 +460,8 @@ namespace Wpf.RadarWindow
                     FlowDirection.LeftToRight, new Typeface("Verdana"),
                     RadarViewOrder.FontSize, Brushes.Aqua), new Point(rect.X + 4, rect.Y-4));
                 }
+
+
             }
         }
 

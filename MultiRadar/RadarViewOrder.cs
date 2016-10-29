@@ -91,7 +91,7 @@ namespace ACT.RadarViewOrder
             x = (x * bW) / (scale * (RadarZoom - 20) * 2);// (scale * 2);//  400;
             y = (y * bH) / (scale * (RadarZoom - 20) * 2);// (scale * 2);//400;
 
-            return new Rect((int)x-5, (int)y, 3, 3);
+            return new Rect((int)x-3, (int)y, 3, 3);
         }
 
         public static Point AreaPos()

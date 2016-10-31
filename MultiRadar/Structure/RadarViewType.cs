@@ -18,6 +18,7 @@ namespace MultiRadar.Structure
     public class ViewOption
     {
         public bool name;
+        public bool shortName = true;
         public bool positon;
         public bool hp;
         public bool job;

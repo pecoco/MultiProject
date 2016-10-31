@@ -347,7 +347,14 @@ namespace Wpf.RadarWindow
                 bool flag = isFlag(mob.ID);
                 int hpPar = (mob.CurrentHP * 100 / mob.MaxHP);
                 bool shortName = true;
-                if (model.SelectChecked) { shortName = false; }
+                if (model.SelectChecked)
+                {
+                    shortName = false;
+                }
+                else if (!RadardataInstance.viewOptionData.IsShortNameView(RadarViewOrder.radarZoomSelect))
+                {
+                    shortName = false;
+                }
 
                 Rect rect = RadarViewOrder.MobRect(RadarViewOrder.myData.PosX, RadarViewOrder.myData.PosY, mob.PosX, mob.PosY);
                 if (mob.ID != RadarViewOrder.myData.ID)

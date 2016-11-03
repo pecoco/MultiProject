@@ -32,6 +32,20 @@ namespace MultiRadar
                     return true;
             }
         }
+        public bool IsShortNameView(RadarZoomSelect mode)
+        {
+            switch (mode)
+            {
+                case RadarZoomSelect.mob:
+                    return voMob.shortName;
+                case RadarZoomSelect.hum:
+                    return voHum.shortName;
+                case RadarZoomSelect.id:
+                    return voId.shortName;
+                default:
+                    return true;
+            }
+        }
         public bool IsPositionView(RadarZoomSelect mode)
         {
             switch (mode)

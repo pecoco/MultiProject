@@ -3,6 +3,7 @@
   <defaultZoomoutValue>-400</defaultZoomoutValue>
   <mob>
    <name>true</name>
+   <shortName>true</shortName>
    <positon>true</positon>
    <hp>true</hp>
    <job>false</job>
@@ -10,6 +11,7 @@
   </mob>
   <hum>
    <name>false</name>
+   <shortName>false</shortName>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
@@ -17,6 +19,7 @@
   </hum>
   <id>
    <name>true</name>
+   <shortName>true</shortName>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>

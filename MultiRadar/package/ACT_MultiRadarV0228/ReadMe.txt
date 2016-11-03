@@ -1,7 +1,8 @@
-﻿■名称　MultiRader v2.2.7
+﻿■名称　MultiRader v2.2.8
 
 
-■変更点　 IDの時は、文字を消して、中心カーソルを＋にして精度を上げました
+■変更点　 フルネームor短縮名を設定ファイル(RadarOption.xml)で切り替えられるようにしました。
+by Meslonさん
 
 ■用途　FF14 ACTPluginです。
 
@@ -87,6 +88,7 @@ XMLファイルを直接編集します。編集する前にオリジナルを�
   <defaultZoomoutValue>-400</defaultZoomoutValue>　●モブモード（Ｓ発見時）に自動的に切り替わる値を設定
   <mob>　●モブモードの...
    <name>true</name>　　　●名前の表示を切り替えます
+ 　<shortName>false</shortName>●フルネームor短縮名の表示を切り替えます
    <positon>true</positon>●座標の表示を切り替えます
    <hp>true</hp>　　　　　●ＨＰの表示を切り替えます
    <job>false</job>　　　 ●ジョブの表示を切り替えます　
@@ -94,6 +96,7 @@ XMLファイルを直接編集します。編集する前にオリジナルを�
   </mob>
   <hum>　●対人モードの...
    <name>false</name>
+ <shortName>false</shortName>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
@@ -101,6 +104,7 @@ XMLファイルを直接編集します。編集する前にオリジナルを�
   </hum>
   <id>　●ＩＤモードの...
    <name>true</name>
+ 　<shortName>false</shortName>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>
@@ -138,6 +142,7 @@ IDで利用
 
 変更履歴
 
+2016/11/04  2.2.8  フルネームor短縮名を設定ファイル(RadarOption.xml)で切り替えられるようにしました。
 2016/10/29　2.2.7　IDの時は、文字を消して、中心カーソルを＋にして精度を上げました
 2016/09/03　2.2.6　FONTサイズの調整に合わせてレイアウト調整
 2016/08/21  2.2.5  モブの時に自動で切り替わるズームアウトサイズを設定可能にする

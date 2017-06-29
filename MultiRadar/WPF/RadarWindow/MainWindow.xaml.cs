@@ -379,7 +379,7 @@ namespace Wpf.RadarWindow
                             {
                                 dc.DrawRectangle(Brushes.Brown, null, rect);
                             }
-                            this.TextOut(dc, mob.Job.ToString(), Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, false);
+                            this.TextOut(dc, mob.type.ToString(), Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, false);
 
                         }
                         else {
@@ -392,7 +392,10 @@ namespace Wpf.RadarWindow
                 {
                     if (model.IdModeCheckrd)
                     {
-
+                        if ( mob.type != 1)
+                        {
+                            this.TextOut(dc, mob.Name, Brushes.LightGray, rect.X - 4, rect.Y + RadarViewOrder.fontTop, flag, shortName);
+                        }
                     }
                     else
                     {

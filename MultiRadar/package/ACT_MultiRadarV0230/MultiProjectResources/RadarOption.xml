@@ -11,7 +11,7 @@
   </mob>
   <hum>
    <name>false</name>
-   <shortName>false</shortName>
+   <shortName>true</shortName>
    <positon>false</positon>
    <hp>false</hp>
    <job>true</job>

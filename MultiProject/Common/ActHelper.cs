@@ -143,6 +143,10 @@ namespace MultiProject
                     }
 
                     var combatant = new Combatant();
+                    if ((int)item.CastTargetID == 0)
+                    {
+                        continue;
+                    }
                     combatant.Name = (string)item.Name;
                     combatant.ID = (uint)item.ID;
                     combatant.Job = (int)item.Job;
@@ -159,10 +163,10 @@ namespace MultiProject
                     combatant.CurrentTP = (int)item.CurrentTP;
                     combatant.PosX = (float)item.PosX;
                     combatant.PosY = (float)item.PosY;
-                    combatant.MaxCP = (int)item.MaxCP;
-                    combatant.MaxGP = (int)item.MaxGP;
-                    combatant.CurrentCP = (int)item.CurrentCP;
-                    combatant.CurrentGP = (int)item.CurrentGP;
+                   // combatant.MaxCP = (int)item.MaxCP;
+                   // combatant.MaxGP = (int)item.MaxGP;
+                  //  combatant.CurrentCP = (int)item.CurrentCP;
+                  //  combatant.CurrentGP = (int)item.CurrentGP;
 
                     result.Add(combatant);
                 }

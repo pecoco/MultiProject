@@ -337,5 +337,101 @@
       </b>
       <etc />
     </ZoneMobData>
+    <ZoneMobData>
+      <name>The Fringes</name>
+      <nameJp>ギラバニア辺境地帯</nameJp>
+      <s>
+        <string></string>
+      </s>
+      <a>
+        <string>アール</string>
+        <string>オルクス</string>
+      </a>
+      <b>
+        <string>オゼルム</string>
+        <string>宵闇のヤミニ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Peaks.</name>
+      <nameJp>ギラバニア山岳地帯</nameJp>
+      <s>
+        <string></string>
+      </s>
+      <a>
+        <string>アクラブアメル</string>
+        <string>バックスタイン</string>
+      </a>
+      <b>
+        <string>ブッカブー</string>
+        <string>グアス・ア・ニードル</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Lochs.</name>
+      <nameJp>ギラバニア湖畔地帯</nameJp>
+      <s>
+        <string>ソルト・アンド・ライト</string>
+      </s>
+      <a>
+        <string>マヒシャ</string>
+        <string>ルミナーレ</string>
+      </a>
+      <b>
+        <string>キワ</string>
+        <string>マネス</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>Yanxia.</name>
+      <nameJp>ヤンサ</nameJp>
+      <s>
+        <string>ガンマ</string>
+      </s>
+      <a>
+        <string>アンガダ</string>
+        <string>ガジャースラ</string>
+      </a>
+      <b>
+        <string>デイダラ</string>
+        <string>雷撃のギョライ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Azim Steppe.</name>
+      <nameJp>アジムステップ</nameJp>
+      <s>
+        <string>オルガナ・チョロー</string>
+      </s>
+      <a>
+        <string>ソム</string>
+        <string>ギリメカラ</string>
+      </a>
+      <b>
+        <string>クールマ</string>
+        <string>アスワング</string>
+      </b>
+      <etc />
+    </ZoneMobData>
+    <ZoneMobData>
+      <name>The Ruby Sea.</name>
+      <nameJp>紅玉海</nameJp>
+      <s>
+        <string>オキナ</string>
+      </s>
+      <a>
+        <string>オニユメミ</string>
+        <string>船幽霊</string>
+      </a>
+      <b>
+        <string>姑獲鳥</string>
+        <string>剣豪ガウキ</string>
+      </b>
+      <etc />
+    </ZoneMobData>
   </zones>
 </Zones>
